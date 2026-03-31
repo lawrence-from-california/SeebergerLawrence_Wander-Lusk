@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c1ncahvquhln4"]
+
+[ext_resource type="Texture2D" uid="uid://8wwtfmawb54" path="res://Assets/dungeon_assets/Snail Shell.png" id="1_c2d3r"]
+
+[resource]
+transparency = 1
+albedo_color = Color(1.623584, 3.194369, 2.461336, 0.2627451)
+albedo_texture = ExtResource("1_c2d3r")
