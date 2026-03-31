@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bum5ltath7q71"]
+
+[ext_resource type="Texture2D" uid="uid://b7tgv4aupg4j5" path="res://enemies/Tomatocopter1.png" id="1_afk77"]
+[ext_resource type="Script" uid="uid://et1dto0y2b54" path="res://scripts/tomatocopter.gd" id="1_l5pl7"]
+[ext_resource type="Texture2D" uid="uid://cicor5g401hmt" path="res://enemies/Tomatocopter2.png" id="2_l5pl7"]
+[ext_resource type="Texture2D" uid="uid://xsxwk40qwnga" path="res://enemies/Tomatocopter3.png" id="3_mcb74"]
+[ext_resource type="Texture2D" uid="uid://cub1rlj0nprdq" path="res://enemies/Tomatocopter4.png" id="4_mclf2"]
+[ext_resource type="PackedScene" uid="uid://l8alsvbkqara" path="res://scenes/killzone.tscn" id="5_26hba"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1xjj"]
+animations = [{
+"frames": [{
+"duration": 0.1,
+"texture": ExtResource("1_afk77")
+}, {
+"duration": 0.1,
+"texture": ExtResource("2_l5pl7")
+}, {
+"duration": 0.1,
+"texture": ExtResource("3_mcb74")
+}, {
+"duration": 0.1,
+"texture": ExtResource("4_mclf2")
+}, {
+"duration": 0.1,
+"texture": ExtResource("3_mcb74")
+}, {
+"duration": 0.1,
+"texture": ExtResource("2_l5pl7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8md0o"]
+size = Vector2(10, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afk77"]
+size = Vector2(14, 6.5)
+
+[node name="Tomatocopter" type="Node2D" unique_id=900812418]
+script = ExtResource("1_l5pl7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=770380204]
+sprite_frames = SubResource("SpriteFrames_h1xjj")
+autoplay = "default"
+frame_progress = 0.7731822
+
+[node name="Node2D" type="Node2D" parent="AnimatedSprite2D" unique_id=1227246061]
+
+[node name="Killzone" parent="." unique_id=1316199907 instance=ExtResource("5_26hba")]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Killzone" unique_id=1901847253]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_8md0o")
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1073968924]
+target_position = Vector2(9, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=77561691]
+target_position = Vector2(-9, 0)
+
+[node name="bouncearea(safe)" type="Area2D" parent="." unique_id=388014118]
+collision_layer = 8
+collision_mask = 8
+
+[node name="hurtbox" type="CollisionShape2D" parent="bouncearea(safe)" unique_id=476808480]
+light_mask = 31
+visibility_layer = 31
+position = Vector2(0, -2.75)
+shape = SubResource("RectangleShape2D_afk77")

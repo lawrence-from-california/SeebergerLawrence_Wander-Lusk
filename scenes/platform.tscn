@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ddmqir1by4r8j"]
+
+[ext_resource type="Texture2D" uid="uid://cevl3jqbv7xfy" path="res://enemies/Snaily/Cloud 1.png" id="1_nlgqw"]
+[ext_resource type="Texture2D" uid="uid://ccg6jmm6ybtny" path="res://enemies/Snaily/Cloud 2.png" id="2_507ja"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n1ckp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nlgqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_507ja")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8bxr"]
+size = Vector2(32, 16)
+
+[node name="Platform" type="AnimatableBody2D" unique_id=926225892]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=929762518]
+sprite_frames = SubResource("SpriteFrames_n1ckp")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=259698033]
+shape = SubResource("RectangleShape2D_s8bxr")
+one_way_collision = true

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://biadxmds056ki"]
+
+[ext_resource type="Script" uid="uid://cxk2s12el5y4x" path="res://scripts/bounce_area.gd" id="1_l2hby"]
+
+[node name="bounce_area" type="Area2D" unique_id=265566655]
+script = ExtResource("1_l2hby")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]

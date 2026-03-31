@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cjitqspq2vqp0"]
+
+[ext_resource type="Script" uid="uid://cr7tsgg18ig0e" path="res://score_ui.gd" id="1_4kkff"]
+[ext_resource type="FontFile" uid="uid://b70atrybn2ik8" path="res://characters/FineBritishArtist-Regular.otf" id="1_iqr5w"]
+
+[node name="Score UI" type="CenterContainer" unique_id=437349504]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -70.0
+offset_bottom = 21.0
+grow_horizontal = 0
+script = ExtResource("1_4kkff")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=38822214]
+layout_mode = 2
+
+[node name="Fruitslabel" type="Label" parent="HBoxContainer" unique_id=1265321453]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9258789, 0.75819254, 0, 1)
+theme_override_fonts/font = ExtResource("1_iqr5w")
+text = "Score:"
+
+[node name="Fruitscount" type="Label" parent="HBoxContainer" unique_id=2110699008]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_iqr5w")
+text = "999"

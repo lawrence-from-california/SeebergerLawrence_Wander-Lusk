@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b0ku5dhguqnf0"]
+
+[ext_resource type="Texture2D" uid="uid://3jraud554xy" path="res://Assets/dungeon_assets/Rafflesia.png" id="1_61h45"]
+
+[resource]
+albedo_color = Color(0.99989814, 0.37124142, 0.34762418, 1)
+albedo_texture = ExtResource("1_61h45")
+clearcoat_enabled = true
+clearcoat = 0.3

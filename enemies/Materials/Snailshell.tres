@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dqyuqkc2h2ehp"]
+
+[ext_resource type="Texture2D" uid="uid://8wwtfmawb54" path="res://Assets/dungeon_assets/Snail Shell.png" id="1_klftu"]
+
+[resource]
+albedo_texture = ExtResource("1_klftu")
+metallic = 1.0
+clearcoat_enabled = true

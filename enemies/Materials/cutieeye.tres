@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://6p1qx1m010qy"]
+
+[ext_resource type="Texture2D" uid="uid://drvflewlpbtmh" path="res://Assets/Materials/Cute eye.png" id="1_gyd0b"]
+
+[resource]
+albedo_texture = ExtResource("1_gyd0b")
+clearcoat_enabled = true

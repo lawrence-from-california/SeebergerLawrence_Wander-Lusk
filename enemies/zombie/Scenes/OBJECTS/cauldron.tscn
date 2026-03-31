@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dv4t684xeqv82"]
+
+[ext_resource type="Material" uid="uid://p1yiw17sg76" path="res://Assets/Materials/Silver.tres" id="1_ghrxa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ghrxa"]
+radius = 1.2436523
+height = 2.4873047
+
+[node name="Cauldron" type="StaticBody3D" unique_id=2108953258]
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="." unique_id=1880487408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5164329, 0)
+inner_radius = 0.001
+sides = 23
+ring_sides = 12
+material = ExtResource("1_ghrxa")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGTorus3D" unique_id=72533905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17359954, 0)
+operation = 2
+radius = 0.6308594
+height = 0.9500656
+sides = 22
+material = ExtResource("1_ghrxa")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1530532001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0282044, 0)
+radius = 0.69628906
+height = 0.11329297
+sides = 22
+material = ExtResource("1_ghrxa")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCylinder3D" unique_id=424305195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0066807866, 0)
+operation = 2
+radius = 0.6308594
+height = 1.2839031
+sides = 22
+material = ExtResource("1_ghrxa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=156075519]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.36587524, 0)
+shape = SubResource("CapsuleShape3D_ghrxa")

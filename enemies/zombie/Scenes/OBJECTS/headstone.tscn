@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dcjjhn34glr4f"]
+
+[ext_resource type="Material" uid="uid://d371ws3i5icc2" path="res://Assets/bigrock.tres" id="1_5fr3t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xr6aq"]
+size = Vector3(0.7128906, 1, 0.30517578)
+
+[node name="Headstone" type="StaticBody3D" unique_id=57085724]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1541689054]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.14453125, 0.2704809, -0.3514862)
+radius = 0.37402344
+height = 0.31314087
+sides = 12
+material = ExtResource("1_5fr3t")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1618334834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14453125, -0.099365234, -0.34692383)
+size = Vector3(0.7109375, 0.80126953, 0.30615234)
+material = ExtResource("1_5fr3t")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=1947279431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019342631, -0.045519203, 0.18033978)
+operation = 2
+size = Vector3(0.6519165, 0.598938, 0.05079297)
+material = ExtResource("1_5fr3t")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=777118808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15153491, 0.40690178, -0.24643147)
+radius = 0.1303533
+material = ExtResource("1_5fr3t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2138038438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14355469, 0, -0.3474121)
+shape = SubResource("BoxShape3D_xr6aq")

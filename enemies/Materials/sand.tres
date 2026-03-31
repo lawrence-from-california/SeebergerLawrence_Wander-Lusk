@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bt83lmbkg0abe"]
+
+[ext_resource type="Texture2D" uid="uid://ds4fcvb58omp2" path="res://Assets/dungeon_assets/Sand.png" id="1_82blg"]
+
+[resource]
+albedo_color = Color(0.77561635, 0.7080232, 0.51505125, 1)
+albedo_texture = ExtResource("1_82blg")

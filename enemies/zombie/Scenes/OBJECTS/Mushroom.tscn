@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://evhjo1uopd6v"]
+
+[ext_resource type="Material" uid="uid://q755r5uv4vnc" path="res://Assets/Materials/mushroom.tres" id="1_74ltg"]
+[ext_resource type="Material" uid="uid://chfv2vbnyrjeq" path="res://Assets/Materials/white feather.tres" id="2_gdg5e"]
+[ext_resource type="Material" uid="uid://djo6ynjph3nfj" path="res://Assets/Materials/bone.tres" id="3_gdg5e"]
+
+[node name="msuhroom" type="StaticBody3D" unique_id=2051181438]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=1960656352]
+material = ExtResource("1_74ltg")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGSphere3D" unique_id=174628055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.40014404, 0)
+operation = 2
+material = ExtResource("2_gdg5e")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1471266137]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42315674, 0)
+radius = 0.10888672
+height = 1.2515869
+material = ExtResource("3_gdg5e")

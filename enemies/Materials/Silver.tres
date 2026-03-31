@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://p1yiw17sg76"]
+
+[ext_resource type="Texture2D" uid="uid://cgdhv1sj5n23f" path="res://Assets/dungeon_assets/Silvernew.png" id="1_5ruvp"]
+
+[resource]
+albedo_color = Color(0.5996035, 0.5996038, 0.5996036, 1)
+albedo_texture = ExtResource("1_5ruvp")
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.6
+emission_enabled = true
+emission_energy_multiplier = 13.3
+ao_enabled = true
+ao_light_affect = 0.24

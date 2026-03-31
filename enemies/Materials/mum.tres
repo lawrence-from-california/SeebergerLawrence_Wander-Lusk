@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://mtfhdqm1bhc1"]
+
+[ext_resource type="Texture2D" uid="uid://bjf38lish2cir" path="res://Assets/dungeon_assets/Chrysanthemum.png" id="1_p1ero"]
+
+[resource]
+albedo_texture = ExtResource("1_p1ero")
+clearcoat_enabled = true
+clearcoat_roughness = 1.0

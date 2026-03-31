@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bj5e4l8gdl484"]
+
+[ext_resource type="Script" uid="uid://bmj7300toanf5" path="res://hplatform.gd" id="1_pd8t4"]
+[ext_resource type="Texture2D" uid="uid://bl6fp70snp20t" path="res://characters/Cloud 1.png" id="1_w8kis"]
+[ext_resource type="Texture2D" uid="uid://cxxg8yospohpx" path="res://characters/Cloud 2.png" id="2_pd8t4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mhxx4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w8kis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pd8t4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjyv5"]
+size = Vector2(32, 16)
+
+[node name="hplatform" type="Node2D" unique_id=1229257060]
+script = ExtResource("1_pd8t4")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1573870361]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=663543077]
+sprite_frames = SubResource("SpriteFrames_mhxx4")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=518710272]
+shape = SubResource("RectangleShape2D_mjyv5")
+one_way_collision = true
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=654126084]
+target_position = Vector2(17, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=297220024]
+target_position = Vector2(-17, 0)

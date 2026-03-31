@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c5gok0ji5nbfx"]
+
+[ext_resource type="Texture2D" uid="uid://dbu5dl1ffxax" path="res://Assets/dungeon_assets/Cactus.png" id="1_k1y5r"]
+
+[resource]
+albedo_texture = ExtResource("1_k1y5r")
+clearcoat_enabled = true
+clearcoat = 0.15
+clearcoat_roughness = 1.0

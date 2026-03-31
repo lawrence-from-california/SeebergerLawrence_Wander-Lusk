@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b3cmegw6dygxj"]
+
+[ext_resource type="Material" uid="uid://dt0epurqpy36d" path="res://Assets/Materials/Water.tres" id="1_xinkh"]
+[ext_resource type="Material" uid="uid://cwlsohg8yil4p" path="res://Assets/import_examples/barrel/treebarkmaterial.tres" id="2_jse5s"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jse5s"]
+lifetime_randomness = 0.45
+particle_flag_align_y = true
+angle_min = -163.4
+angle_max = -163.4
+gravity = Vector3(0, 9, 0)
+linear_accel_min = -6.730002
+linear_accel_max = 25.199997
+radial_accel_min = -28.78
+radial_accel_max = 38.859997
+tangential_accel_min = -78.15
+tangential_accel_max = -32.77
+color = Color(1, 0.56000006, 0.19999999, 1)
+hue_variation_min = -0.66
+hue_variation_max = 0.84
+anim_speed_min = 5.04
+anim_speed_max = 11.23
+turbulence_enabled = true
+turbulence_noise_scale = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_su5aj"]
+radius = 2.116
+height = 4.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jse5s"]
+size = Vector3(1.3190918, 0.44921875, 1.2977905)
+
+[node name="Pool" type="StaticBody3D" unique_id=1718137175]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2082695475]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -0.04321289, -0.17004609, -0.022277832)
+transparency = 0.58
+size = Vector3(1.2124023, 0.12576294, 1.1673584)
+material = ExtResource("1_xinkh")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="CSGBox3D" unique_id=213360819]
+transform = Transform3D(0.41902182, 0.10045491, 0.9024021, -0.5280446, 0.8354684, 0.15218851, -0.73864025, -0.5402788, 0.4031242, 0.29345274, 0.05488664, 0.22773987)
+material_override = ExtResource("1_xinkh")
+cast_shadow = 0
+gi_lightmap_texel_scale = 2.3552
+amount = 50
+lifetime = 3.6999999999999997
+interp_to_end = 0.26
+preprocess = 1.6400000000000001
+explosiveness = 0.09
+randomness = 0.35
+fixed_fps = 10
+collision_base_size = 20.85
+transform_align = 3
+trail_lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_jse5s")
+draw_pass_1 = SubResource("SphereMesh_su5aj")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1471806086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04727173, -0.29232788, -0.008300781)
+size = Vector3(1.2744751, 0.41534424, 1.2353516)
+material = ExtResource("2_jse5s")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D2" unique_id=594764800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007892609, 0, -0.024108887)
+operation = 2
+size = Vector3(1.1676102, 0.4215088, 1.112915)
+material = ExtResource("2_jse5s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2009745299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041137695, -0.27539063, -0.0015563965)
+shape = SubResource("BoxShape3D_jse5s")

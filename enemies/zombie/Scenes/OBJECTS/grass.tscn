@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ddrds05tu7ty6"]
+
+[ext_resource type="Material" uid="uid://bou8y5de6ompr" path="res://Assets/Materials/Grass Texture.tres" id="1_433m6"]
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=1312147716]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=812710878]
+radius = 0.067
+cone = true
+material = ExtResource("1_433m6")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=1021177339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59875315, -0.36572266, 0)
+radius = 0.067
+height = 1.2685547
+cone = true
+material = ExtResource("1_433m6")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=120305259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17889392, -0.36572266, 0.44329166)
+radius = 0.067
+height = 1.2685547
+cone = true
+material = ExtResource("1_433m6")

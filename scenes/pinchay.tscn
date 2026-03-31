@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://csb2tx8a85m70"]
+
+[ext_resource type="Script" uid="uid://dscigjpj1lrlr" path="res://pinchay.gd" id="1_ktc7s"]
+[ext_resource type="Texture2D" uid="uid://c0ttmpk3r4u8" path="res://scripts/Pinchay 2.png" id="2_k4hf5"]
+[ext_resource type="Texture2D" uid="uid://3pghuhnkt40o" path="res://scripts/Pinchay 3.png" id="3_a1l4n"]
+[ext_resource type="Texture2D" uid="uid://dfcentkpcwdo0" path="res://scripts/Pinchay.png" id="4_2j2f2"]
+[ext_resource type="PackedScene" uid="uid://l8alsvbkqara" path="res://scenes/killzone.tscn" id="5_15ynk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_61mx0"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1dngh"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("2_k4hf5")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_a1l4n")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_k4hf5")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_2j2f2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6afx8"]
+size = Vector2(16, 4.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsx05"]
+size = Vector2(6, 4)
+
+[node name="Pinchay" type="CharacterBody2D" unique_id=549024469]
+script = ExtResource("1_ktc7s")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=726422642]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_61mx0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=89277690]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_1dngh")
+autoplay = "default"
+frame_progress = 0.0627742
+
+[node name="Node2D" type="Node2D" parent="AnimatedSprite2D" unique_id=1118229039]
+
+[node name="Killzone" parent="." unique_id=279969451 instance=ExtResource("5_15ynk")]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Killzone" unique_id=1525219985]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_6afx8")
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=570846444]
+target_position = Vector2(12, -4)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=554609900]
+target_position = Vector2(-12, -4)
+
+[node name="bouncearea(safe)" type="Area2D" parent="." unique_id=234555010]
+collision_layer = 8
+collision_mask = 8
+
+[node name="hurtbox" type="CollisionShape2D" parent="bouncearea(safe)" unique_id=981420489]
+light_mask = 31
+visibility_layer = 31
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_xsx05")

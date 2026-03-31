@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dct4kxtk13mg"]
+
+[ext_resource type="AudioStream" uid="uid://cv0g8340t7xsh" path="res://Scenes/Village of the Animals.mp3" id="1_px1li"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=535825622]
+stream = ExtResource("1_px1li")
+autoplay = true
+bus = &"BGM"

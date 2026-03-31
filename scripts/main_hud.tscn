@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bfuf5xuuhhxeu"]
+
+[ext_resource type="Script" uid="uid://bu28adjbdi4dh" path="res://scripts/main_hud.gd" id="1_46ak2"]
+[ext_resource type="FontFile" uid="uid://c5nqlkrpxy6w" path="res://EPIC SNAIL PIXEL FONT.ttf" id="1_l3clx"]
+
+[node name="Main HUD" type="Control" unique_id=797063695]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_46ak2")
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1031991351]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1455767843]
+offset_left = 11.0
+offset_top = 9.0
+offset_right = 79.0
+offset_bottom = 54.0
+
+[node name="Level" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1074025529]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_l3clx")
+text = "LEVEL:"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer" unique_id=1710747066]
+anchors_preset = -1
+anchor_left = 0.47800002
+anchor_right = 1.0
+offset_left = -71.156006
+offset_top = 8.5
+offset_right = -584.0
+offset_bottom = 73.5
+grow_horizontal = 0
+size_flags_horizontal = 8
+
+[node name="Time" type="Label" parent="CanvasLayer/VBoxContainer2" unique_id=1768206956]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_l3clx")
+text = "TIME:"

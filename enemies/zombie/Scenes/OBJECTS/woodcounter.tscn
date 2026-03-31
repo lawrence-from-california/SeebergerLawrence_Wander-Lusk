@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://fvrue33a57ki"]
+
+[ext_resource type="Material" uid="uid://bk8rq2bydt4av" path="res://Assets/Bark Texture.tres" id="1_s1mmy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wb4no"]
+
+[node name="Woodcounter" type="StaticBody3D" unique_id=1379142806]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1042821911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45214844, 0)
+size = Vector3(1, 0.095703125, 1)
+material = ExtResource("1_s1mmy")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=793529834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2756381, 0)
+size = Vector3(1, 0.095703125, 1)
+material = ExtResource("1_s1mmy")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=31695245]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005126953, -0.09750366, 0.01928711)
+size = Vector3(0.9057617, 0.6732788, 0.9321289)
+material = ExtResource("1_s1mmy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=684383913]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.019798994, 0)
+shape = SubResource("BoxShape3D_wb4no")

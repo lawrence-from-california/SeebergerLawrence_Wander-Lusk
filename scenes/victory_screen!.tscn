@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cqsaklwbdmpf6"]
+
+[ext_resource type="Texture2D" uid="uid://cc4tblluji765" path="res://Victory Screen.png" id="1_wml3v"]
+
+[node name="Victory Screen!" type="Node2D" unique_id=1880872683]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1823417491]
+position = Vector2(573, 409)
+scale = Vector2(0.5854492, 0.65234375)
+texture = ExtResource("1_wml3v")

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://su8dqdykbd22"]
+
+[ext_resource type="Texture2D" uid="uid://betnw657qqgju" path="res://enemies/Bloody Spikes.png" id="1_d0deb"]
+[ext_resource type="PackedScene" uid="uid://l8alsvbkqara" path="res://scenes/killzone.tscn" id="2_yj503"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srdbg"]
+size = Vector2(30, 4)
+
+[node name="Doublespikes" type="Node2D" unique_id=635916432]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=499891263]
+rotation = -6.2831855
+texture = ExtResource("1_d0deb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=259722864]
+position = Vector2(-15.999999, 9.536743e-07)
+texture = ExtResource("1_d0deb")
+
+[node name="Killzone" parent="." unique_id=1683204913 instance=ExtResource("2_yj503")]
+rotation = -6.2831855
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1437934042]
+position = Vector2(-8, 6)
+shape = SubResource("RectangleShape2D_srdbg")

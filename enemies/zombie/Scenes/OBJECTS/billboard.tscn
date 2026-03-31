@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ymctj6civ0d8"]
+
+[ext_resource type="Texture2D" uid="uid://ba0irdt8crc7a" path="res://Assets/Materials/CLOUD.png" id="1_80nr3"]
+
+[node name="2dcloud" type="Sprite3D" unique_id=840736860]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+transparency = 0.53
+gi_mode = 2
+gi_lightmap_texel_scale = 5.6078
+modulate = Color(6.4832726, 6.4832726, 6.4832726, 0.93333334)
+billboard = 1
+texture = ExtResource("1_80nr3")

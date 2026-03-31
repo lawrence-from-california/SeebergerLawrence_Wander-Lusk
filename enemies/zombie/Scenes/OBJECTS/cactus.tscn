@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://c6tmfwnop22lh"]
+
+[ext_resource type="Material" uid="uid://c5gok0ji5nbfx" path="res://Assets/Materials/cactus.tres" id="1_qkmg1"]
+[ext_resource type="Material" uid="uid://clt2w5caicrts" path="res://Assets/Materials/Snail Slime.tres" id="2_rrfuw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qkmg1"]
+radius = 0.52001953
+
+[node name="cactus" type="StaticBody3D" unique_id=1191156298]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=2058383132]
+material = ExtResource("1_qkmg1")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=391113513]
+transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, -0.07028198, 0.23262241, -0.5050134)
+radius = 0.17626953
+height = 0.6851196
+material = ExtResource("1_qkmg1")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="." unique_id=850509610]
+transform = Transform3D(1, 0, 0, 0, 0.57357645, 0.81915206, 0, -0.81915206, 0.57357645, -0.07028198, 0.45212352, -0.8184935)
+radius = 0.17626953
+height = 0.114292145
+cone = true
+material = ExtResource("1_qkmg1")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=1261011549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1304389, 0)
+height = 0.28723145
+cone = true
+material = ExtResource("1_qkmg1")
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="." unique_id=254379315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1929932, 0)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="." unique_id=545173919]
+transform = Transform3D(0.4368018, 0.89955777, 0, -0.89955777, 0.4368018, 0, 0, 0, 1, 0.38933516, 0.98510253, 0)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="." unique_id=161312642]
+transform = Transform3D(0.4368018, 0.89955777, 0, -0.89955777, 0.4368018, 0, 0, 0, 1, 0.38933516, 0.4963833, 0)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="." unique_id=108311317]
+transform = Transform3D(0.4368018, 0.89955777, 0, -0.89955777, 0.4368018, 0, 0, 0, 1, 0.38933516, 0.003226757, 0)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="." unique_id=1846280634]
+transform = Transform3D(0.4368018, 0.89955777, 0, -0.89955777, 0.4368018, 0, 0, 0, 1, 0.38933516, -0.5104182, 0)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="." unique_id=1258954273]
+transform = Transform3D(-0.43081132, -0.88722086, 0.1650477, -0.89955777, 0.4368018, 0, -0.07209314, -0.14846994, -0.98628557, -0.451, 0.98510253, 0)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CSGCylinder3D11" type="CSGCylinder3D" parent="." unique_id=1571769377]
+transform = Transform3D(-0.43081132, -0.88722086, 0.1650477, -0.89955777, 0.4368018, 0, -0.07209314, -0.14846994, -0.98628557, -0.451, 0.4963833, 0)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CSGCylinder3D12" type="CSGCylinder3D" parent="." unique_id=2103485685]
+transform = Transform3D(-0.43081132, -0.88722086, 0.1650477, -0.89955777, 0.4368018, 0, -0.07209314, -0.14846994, -0.98628557, -0.451, 0.003226757, 0)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CSGCylinder3D13" type="CSGCylinder3D" parent="." unique_id=382670064]
+transform = Transform3D(-0.43081132, -0.88722086, 0.1650477, -0.89955777, 0.4368018, 0, -0.07209314, -0.14846994, -0.98628557, -0.451, -0.5104182, 0)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CSGCylinder3D14" type="CSGCylinder3D" parent="." unique_id=146917588]
+transform = Transform3D(-0.10936643, -0.22523126, -0.96814764, -0.8995577, 0.4368018, 1.3211082e-08, 0.42288858, 0.87090474, -0.25037998, -0.08707896, 0.98510253, 0.4206338)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CSGCylinder3D15" type="CSGCylinder3D" parent="." unique_id=215624005]
+transform = Transform3D(-0.10936643, -0.22523126, -0.96814764, -0.8995577, 0.4368018, 1.3211082e-08, 0.42288858, 0.87090474, -0.25037998, -0.08707896, 0.4963833, 0.4206338)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CSGCylinder3D16" type="CSGCylinder3D" parent="." unique_id=2063224914]
+transform = Transform3D(-0.10936643, -0.22523126, -0.96814764, -0.8995577, 0.4368018, 1.3211082e-08, 0.42288858, 0.87090474, -0.25037998, -0.08707896, 0.003226757, 0.4206338)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CSGCylinder3D17" type="CSGCylinder3D" parent="." unique_id=920134831]
+transform = Transform3D(-0.10936643, -0.22523126, -0.96814764, -0.8995577, 0.4368018, 1.3211082e-08, 0.42288858, 0.87090474, -0.25037998, -0.08707896, -0.5104182, 0.4206338)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CSGCylinder3D18" type="CSGCylinder3D" parent="." unique_id=698160637]
+transform = Transform3D(-0.021337604, -0.04394311, 0.9988061, -0.8995577, 0.4368018, 1.991331e-08, -0.43628028, -0.8984838, -0.048849672, -0.08707896, 0.98510253, -0.45303375)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CSGCylinder3D19" type="CSGCylinder3D" parent="." unique_id=923218025]
+transform = Transform3D(-0.021337604, -0.04394311, 0.9988061, -0.8995577, 0.4368018, 1.991331e-08, -0.43628028, -0.8984838, -0.048849672, -0.08707896, 0.54753447, -0.45303375)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CSGCylinder3D20" type="CSGCylinder3D" parent="." unique_id=758919967]
+transform = Transform3D(-0.021337604, -0.04394311, 0.9988061, -0.8995577, 0.4368018, 1.991331e-08, -0.43628028, -0.8984838, -0.048849672, -0.08707896, -0.12301397, -0.45303375)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CSGCylinder3D22" type="CSGCylinder3D" parent="." unique_id=759482950]
+transform = Transform3D(-0.021337604, -0.04394311, 0.9988061, -0.8995577, 0.4368018, 1.991331e-08, -0.43628028, -0.8984838, -0.048849672, -0.08707896, 0.44738972, -0.83203596)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CSGCylinder3D21" type="CSGCylinder3D" parent="." unique_id=143497990]
+transform = Transform3D(-0.021337604, -0.04394311, 0.9988061, -0.8995577, 0.4368018, 1.991331e-08, -0.43628028, -0.8984838, -0.048849672, -0.08707896, -0.5104182, -0.45303375)
+radius = 0.09326172
+height = 0.595459
+cone = true
+material = ExtResource("2_rrfuw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1818436711]
+shape = SubResource("CylinderShape3D_qkmg1")

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://clywp8evtcnes"]
+
+[ext_resource type="Material" uid="uid://bk8rq2bydt4av" path="res://Assets/Bark Texture.tres" id="1_ivmih"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_g5agx"]
+
+[node name="Log" type="StaticBody3D" unique_id=994715863]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=2071499241]
+sides = 16
+material = ExtResource("1_ivmih")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCylinder3D" unique_id=58832397]
+operation = 2
+radius = 0.3647461
+sides = 14
+material = ExtResource("1_ivmih")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=807325464]
+shape = SubResource("CylinderShape3D_g5agx")

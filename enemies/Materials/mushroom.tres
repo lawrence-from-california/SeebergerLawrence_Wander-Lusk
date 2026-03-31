@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://q755r5uv4vnc"]
+
+[ext_resource type="Texture2D" uid="uid://bgthr58hytfuj" path="res://Assets/dungeon_assets/Agaric.png" id="1_aa6q5"]
+
+[resource]
+albedo_texture = ExtResource("1_aa6q5")
+metallic = 0.12
+metallic_specular = 0.27
+clearcoat_enabled = true

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bdypfg4xmvaep"]
+
+[ext_resource type="Texture2D" uid="uid://o10c2moq6t1r" path="res://Assets/Materials/OCtopus2.png" id="1_60ln8"]
+
+[resource]
+albedo_texture = ExtResource("1_60ln8")
+clearcoat_enabled = true
+clearcoat_roughness = 1.0

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://van6jywjtiel"]
+
+[ext_resource type="Script" uid="uid://55bqrff8v0su" path="res://scenes/flag_win.gd" id="1_feef8"]
+[ext_resource type="Texture2D" uid="uid://d2j1asgdjskli" path="res://characters/Flag 1.png" id="2_5q7oj"]
+[ext_resource type="Texture2D" uid="uid://cbpiwamfn78lr" path="res://characters/Flag 2.png" id="3_qtbx5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d0qaq"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("2_5q7oj")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_qtbx5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uev82"]
+size = Vector2(16, 32)
+
+[node name="FlagWIN" type="Node2D" unique_id=1594258572]
+script = ExtResource("1_feef8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=981366858]
+sprite_frames = SubResource("SpriteFrames_d0qaq")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1988475557]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1127671824]
+shape = SubResource("RectangleShape2D_uev82")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

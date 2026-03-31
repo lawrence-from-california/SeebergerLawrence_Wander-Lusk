@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://dyoer5blqkx2t"]
+
+[ext_resource type="Material" uid="uid://p1yiw17sg76" path="res://Assets/Materials/Silver.tres" id="1_atbr8"]
+[ext_resource type="Material" uid="uid://cxdiqfppkq2vp" path="res://Assets/UFO.tres" id="2_33c66"]
+[ext_resource type="Material" uid="uid://eantj5qcw6nt" path="res://Assets/Materials/black feather.tres" id="3_styu6"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_atbr8"]
+height = 1.4702148
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=743072779]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1676091728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.70599365, 0)
+height = 0.5880127
+sides = 20
+material = ExtResource("1_atbr8")
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="." unique_id=285367183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.30259705, 0)
+radius = 0.010253906
+height = 1.3948059
+sides = 20
+material = ExtResource("1_atbr8")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=601124910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.28590178, 0)
+height = 0.14849854
+sides = 20
+material = ExtResource("1_atbr8")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="." unique_id=2127467509]
+transform = Transform3D(-4.3528015e-08, 0.9958049, -0.09150162, -1, -4.371139e-08, 0, -3.999663e-09, 0.09150162, 0.9958049, 0.25732738, -0.3819694, 0.07143482)
+radius = 0.036621094
+height = 0.73340607
+sides = 20
+material = ExtResource("1_atbr8")
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="." unique_id=971054418]
+transform = Transform3D(-4.3528015e-08, 0.9958049, -0.09150162, -1, -4.371139e-08, 0, -3.999663e-09, 0.09150162, 0.9958049, 0.26425332, -0.3819694, 0.07207123)
+radius = 0.0126953125
+height = 0.74731636
+sides = 20
+material = ExtResource("2_33c66")
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="." unique_id=197652029]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.20726204, -0.5657736, 0)
+radius = 0.10253906
+height = 0.6333046
+sides = 20
+material = ExtResource("1_atbr8")
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="." unique_id=1700541944]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.28214312, -0.5657736, 0)
+radius = 0.064453125
+height = 0.48938084
+sides = 20
+material = ExtResource("2_33c66")
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="." unique_id=316973773]
+transform = Transform3D(-4.2484867e-08, 0.97194046, 0.23522693, -1, -4.371139e-08, 0, 1.0282096e-08, -0.23522693, 0.97194046, 0.25741035, -0.342417, -0.062909536)
+radius = 0.036621094
+height = 0.73340607
+sides = 20
+material = ExtResource("1_atbr8")
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="." unique_id=2041428176]
+transform = Transform3D(-4.2484867e-08, 0.97194046, 0.23522693, -1, -4.371139e-08, 0, 1.0282096e-08, -0.23522693, 0.97194046, 0.26417035, -0.342417, -0.06454558)
+radius = 0.0126953125
+height = 0.74731636
+sides = 20
+material = ExtResource("2_33c66")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=1762371989]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4178269, 0)
+radius = 0.42089844
+height = 0.29788208
+sides = 20
+material = ExtResource("1_atbr8")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=195085735]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32933193, 0)
+radius = 0.5069929
+radial_segments = 20
+material = ExtResource("1_atbr8")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="." unique_id=1855014345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41737872, 0)
+radius = 0.031801466
+radial_segments = 20
+material = ExtResource("2_33c66")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="." unique_id=1971755614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14410019, 0)
+radius = 0.3458388
+radial_segments = 20
+material = ExtResource("1_atbr8")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="." unique_id=1310349840]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8576976, 0)
+radius = 0.3458388
+radial_segments = 20
+material = ExtResource("3_styu6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=476557683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32788086, 0)
+shape = SubResource("CylinderShape3D_atbr8")

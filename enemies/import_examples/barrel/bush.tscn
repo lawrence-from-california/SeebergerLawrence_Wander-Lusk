@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://wqw7xrf3g4ab"]
+
+[ext_resource type="Material" uid="uid://ch5asm2n0juqk" path="res://Assets/Materials/Leaf Texture.tres" id="1_hibge"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lcnjn"]
+radius = 45.06454
+
+[node name="Bush" type="StaticBody3D" unique_id=386164577]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=482567645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, -27, 0)
+material_override = ExtResource("1_hibge")
+radius = 38.0
+radial_segments = 25
+rings = 15
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGSphere3D" unique_id=432989350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 22)
+inner_radius = 0.001
+outer_radius = 46.0
+sides = 21
+ring_sides = 13
+material = ExtResource("1_hibge")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1356784007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.173176, -33.431545, 28.105087)
+shape = SubResource("SphereShape3D_lcnjn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=353548533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.426617, -21.47106, -1.2866287)
+shape = SubResource("SphereShape3D_lcnjn")

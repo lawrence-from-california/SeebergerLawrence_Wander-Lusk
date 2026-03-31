@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cv6gc110c28na"]
+
+[ext_resource type="Material" uid="uid://cifbqxfvadbgn" path="res://Assets/Materials/fire.tres" id="1_4tixs"]
+
+[node name="Fire" type="StaticBody3D" unique_id=642107893]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=2139924425]
+cone = true
+material = ExtResource("1_4tixs")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=634273289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4427576, -0.32836914, 0)
+height = 1.3432617
+cone = true
+material = ExtResource("1_4tixs")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=562730141]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3174163, -0.24597168, 0.41719782)
+height = 1.5080566
+cone = true
+material = ExtResource("1_4tixs")

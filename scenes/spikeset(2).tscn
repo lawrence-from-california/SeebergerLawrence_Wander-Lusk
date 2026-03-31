@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ccbx53umctavt"]
+
+[ext_resource type="PackedScene" uid="uid://bx04mmj7xy35i" path="res://scenes/spikes.tscn" id="1_hcoln"]
+
+[node name="Spikeset(2)" type="Node" unique_id=1567756354]
+
+[node name="SPIKES" parent="." unique_id=1528847425 instance=ExtResource("1_hcoln")]
+z_index = 14
+position = Vector2(24, -10)
+
+[node name="SPIKES2" parent="." unique_id=552133980 instance=ExtResource("1_hcoln")]
+z_index = 14
+position = Vector2(8, -10)

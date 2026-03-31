@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dt0epurqpy36d"]
+
+[ext_resource type="Texture2D" uid="uid://8wwtfmawb54" path="res://Assets/dungeon_assets/Snail Shell.png" id="1_os6y5"]
+
+[resource]
+transparency = 1
+albedo_color = Color(0, 0.6117647, 0.8352941, 0.3019608)
+albedo_texture = ExtResource("1_os6y5")
+metallic_specular = 0.09
+roughness = 0.0
+clearcoat_enabled = true
+clearcoat_roughness = 0.0
+ao_enabled = true
+heightmap_enabled = true
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.18
+backlight_enabled = true
+backlight = Color(0.46060005, 0.88477665, 0.98, 1)
+refraction_enabled = true
+refraction_scale = 0.01

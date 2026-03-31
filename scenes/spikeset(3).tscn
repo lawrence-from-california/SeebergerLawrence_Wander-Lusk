@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dx388myq278bs"]
+
+[ext_resource type="PackedScene" uid="uid://bx04mmj7xy35i" path="res://scenes/spikes.tscn" id="1_8v3r8"]
+
+[node name="Spikeset(3)" type="Node" unique_id=1342369627]
+
+[node name="SPIKES" parent="." unique_id=1528847425 instance=ExtResource("1_8v3r8")]
+z_index = 14
+position = Vector2(24, -10)
+
+[node name="SPIKES3" parent="." unique_id=548217801 instance=ExtResource("1_8v3r8")]
+z_index = 14
+position = Vector2(-8, -10)
+
+[node name="SPIKES2" parent="." unique_id=1652185551 instance=ExtResource("1_8v3r8")]
+z_index = 14
+position = Vector2(8, -10)

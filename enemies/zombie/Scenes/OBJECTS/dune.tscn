@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cmrjv6twk8okc"]
+
+[ext_resource type="Material" uid="uid://bt83lmbkg0abe" path="res://Assets/Materials/sand.tres" id="1_6ld1w"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6ld1w"]
+radius = 1.943006
+
+[node name="dune" type="StaticBody3D" unique_id=642766859]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=934191082]
+radius = 1.6885339
+radial_segments = 20
+rings = 10
+material = ExtResource("1_6ld1w")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGSphere3D" unique_id=1965781291]
+outer_radius = 2.1955907
+sides = 20
+ring_sides = 10
+material = ExtResource("1_6ld1w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1095169168]
+shape = SubResource("SphereShape3D_6ld1w")

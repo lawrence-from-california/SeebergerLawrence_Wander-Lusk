@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cifbqxfvadbgn"]
+
+[ext_resource type="Texture2D" uid="uid://5ph0q7egluks" path="res://Assets/dungeon_assets/FIRE.png" id="1_cfa1q"]
+
+[resource]
+transparency = 1
+albedo_color = Color(4.4848967, 2.8173993, 1.257482, 0.8862745)
+albedo_texture = ExtResource("1_cfa1q")
+emission_enabled = true
+emission_energy_multiplier = 7.16
+rim_enabled = true
+anisotropy = 1.0
+ao_enabled = true
+ao_light_affect = 0.6
+backlight_enabled = true
+backlight = Color(0.816527, 0.64867103, 0, 1)

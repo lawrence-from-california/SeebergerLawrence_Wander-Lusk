@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://b1lursjo62f3f"]
+
+[ext_resource type="Script" uid="uid://dhp5ngecq338u" path="res://madflower2.gd" id="1_pmtoe"]
+[ext_resource type="Texture2D" uid="uid://buhfpuauk3f2i" path="res://enemies/Madflower1.png" id="2_jyw5b"]
+[ext_resource type="Texture2D" uid="uid://b621be71mki5n" path="res://enemies/Madflower2.png" id="3_065jq"]
+[ext_resource type="Texture2D" uid="uid://bx23av2j4nvgq" path="res://enemies/MadflowerHurt1.png" id="4_ludhe"]
+[ext_resource type="Texture2D" uid="uid://chkcpjkwg71d8" path="res://enemies/MadflowerHurt2.png" id="5_jr3ga"]
+[ext_resource type="Texture2D" uid="uid://cph66qpm7uklr" path="res://enemies/MadflowerHurt3.png" id="6_sjvq3"]
+[ext_resource type="PackedScene" uid="uid://l8alsvbkqara" path="res://scenes/killzone.tscn" id="7_5t5tf"]
+[ext_resource type="PackedScene" uid="uid://biadxmds056ki" path="res://scenes/bounce_area.tscn" id="8_dvua1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gbqnp"]
+radius = 3.0
+height = 10.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d1aoo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jyw5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_065jq")
+}],
+"loop": true,
+"name": &"alive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ludhe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jr3ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sjvq3")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4n51f"]
+size = Vector2(4, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5y43"]
+size = Vector2(10, 3)
+
+[node name="Madflower2" type="CharacterBody2D" unique_id=1319299360]
+script = ExtResource("1_pmtoe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=473367356]
+shape = SubResource("CapsuleShape2D_gbqnp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1246451078]
+sprite_frames = SubResource("SpriteFrames_d1aoo")
+animation = &"alive"
+autoplay = "alive"
+
+[node name="Killzone" parent="." unique_id=1450893820 instance=ExtResource("7_5t5tf")]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Killzone" unique_id=1732480863]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_4n51f")
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1760714727]
+target_position = Vector2(6, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1828653199]
+target_position = Vector2(-6, 0)
+
+[node name="bounce_area" parent="." unique_id=265566655 instance=ExtResource("8_dvua1")]
+collision_layer = 16
+collision_mask = 8
+
+[node name="hurtbox" type="CollisionShape2D" parent="bounce_area" unique_id=1341135564]
+light_mask = 31
+visibility_layer = 31
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_r5y43")
+
+[connection signal="body_entered" from="bounce_area" to="bounce_area" method="_on_body_entered"]

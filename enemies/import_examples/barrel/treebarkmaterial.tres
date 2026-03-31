@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cwlsohg8yil4p"]
+
+[ext_resource type="Texture2D" uid="uid://wum5qfqrhdsg" path="res://Assets/import_examples/barrel/Troll King Castle.png" id="1_0adrh"]
+
+[resource]
+albedo_texture = ExtResource("1_0adrh")

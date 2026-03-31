@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://qtd0547yl2dt"]
+
+[ext_resource type="Material" uid="uid://p1yiw17sg76" path="res://Assets/Materials/Silver.tres" id="1_lgymg"]
+[ext_resource type="Material" uid="uid://qlgr8eq2jdhs" path="res://Assets/Materials/Gold.tres" id="2_cvnk4"]
+
+[node name="Sword" type="StaticBody3D" unique_id=458176203]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1499625601]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4536832, 0.2546997, -0.48876953)
+size = Vector3(0.09265137, 0.37145996, 0.022460938)
+material = ExtResource("1_lgymg")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=156622792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4503348, 0.5136467, -0.49070573)
+radius = 0.026
+height = 0.08709717
+material = ExtResource("2_cvnk4")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=404285769]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.4503348, 0.4545952, -0.49070573)
+radius = 0.02
+height = 0.2052002
+material = ExtResource("2_cvnk4")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=490608534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45102298, 0.57339764, -0.49087137)
+radius = 0.030785013
+material = ExtResource("2_cvnk4")

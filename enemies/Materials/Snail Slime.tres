@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://clt2w5caicrts"]
+
+[ext_resource type="Texture2D" uid="uid://ueuv5b1legit" path="res://Assets/dungeon_assets/Snail Slime.png" id="1_26f11"]
+
+[resource]
+albedo_texture = ExtResource("1_26f11")
+metallic = 0.14
+clearcoat_enabled = true
+clearcoat = 0.81
+clearcoat_roughness = 0.66

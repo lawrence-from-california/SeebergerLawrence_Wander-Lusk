@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cx2f0ypml0rwl"]
+
+[ext_resource type="Material" uid="uid://bk8rq2bydt4av" path="res://Assets/Bark Texture.tres" id="1_s8w3x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s8w3x"]
+size = Vector3(2, 1, 1)
+
+[node name="Longwoodtable" type="StaticBody3D" unique_id=477736506]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1507040166]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.48046875, 0)
+size = Vector3(2, 0.0390625, 1)
+material = ExtResource("1_s8w3x")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1760360722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41588238, 0, 0.40934777)
+radius = 0.078125
+height = 0.923
+material = ExtResource("1_s8w3x")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=748449667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41588238, 0, -0.3960507)
+radius = 0.078125
+height = 0.923
+material = ExtResource("1_s8w3x")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=1684063606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3863821, 0, 0.40934777)
+radius = 0.078125
+height = 0.923
+material = ExtResource("1_s8w3x")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="." unique_id=1357726697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3863821, 0, -0.3960507)
+radius = 0.078125
+height = 0.923
+material = ExtResource("1_s8w3x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1738774482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+shape = SubResource("BoxShape3D_s8w3x")

@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://csnhkoxpvshwc"]
+
+[ext_resource type="Texture2D" uid="uid://b5jv78upbehv8" path="res://icon.svg" id="1_eh1xn"]
+[ext_resource type="FontFile" uid="uid://cr8dr10s4lu2j" path="res://fonts/PixelOperator8.ttf" id="2_vrktg"]
+[ext_resource type="PackedScene" uid="uid://bbobgwkypxy3u" path="res://Levels/player.tscn" id="3_8qa7p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fy36t"]
+size = Vector2(129, 128.58975)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8qa7p"]
+font = ExtResource("2_vrktg")
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+scale = Vector2(1.0641811, 1.0733947)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(-137, 277)
+texture = ExtResource("1_eh1xn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-137.5, 276.7051)
+scale = Vector2(1, 0.99999994)
+shape = SubResource("RectangleShape2D_fy36t")
+
+[node name="Name" type="Label" parent="."]
+offset_left = -264.0
+offset_top = 126.0
+offset_right = 486.0
+offset_bottom = 174.0
+text = "Lawrence Seeberger"
+label_settings = SubResource("LabelSettings_8qa7p")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(-124, 204)
+zoom = Vector2(4, 4)
+
+[node name="Player" parent="." instance=ExtResource("3_8qa7p")]
+position = Vector2(-191, 221)
+scale = Vector2(0.8739308, 0.76434124)

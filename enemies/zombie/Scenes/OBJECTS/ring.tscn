@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://rt6o4k6uxni2"]
+
+[ext_resource type="Material" uid="uid://qlgr8eq2jdhs" path="res://Assets/Materials/Gold.tres" id="1_ehdoi"]
+[ext_resource type="Material" uid="uid://dqyuqkc2h2ehp" path="res://Assets/Materials/Snailshell.tres" id="2_ifs1h"]
+
+[node name="ring" type="StaticBody3D" unique_id=723682505]
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="." unique_id=2121051114]
+inner_radius = 0.749455
+outer_radius = 1.036955
+sides = 20
+ring_sides = 20
+material = ExtResource("1_ehdoi")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=2116433296]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 3.648663e-08, -0.9767271)
+radius = 0.19580078
+height = 0.3305664
+material = ExtResource("1_ehdoi")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=2111928520]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 5.0557297e-08, -1.2986265)
+radius = 0.42773438
+height = 0.97436523
+sides = 4
+cone = true
+material = ExtResource("2_ifs1h")

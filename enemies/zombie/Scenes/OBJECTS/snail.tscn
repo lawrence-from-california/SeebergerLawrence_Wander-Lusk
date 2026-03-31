@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://t0bmkr3u2mn0"]
+
+[ext_resource type="Material" uid="uid://dqyuqkc2h2ehp" path="res://Assets/Materials/Snailshell.tres" id="1_ku8bk"]
+[ext_resource type="Material" uid="uid://clt2w5caicrts" path="res://Assets/Materials/Snail Slime.tres" id="1_ufltk"]
+[ext_resource type="Material" uid="uid://bnpe52xl5ngok" path="res://Assets/Materials/Eyeball.tres" id="3_71foj"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_71foj"]
+height = 3.0634766
+
+[node name="Snail" type="AnimatableBody3D" unique_id=185177336]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1370976126]
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="CSGCombiner3D" unique_id=397414258]
+transform = Transform3D(-3.0637718e-08, -0.70090926, -0.71325046, 1, -4.371139e-08, 0, -3.117717e-08, -0.71325046, 0.70090926, 0, 0.14090562, 0)
+sides = 30
+ring_sides = 30
+material = ExtResource("1_ku8bk")
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="CSGCombiner3D" unique_id=1824663744]
+transform = Transform3D(-3.0637718e-08, -0.70090926, -0.71325046, 1, -4.371139e-08, 0, -3.117717e-08, -0.71325046, 0.70090926, 0, 0.14090562, 0)
+inner_radius = 0.882
+outer_radius = 0.251
+sides = 30
+ring_sides = 30
+material = ExtResource("1_ku8bk")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D" unique_id=28618892]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14090562, 0)
+radius = 0.39662614
+radial_segments = 10
+rings = 50
+material = ExtResource("1_ku8bk")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="CSGCombiner3D" unique_id=1781026573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1112254, -0.6402503, 1.1474683)
+radius = 0.6361794
+radial_segments = 15
+rings = 100
+material = ExtResource("1_ufltk")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1403514658]
+transform = Transform3D(-0.7015491, 0.6844483, -0.19839191, 0.118875064, -0.16209525, -0.97958875, -0.7026362, -0.7108134, 0.032353938, 0, -0.9342308, 0)
+height = 2.869
+sides = 30
+cone = true
+smooth_faces = false
+material = ExtResource("1_ufltk")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1150630216]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0061313, -0.14651728, 1.3584559)
+radius = 0.042
+height = 0.923
+material = ExtResource("1_ufltk")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=66206442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2100921, -0.14651728, 0.7770952)
+radius = 0.042
+height = 0.923
+material = ExtResource("1_ufltk")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="CSGCombiner3D" unique_id=1714171420]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -1.0127711, 0.38752377, 1.3703105)
+radius = 0.3
+radial_segments = 30
+rings = 30
+material = ExtResource("3_71foj")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="CSGCombiner3D" unique_id=1456481067]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -1.1989392, 0.38752377, 0.7631657)
+radius = 0.3
+radial_segments = 30
+rings = 30
+material = ExtResource("3_71foj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=314659488]
+transform = Transform3D(-0.8131007, 0.58212304, -2.5445406e-08, 0, -4.371139e-08, -1, -0.58212304, -0.8131007, 3.554176e-08, -0.4059227, -0.48449922, 0.31160408)
+shape = SubResource("CylinderShape3D_71foj")

@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cxdiqfppkq2vp"]
+
+[ext_resource type="Texture2D" uid="uid://ueuv5b1legit" path="res://Assets/dungeon_assets/Snail Slime.png" id="1_doofg"]
+
+[resource]
+transparency = 1
+albedo_color = Color(1.9280748, 9.717713, 0, 0.5254902)
+albedo_texture = ExtResource("1_doofg")
+metallic_specular = 1.0
+roughness = 0.24
+emission_enabled = true
+emission = Color(0.27581826, 0.77948666, 3.85046e-07, 1)
+emission_energy_multiplier = 16.0
+clearcoat_enabled = true
+clearcoat_roughness = 0.1
+ao_enabled = true
+ao_light_affect = 1.0
+backlight_enabled = true
+backlight = Color(0.09807479, 0.7176918, 0, 1)
+refraction_enabled = true
+refraction_scale = -0.45

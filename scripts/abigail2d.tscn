@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dip21n25jru0d"]
+
+[ext_resource type="Script" uid="uid://lj8guobxbcyd" path="res://abigail2d.gd" id="1_vk16f"]
+[ext_resource type="Texture2D" uid="uid://bb3ih76itmlv6" path="res://enemies/Trampoline.png" id="2_puoo1"]
+[ext_resource type="Texture2D" uid="uid://drfeqy0rsie6d" path="res://enemies/Trampoline2.png" id="3_0qchy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wf22"]
+radius = 4.0
+height = 10.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jbgos"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_puoo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0qchy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejucr"]
+size = Vector2(16, 5.5)
+
+[node name="Abigail" type="CharacterBody2D" unique_id=1237034709]
+script = ExtResource("1_vk16f")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1443625773]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_5wf22")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1846424769]
+sprite_frames = SubResource("SpriteFrames_jbgos")
+autoplay = "default"
+
+[node name="Node2D" type="Node2D" parent="AnimatedSprite2D" unique_id=2127535551]
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1987483951]
+target_position = Vector2(10, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1028018988]
+target_position = Vector2(-10, 0)
+
+[node name="bouncearea(safe)" type="Area2D" parent="." unique_id=603772516]
+collision_layer = 8
+collision_mask = 8
+
+[node name="hurtbox" type="CollisionShape2D" parent="bouncearea(safe)" unique_id=1973590748]
+light_mask = 31
+visibility_layer = 31
+position = Vector2(0, -2.25)
+shape = SubResource("RectangleShape2D_ejucr")

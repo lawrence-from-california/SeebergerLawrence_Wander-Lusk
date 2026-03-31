@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dtpub4opjueim"]
+
+[ext_resource type="PackedScene" uid="uid://cju5xc782jsc4" path="res://Assets/Materials/OCTOPUS.glb" id="1_4uc0e"]
+[ext_resource type="Material" uid="uid://bdypfg4xmvaep" path="res://Assets/Materials/octopus.tres" id="2_msk5n"]
+[ext_resource type="Material" uid="uid://6p1qx1m010qy" path="res://Assets/Materials/cutieeye.tres" id="2_mts5c"]
+[ext_resource type="Material" uid="uid://b0ku5dhguqnf0" path="res://Assets/Materials/rafflesia.tres" id="3_gbsdl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_euw38"]
+radius = 2.1658673
+
+[node name="Octopus" type="AnimatableBody3D" unique_id=1817896140]
+
+[node name="OCTOPUS" parent="." unique_id=1150761449 instance=ExtResource("1_4uc0e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3024745, 3.0072494, 1.4748309)
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="OCTOPUS" unique_id=34053208]
+transform = Transform3D(-0.040290184, 0.93904835, 0.34141654, -0.9078754, 0.10829984, -0.40501043, -0.41729957, -0.32628173, 0.84817535, 1.1701827, 0.017169476, -0.40212333)
+inner_radius = 0.4
+outer_radius = 0.207
+sides = 20
+ring_sides = 20
+material = ExtResource("2_msk5n")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="OCTOPUS" unique_id=1909858107]
+transform = Transform3D(0.09135831, 0.95471716, 0.283141, -0.9912088, 0.05985774, 0.11799043, 0.09569931, -0.29143137, 0.9517927, 0.28616512, -0.016870737, -0.14385426)
+radius = 0.24316406
+sides = 20
+material = ExtResource("3_gbsdl")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=1702051484]
+transform = Transform3D(0.7639199, 0, -0.645311, 0, 1, 0, 0.645311, 0, 0.7639199, -1.0181224, 3.000855, 0.3483379)
+radius = 0.36181325
+radial_segments = 24
+material = ExtResource("2_mts5c")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="." unique_id=1099599424]
+transform = Transform3D(-0.17175701, 0, -0.98513937, 0, 1, 0, 0.98513937, 0, -0.17175701, -0.4060055, 3.177494, 2.1617966)
+radius = 0.36181325
+radial_segments = 24
+material = ExtResource("2_mts5c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=693452141]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2466158, 2.9628594, 1.4250855)
+shape = SubResource("SphereShape3D_euw38")

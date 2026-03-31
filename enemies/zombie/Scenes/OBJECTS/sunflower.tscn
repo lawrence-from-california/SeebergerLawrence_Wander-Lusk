@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://gidow4tneco4"]
+
+[ext_resource type="Material" uid="uid://c5gok0ji5nbfx" path="res://Assets/Materials/cactus.tres" id="1_rg1ge"]
+[ext_resource type="Material" uid="uid://ds0u38dwnlg4e" path="res://Assets/Materials/sunflowercore.tres" id="2_jd7me"]
+[ext_resource type="Material" uid="uid://bripxhiap0oet" path="res://Assets/Materials/sunflowerpetal.tres" id="3_3s6u5"]
+
+[node name="sunflower" type="StaticBody3D" unique_id=1324251534]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=186569946]
+radius = 0.045
+material = ExtResource("1_rg1ge")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=709658839]
+transform = Transform3D(1, 0, 0, 0, -0.08715577, 0.9961947, 0, -0.9961947, -0.08715577, 0, 0.94866943, 0)
+radius = 0.178
+height = 0.10266113
+sides = 27
+cone = true
+material = ExtResource("2_jd7me")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=1771734465]
+transform = Transform3D(1, 0, 0, 0, -0.08715577, 0.9961947, 0, -0.9961947, -0.08715577, 0, 0.94866943, -0.0069737434)
+radius = 0.42822266
+height = 0.10266113
+sides = 27
+cone = true
+material = ExtResource("3_3s6u5")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCylinder3D3" unique_id=2128946073]
+transform = Transform3D(1, 0, 0, 0, -0.052336007, -0.99863094, 0, 0.99863094, -0.052336007, 0, -0.050929636, -0.35118008)
+operation = 2
+radius = 0.036621094
+height = 0.1895752
+cone = true
+material = ExtResource("3_3s6u5")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCylinder3D3" unique_id=1248849487]
+transform = Transform3D(-0.09584573, -0.9953975, 0, -0.052094996, 0.0050161863, -0.9986308, 0.99403226, -0.09571453, -0.052335992, 0.3570152, -0.06052704, -0.011423409)
+operation = 2
+radius = 0.036621094
+height = 0.1895752
+cone = true
+material = ExtResource("3_3s6u5")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCylinder3D3" unique_id=929268863]
+transform = Transform3D(0.07848273, 0.9969164, 0.0009134004, -0.05209504, 0.005016188, -0.9986307, -0.99555373, 0.07832768, 0.05232808, -0.3356852, -0.06052704, -0.011423349)
+operation = 2
+radius = 0.036621094
+height = 0.1895752
+cone = true
+material = ExtResource("3_3s6u5")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCylinder3D3" unique_id=361454044]
+transform = Transform3D(1, 0, 0, 0, 0.22495243, 0.974376, 0, -0.974376, 0.22495243, 0, -0.037691534, 0.35246265)
+operation = 2
+radius = 0.036621094
+height = 0.17926025
+cone = true
+material = ExtResource("3_3s6u5")

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://clo6qdxwrpl3u"]
+
+[ext_resource type="Script" uid="uid://i6y413rq0eh2" path="res://superdiamond.gd" id="1_juiof"]
+[ext_resource type="Texture2D" uid="uid://ddxmdhv0x7oib" path="res://SuperDiamond1.png" id="2_hpwyf"]
+[ext_resource type="Texture2D" uid="uid://d2ed3mhsfk15e" path="res://SuperDiamond2.png" id="3_gsfky"]
+[ext_resource type="AudioStream" uid="uid://deki4x57xk5lp" path="res://sounds/sfx_coin.ogg" id="3_hpwyf"]
+[ext_resource type="PackedScene" uid="uid://bsh1hj4c0f7ur" path="res://scenes/pickupanimation.tscn" id="5_hpwyf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gsfky"]
+animations = [{
+"frames": [{
+"duration": 1.8,
+"texture": ExtResource("2_hpwyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gsfky")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yvj5j"]
+radius = 7.0
+
+[node name="superdiamond" type="Area2D" unique_id=27120736]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_juiof")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1782340057]
+visibility_layer = 1023
+sprite_frames = SubResource("SpriteFrames_gsfky")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2116297841]
+shape = SubResource("CircleShape2D_yvj5j")
+
+[node name="Chaching" type="AudioStreamPlayer2D" parent="." unique_id=1925533158]
+stream = ExtResource("3_hpwyf")
+bus = &"SFX"
+
+[node name="AnimationPlayer" parent="." unique_id=1130378463 instance=ExtResource("5_hpwyf")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

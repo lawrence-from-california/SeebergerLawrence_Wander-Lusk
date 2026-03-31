@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dfxhg6owbm6gg"]
+
+[ext_resource type="Material" uid="uid://bk8rq2bydt4av" path="res://Assets/Bark Texture.tres" id="1_ofqo7"]
+[ext_resource type="Material" uid="uid://eantj5qcw6nt" path="res://Assets/Materials/black feather.tres" id="2_ofqo7"]
+
+[node name="Blankposter" type="StaticBody3D" unique_id=1790928086]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=721349287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47631836, 0.04437256, -0.115478516)
+size = Vector3(0.04736328, 1.0887451, 1.230957)
+material = ExtResource("1_ofqo7")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=502104477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009924531, 0.0034332275, -0.0009765625)
+operation = 2
+size = Vector3(0.03930664, 1.023407, 1.1650391)
+material = ExtResource("2_ofqo7")

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bba0ffqmfaagl"]
+
+[ext_resource type="Material" uid="uid://bk8rq2bydt4av" path="res://Assets/Bark Texture.tres" id="1_e16f0"]
+[ext_resource type="Material" uid="uid://drujwvo4vyfpx" path="res://Assets/Materials/confier.tres" id="2_e16f0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_e16f0"]
+height = 1.3599446
+radius = 0.828125
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cwevd"]
+height = 1.8027344
+radius = 0.45898438
+
+[node name="Conifer" type="StaticBody3D" unique_id=2008314966]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=942327623]
+radius = 0.169
+height = 1.546
+sides = 12
+material = ExtResource("1_e16f0")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=865060813]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.830508, 0)
+radius = 0.791
+height = 0.751
+cone = true
+material = ExtResource("2_e16f0")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=484294843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8347267, 0)
+radius = 0.791
+height = 1.6016874
+sides = 23
+cone = true
+material = ExtResource("2_e16f0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=552504167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6841694, 0)
+shape = SubResource("CylinderShape3D_e16f0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1318521097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09863281, 0)
+shape = SubResource("CylinderShape3D_cwevd")

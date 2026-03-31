@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dvqdqrlf7y7or"]
+
+[ext_resource type="Material" uid="uid://eantj5qcw6nt" path="res://Assets/Materials/black feather.tres" id="1_7ismb"]
+[ext_resource type="Material" uid="uid://chfv2vbnyrjeq" path="res://Assets/Materials/white feather.tres" id="2_foec2"]
+[ext_resource type="Material" uid="uid://bnpe52xl5ngok" path="res://Assets/Materials/Eyeball.tres" id="3_yrowl"]
+[ext_resource type="Material" uid="uid://djo6ynjph3nfj" path="res://Assets/Materials/bone.tres" id="4_xp8cd"]
+[ext_resource type="Material" uid="uid://bt83lmbkg0abe" path="res://Assets/Materials/sand.tres" id="5_ak2k6"]
+
+[node name="Magpie" type="StaticBody3D" unique_id=865289532]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=880328104]
+radius = 0.47258252
+rings = 15
+material = ExtResource("1_7ismb")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="." unique_id=885613119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6176657, -0.23366821)
+rings = 15
+material = ExtResource("2_foec2")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="." unique_id=1467021317]
+transform = Transform3D(-0.007392462, 0.8470897, 0.53139853, 0.9999619, 0.008726561, 0, -0.004637282, 0.53137827, -0.84712195, -0.2817067, 0.105127275, 0.30826604)
+radius = 0.1
+rings = 15
+material = ExtResource("3_yrowl")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="." unique_id=1723734540]
+transform = Transform3D(-0.005408541, 0.61975557, -0.7847763, 0.9999619, 0.008726561, 0, 0.006848398, -0.7847464, -0.61977917, 0.30265003, 0.105127275, 0.30826604)
+radius = 0.1
+rings = 15
+material = ExtResource("3_yrowl")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=76078455]
+transform = Transform3D(1, 0, 0, 0, -0.058156453, -0.9983075, 0, 0.9983075, -0.058156453, 0, -0.015687948, 0.5837169)
+radius = 0.219
+height = 0.7515996
+cone = true
+material = ExtResource("4_xp8cd")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=1997723511]
+transform = Transform3D(-0.99167114, -0.1287956, 0, 0.06439779, -0.49583554, -0.86602545, 0.111540265, -0.85881245, 0.49999997, -0.20749933, -0.8892952, -1.2643974)
+radius = 0.45263672
+height = 2.672498
+cone = true
+material = ExtResource("1_7ismb")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=929652451]
+transform = Transform3D(-0.99167114, -0.1287956, 0, 0.06439779, -0.49583554, -0.86602545, 0.111540265, -0.85881245, 0.49999997, -0.021734238, -0.8892952, -1.2643974)
+radius = 0.45263672
+height = 2.672498
+cone = true
+material = ExtResource("1_7ismb")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="." unique_id=1879866522]
+transform = Transform3D(-0.99167114, -0.1287956, 0, 0.06439779, -0.49583554, -0.86602545, 0.111540265, -0.85881245, 0.49999997, -0.37925142, -0.8892952, -1.2643974)
+radius = 0.45263672
+height = 2.672498
+cone = true
+material = ExtResource("1_7ismb")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="." unique_id=761268033]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0894929, -0.36709714)
+material = ExtResource("5_ak2k6")

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dnjjmxw4fgqp4"]
+
+[ext_resource type="AudioStream" uid="uid://bjvbf6pv7syye" path="res://music/Jazz for Turtles (1).mp3" id="1_q5y64"]
+[ext_resource type="Script" uid="uid://cgav2bp0q2hyh" path="res://scripts/bgm.gd" id="2_3c3jb"]
+
+[node name="BGM" type="AudioStreamPlayer" unique_id=2091230748]
+stream = ExtResource("1_q5y64")
+autoplay = true
+bus = &"BGM"
+parameters/looping = true
+script = ExtResource("2_3c3jb")

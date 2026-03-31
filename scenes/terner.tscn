@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://b8upenlhteeei"]
+
+[ext_resource type="Script" uid="uid://c61714rdxlj2p" path="res://scenes/terner.gd" id="1_5m8re"]
+[ext_resource type="Texture2D" uid="uid://313uub1lv46c" path="res://scenes/Terner 3.png" id="1_vskx1"]
+[ext_resource type="Texture2D" uid="uid://bol6e3w530p37" path="res://scenes/Terner 2.png" id="2_5m8re"]
+[ext_resource type="Texture2D" uid="uid://bcb1m0tscjelr" path="res://scenes/Terner.png" id="3_yuqrl"]
+[ext_resource type="PackedScene" uid="uid://l8alsvbkqara" path="res://scenes/killzone.tscn" id="5_6rnj2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vxk8v"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": ExtResource("1_vskx1")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_5m8re")
+}, {
+"duration": 0.8,
+"texture": ExtResource("3_yuqrl")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_5m8re")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6mkp"]
+size = Vector2(14, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbtbk"]
+size = Vector2(14, 4)
+
+[node name="Terner" type="Node2D" unique_id=2017464101]
+script = ExtResource("1_5m8re")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1570477615]
+sprite_frames = SubResource("SpriteFrames_vxk8v")
+autoplay = "default"
+frame_progress = 0.5948866
+
+[node name="Node2D" type="Node2D" parent="AnimatedSprite2D" unique_id=1669254019]
+
+[node name="Killzone" parent="." unique_id=1899345935 instance=ExtResource("5_6rnj2")]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Killzone" unique_id=611666119]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_x6mkp")
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=295561038]
+target_position = Vector2(14, 0)
+
+[node name="RayCastDown" type="RayCast2D" parent="." unique_id=1771904107]
+target_position = Vector2(0, 59)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=679679091]
+target_position = Vector2(-14, 0)
+
+[node name="bouncearea(safe)" type="Area2D" parent="." unique_id=1117174169]
+collision_layer = 8
+collision_mask = 8
+
+[node name="hurtbox" type="CollisionShape2D" parent="bouncearea(safe)" unique_id=144218819]
+light_mask = 31
+visibility_layer = 31
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_bbtbk")

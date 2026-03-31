@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://t1qqucs34tge"]
+
+[ext_resource type="Texture2D" uid="uid://dny76ev7k3u1k" path="res://enemies/Snaily/Arrow.png" id="1_l5ahi"]
+
+[node name="Arrow" type="Node2D" unique_id=1312725217]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=470252909]
+texture = ExtResource("1_l5ahi")

@@ -1,0 +1,13 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://d0it1slyrdbu5"]
+
+[resource]
+lifetime_randomness = 0.2
+emission_shape = 1
+emission_sphere_radius = 2.75
+scale_min = 0.0
+scale_max = 0.0
+color = Color(18.892155, 11.40214, 4.302474, 1)
+hue_variation_min = 0.42999998
+hue_variation_max = 0.42999998
+turbulence_enabled = true
+turbulence_noise_strength = 2.95

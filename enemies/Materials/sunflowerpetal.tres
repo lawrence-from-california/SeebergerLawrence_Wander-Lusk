@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bripxhiap0oet"]
+
+[ext_resource type="Texture2D" uid="uid://bjkc08ipa5ht7" path="res://Assets/dungeon_assets/Sunflower.png" id="1_6t5ig"]
+
+[resource]
+albedo_texture = ExtResource("1_6t5ig")

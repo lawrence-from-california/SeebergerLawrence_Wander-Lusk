@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ds6ngd6i5jrmu"]
+
+[ext_resource type="Texture2D" uid="uid://cjo21c6sl5tch" path="res://Assets/dungeon_assets/Zombie Hand.png" id="1_txsal"]
+
+[resource]
+albedo_texture = ExtResource("1_txsal")
+clearcoat_enabled = true

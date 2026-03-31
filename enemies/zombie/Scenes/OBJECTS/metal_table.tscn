@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cbitkmha4eo8m"]
+
+[ext_resource type="Material" uid="uid://p1yiw17sg76" path="res://Assets/Materials/Silver.tres" id="1_b782i"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b782i"]
+height = 0.30615234
+
+[node name="Metal table" type="StaticBody3D" unique_id=1340929653]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1932257347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66948307, 0.18018687, -0.02256453)
+height = 0.064453125
+sides = 34
+material = ExtResource("1_b782i")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=566429932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66948307, 0.009996176, -0.02256453)
+radius = 0.2705078
+height = 0.29345703
+sides = 34
+material = ExtResource("1_b782i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=425768835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66542554, 0.061279297, 0)
+shape = SubResource("CylinderShape3D_b782i")

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d0ckkm1agkk3o"]
+
+[ext_resource type="Material" uid="uid://d0yxci57nmy2q" path="res://Assets/Materials/cloud.tres" id="1_yrx3d"]
+
+[node name="cloud 1" type="StaticBody3D" unique_id=1490333931]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=883966268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.92994326)
+material = ExtResource("1_yrx3d")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="." unique_id=668870017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18091428, 0, -0.36706543)
+material = ExtResource("1_yrx3d")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="." unique_id=836977950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46062946, 0, -1.1259367)
+material = ExtResource("1_yrx3d")
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="." unique_id=50328783]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46062946, 0, -1.9102255)
+radius = 0.39667618
+material = ExtResource("1_yrx3d")
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="." unique_id=2028580421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46062946, 0, -2.4385781)
+radius = 0.25880435
+material = ExtResource("1_yrx3d")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="." unique_id=913216372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18091428, 0.458113, -0.79376453)
+material = ExtResource("1_yrx3d")

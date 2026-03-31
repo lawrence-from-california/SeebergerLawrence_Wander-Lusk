@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://u3vohtbdf7t4"]
+
+[ext_resource type="Script" uid="uid://b5cnbj2j6cv0" path="res://intro_flag.gd" id="1_hqrt5"]
+
+[node name="Intro Flag" type="Node2D" unique_id=2079894256]
+script = ExtResource("1_hqrt5")

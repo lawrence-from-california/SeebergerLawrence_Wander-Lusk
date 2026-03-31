@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bpcaf0fodid0n"]
+
+[ext_resource type="Material" uid="uid://d371ws3i5icc2" path="res://Assets/bigrock.tres" id="1_gnb1m"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qlpfm"]
+radius = 1.3818651
+
+[node name="Big Rock" type="StaticBody3D" unique_id=45832489]
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=953683440]
+transform = Transform3D(0.9326866, -0.33182722, 0.14136966, 0.09835531, -0.14310794, -0.9848072, 0.34701684, 0.9324216, -0.10083791, -0.24580179, -0.10428244, 0.4188182)
+radius = 0.899
+material = ExtResource("1_gnb1m")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="." unique_id=1626022264]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.99999976, 0, 0, 0, 0.9999999, -0.22027123, -0.26649833, 8.381903e-09)
+inner_radius = 0.198
+outer_radius = 1.294
+material = ExtResource("1_gnb1m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1435924874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29863113, 0.09370381, -0.01886648)
+shape = SubResource("SphereShape3D_qlpfm")

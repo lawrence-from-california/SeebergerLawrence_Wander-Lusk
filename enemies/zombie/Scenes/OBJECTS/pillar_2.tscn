@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dp5w4y58y6lbq"]
+
+[ext_resource type="PackedScene" uid="uid://bd4ror2heoiqp" path="res://Assets/dungeon_assets/building/pillar.glb" id="1_uglg7"]
+
+[node name="pillar2" unique_id=959313184 instance=ExtResource("1_uglg7")]

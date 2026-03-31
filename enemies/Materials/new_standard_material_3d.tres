@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://drbkbi2tnhdsx"]
+
+[ext_resource type="Texture2D" uid="uid://pepg25r72u1v" path="res://Assets/dungeon_assets/dungeon_albedo.png" id="1_ios0g"]
+
+[resource]
+albedo_color = Color(0.96797234, 0.97994083, 0.9999996, 1)
+albedo_texture = ExtResource("1_ios0g")
+metallic = 0.66
+emission_energy_multiplier = 2.97

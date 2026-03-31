@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://baspgqd7g8meh"]
+
+[ext_resource type="Script" uid="uid://be2euguqcce18" path="res://scripts/elixir.gd" id="1_q33w5"]
+[ext_resource type="Texture2D" uid="uid://5fs56le7heh6" path="res://tilesets/Elixir of Death.png" id="1_s3alh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q33w5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s3alh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lm3ca"]
+radius = 8.0
+height = 16.0
+
+[node name="elixir" type="Area2D" unique_id=298154811]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_q33w5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1773456737]
+sprite_frames = SubResource("SpriteFrames_q33w5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=526624947]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_lm3ca")
+
+[node name="elixirtimer" type="Timer" parent="." unique_id=1747289376]

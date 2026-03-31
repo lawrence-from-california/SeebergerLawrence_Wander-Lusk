@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://nlqgy83vdieo"]
+
+[ext_resource type="Material" uid="uid://cwlsohg8yil4p" path="res://Assets/import_examples/barrel/treebarkmaterial.tres" id="1_k3o43"]
+[ext_resource type="Material" uid="uid://bk8rq2bydt4av" path="res://Assets/Bark Texture.tres" id="2_yn6d6"]
+[ext_resource type="Material" uid="uid://djo6ynjph3nfj" path="res://Assets/Materials/bone.tres" id="3_anktl"]
+[ext_resource type="Material" uid="uid://p1yiw17sg76" path="res://Assets/Materials/Silver.tres" id="4_ibds0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_k3o43"]
+
+[node name="Well" type="StaticBody3D" unique_id=1782005184]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=136904088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.65665627, 0)
+radius = 0.406
+height = 0.5301094
+sides = 33
+material = ExtResource("1_k3o43")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCylinder3D" unique_id=1647269325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1451006, 0)
+operation = 2
+radius = 0.2705078
+height = 0.42594337
+sides = 33
+material = ExtResource("1_k3o43")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=502072651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32286444, -0.2772746, 0)
+radius = 0.047851563
+height = 0.9760742
+material = ExtResource("2_yn6d6")
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="." unique_id=583113190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4649056, -0.13982344, 0)
+radius = 0.023925781
+height = 0.18603516
+material = ExtResource("2_yn6d6")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="." unique_id=1134194442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33738825, -0.33415937, 0)
+radius = 0.047851563
+height = 0.8623047
+material = ExtResource("2_yn6d6")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="." unique_id=1381090417]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.054911286, -0.07636425, 0)
+radius = 0.03125
+height = 0.79138184
+material = ExtResource("2_yn6d6")
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="." unique_id=148511225]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.004509598, -0.07636424, 0.0022066236)
+radius = 0.03466797
+height = 0.1046257
+material = ExtResource("3_anktl")
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="." unique_id=1155390631]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004509598, -0.16213208, 0.036263704)
+radius = 0.0048828125
+height = 0.18268394
+material = ExtResource("3_anktl")
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="." unique_id=1192435643]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.5214815, -0.22362947, 0)
+radius = 0.029785156
+height = 0.15228271
+material = ExtResource("4_ibds0")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=643832402]
+transform = Transform3D(1, 0, 0, 0, 0.7193397, 0.69465834, 0, -0.69465834, 0.7193397, 0.02331543, 0.027560689, -0.004495062)
+size = Vector3(0.8269043, 0.5814209, 0.6065979)
+material = ExtResource("2_yn6d6")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=157155254]
+transform = Transform3D(1, 0, 0, 0, 0.71933985, -0.69465846, 0, 0.69465846, 0.71933985, 0, -0.26674604, -0.15730497)
+operation = 2
+size = Vector3(0.8269043, 0.5814209, 1.9283028)
+material = ExtResource("2_yn6d6")
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="." unique_id=1379070996]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0, -0.37792832, 0)
+radius = 0.125
+height = 0.497
+cone = true
+material = ExtResource("4_ibds0")
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCylinder3D5" unique_id=1323402267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19399786, 1.695983e-08)
+operation = 2
+radius = 0.188
+height = 0.497
+cone = true
+material = ExtResource("4_ibds0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1665549953]
+shape = SubResource("CylinderShape3D_k3o43")
