@@ -1,11 +1,12 @@
 [gd_scene format=4 uid="uid://cu3hb4rcxb48d"]
 
 [ext_resource type="Script" uid="uid://4nbwh28y37tm" path="res://main_menu.gd" id="1_06t4h"]
-[ext_resource type="FontFile" uid="uid://c5nqlkrpxy6w" path="res://EPIC SNAIL PIXEL FONT.ttf" id="2_nlkkf"]
+[ext_resource type="FontFile" uid="uid://c5nqlkrpxy6w" path="res://fonts/EPIC SNAIL PIXEL FONT.ttf" id="2_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://xtdx64ryxic3" path="res://Wanderlusk Tileset Full Tileset 1.png" id="4_glbon"]
 [ext_resource type="PackedScene" uid="uid://bbobgwkypxy3u" path="res://Levels/player.tscn" id="5_glbon"]
 [ext_resource type="Texture2D" uid="uid://com1birnip6b6" path="res://Wanderlusk Tileset Full Tileset 2.png" id="5_nlkkf"]
 [ext_resource type="Texture2D" uid="uid://cwu8kx7wldcqp" path="res://Sky Tileset.png" id="6_nlkkf"]
+[ext_resource type="PackedScene" uid="uid://qriuk1rm6gw1" path="res://level_manager.tscn" id="7_qe12f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qe12f"]
 texture = ExtResource("4_glbon")
@@ -1190,6 +1191,7 @@ script = ExtResource("1_06t4h")
 metadata/_edit_horizontal_guides_ = [-421.0]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=778528528]
+z_index = 2
 layout_mode = 2
 alignment = 1
 
@@ -1220,6 +1222,9 @@ text = "EXIT"
 
 [node name="Node2D" type="Node2D" parent="." unique_id=252149713]
 position = Vector2(675, -18)
+
+[node name="Level Manager" parent="Node2D" unique_id=1225484448 instance=ExtResource("7_qe12f")]
+unique_name_in_owner = true
 
 [node name="Player" parent="Node2D" unique_id=1749316360 instance=ExtResource("5_glbon")]
 position = Vector2(9, 67)

@@ -22,7 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Bgm="*uid://dnjjmxw4fgqp4"
-MainHUD="*uid://bfuf5xuuhhxeu"
+LevelManager="*uid://qriuk1rm6gw1"
 
 [debug]
 

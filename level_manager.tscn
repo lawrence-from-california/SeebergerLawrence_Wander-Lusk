@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://qriuk1rm6gw1"]
+
+[ext_resource type="Script" uid="uid://chdo7g0v4tb3w" path="res://level_manager.gd" id="1_fvluo"]
+
+[node name="Background Manager" type="Node" unique_id=1225484448]
+script = ExtResource("1_fvluo")

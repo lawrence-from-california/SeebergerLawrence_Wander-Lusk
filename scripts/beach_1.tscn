@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dbkbafeg2jm1k"]
 
 [ext_resource type="PackedScene" uid="uid://clo6qdxwrpl3u" path="res://superdiamond.tscn" id="1_rjqrf"]
+[ext_resource type="PackedScene" uid="uid://bfuf5xuuhhxeu" path="res://scripts/main_hud.tscn" id="1_vdbbu"]
 [ext_resource type="PackedScene" uid="uid://bbobgwkypxy3u" path="res://Levels/player.tscn" id="2_4syro"]
 [ext_resource type="Texture2D" uid="uid://xtdx64ryxic3" path="res://Wanderlusk Tileset Full Tileset 1.png" id="3_2j6n7"]
 [ext_resource type="Texture2D" uid="uid://e3bkx5u36vur" path="res://enemies/Wanderlusk Tileset Full Tileset 2.png" id="4_j0of2"]
@@ -2134,6 +2135,14 @@ distance = 35.0
 size = Vector2(691, 135)
 
 [node name="Beach1" type="Node2D" unique_id=993707046]
+
+[node name="Main HUD2" parent="." unique_id=797063695 instance=ExtResource("1_vdbbu")]
+offset_left = -284.0
+offset_top = -234.0
+offset_right = -284.0
+offset_bottom = -234.0
+currentlevel = 2
+clock = 400
 
 [node name="superdiamond" parent="." unique_id=27120736 instance=ExtResource("1_rjqrf")]
 position = Vector2(1124, -347)

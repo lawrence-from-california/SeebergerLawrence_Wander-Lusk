@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bfuf5xuuhhxeu"]
 
 [ext_resource type="Script" uid="uid://bu28adjbdi4dh" path="res://scripts/main_hud.gd" id="1_46ak2"]
-[ext_resource type="FontFile" uid="uid://c5nqlkrpxy6w" path="res://EPIC SNAIL PIXEL FONT.ttf" id="1_l3clx"]
+[ext_resource type="FontFile" uid="uid://cihhuwrtty5jn" path="res://enemies/Mystery Font (1).ttf" id="3_6774i"]
 
 [node name="Main HUD" type="Control" unique_id=797063695]
 layout_mode = 3
@@ -22,14 +22,14 @@ offset_bottom = 54.0
 [node name="Level" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1074025529]
 layout_mode = 2
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("1_l3clx")
+theme_override_fonts/font = ExtResource("3_6774i")
 text = "LEVEL:"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer" unique_id=1710747066]
 anchors_preset = -1
 anchor_left = 0.47800002
 anchor_right = 1.0
-offset_left = -71.156006
+offset_left = -59.656006
 offset_top = 8.5
 offset_right = -584.0
 offset_bottom = 73.5
@@ -39,5 +39,21 @@ size_flags_horizontal = 8
 [node name="Time" type="Label" parent="CanvasLayer/VBoxContainer2" unique_id=1768206956]
 layout_mode = 2
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("1_l3clx")
+theme_override_fonts/font = ExtResource("3_6774i")
 text = "TIME:"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer" unique_id=712096799]
+offset_left = 11.5
+offset_top = 288.0
+offset_right = 71.5
+offset_bottom = 315.5
+
+[node name="Lives" type="Label" parent="CanvasLayer/VBoxContainer3" unique_id=50129057]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_6774i")
+text = "@:"
+
+[node name="Time limit" type="Timer" parent="." unique_id=1283267575]
+wait_time = 500.0
+autostart = true

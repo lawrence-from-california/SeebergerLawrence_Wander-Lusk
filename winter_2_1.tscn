@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://cis5jucsy2hah"]
 
+[ext_resource type="PackedScene" uid="uid://bfuf5xuuhhxeu" path="res://scripts/main_hud.tscn" id="1_b7py7"]
 [ext_resource type="PackedScene" uid="uid://clo6qdxwrpl3u" path="res://superdiamond.tscn" id="1_qef5t"]
 [ext_resource type="PackedScene" uid="uid://bbobgwkypxy3u" path="res://Levels/player.tscn" id="2_nrtj2"]
 [ext_resource type="Texture2D" uid="uid://xtdx64ryxic3" path="res://Wanderlusk Tileset Full Tileset 1.png" id="3_gugd2"]
@@ -2332,6 +2333,14 @@ sources/2 = SubResource("TileSetAtlasSource_ibgun")
 distance = 35.0
 
 [node name="winter_2_1" type="Node2D" unique_id=1933128147]
+
+[node name="Main HUD2" parent="." unique_id=797063695 instance=ExtResource("1_b7py7")]
+offset_left = -284.0
+offset_top = -234.0
+offset_right = -284.0
+offset_bottom = -234.0
+currentlevel = 4
+clock = 400
 
 [node name="Player" parent="." unique_id=1749316360 instance=ExtResource("2_nrtj2")]
 unique_name_in_owner = true

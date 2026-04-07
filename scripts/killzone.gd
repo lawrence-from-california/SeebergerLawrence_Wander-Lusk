@@ -1,5 +1,5 @@
 extends Area2D
-
+@onready var levelmanager: Manager = LevelManager
 @onready var killtimer: Timer = $killtimer
 	
 func _on_body_entered(_body: Node2D) -> void:
@@ -10,5 +10,8 @@ func _on_body_entered(_body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	Engine.time_scale=1.0
-	get_tree().reload_current_scene()
+	if levelmanager.lives > 1:
+		levelmanager.lose_life(1)
+		get_tree().reload_current_scene()
+	else: levelmanager.lose_game()
 	

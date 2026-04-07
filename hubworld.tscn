@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://c4vopr6pt7u3t"]
 
 [ext_resource type="PackedScene" uid="uid://bbobgwkypxy3u" path="res://Levels/player.tscn" id="1_0kbkj"]
+[ext_resource type="PackedScene" uid="uid://bfuf5xuuhhxeu" path="res://scripts/main_hud.tscn" id="1_af8dv"]
 [ext_resource type="Texture2D" uid="uid://xtdx64ryxic3" path="res://Wanderlusk Tileset Full Tileset 1.png" id="3_8hf7u"]
 [ext_resource type="PackedScene" uid="uid://su8dqdykbd22" path="res://scenes/doublespikes.tscn" id="3_clkf5"]
 [ext_resource type="Texture2D" uid="uid://com1birnip6b6" path="res://Wanderlusk Tileset Full Tileset 2.png" id="4_ldxe1"]
@@ -12,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dylxek25y6lve" path="res://scenes/Scenery Greenery Tileset (Trans).png" id="7_hnra4"]
 [ext_resource type="PackedScene" uid="uid://dip21n25jru0d" path="res://scripts/abigail2d.tscn" id="7_i84wn"]
 [ext_resource type="Texture2D" uid="uid://bpudre5vph6sg" path="res://Sky Tileset 2.png" id="8_dp8sf"]
-[ext_resource type="FontFile" uid="uid://c5nqlkrpxy6w" path="res://EPIC SNAIL PIXEL FONT.ttf" id="8_o0rbd"]
+[ext_resource type="FontFile" uid="uid://c5nqlkrpxy6w" path="res://fonts/EPIC SNAIL PIXEL FONT.ttf" id="8_o0rbd"]
 [ext_resource type="PackedScene" uid="uid://l8alsvbkqara" path="res://scenes/killzone.tscn" id="9_o0rbd"]
 [ext_resource type="PackedScene" uid="uid://bum5ltath7q71" path="res://scenes/tomatocopter.tscn" id="11_l1rmf"]
 [ext_resource type="PackedScene" uid="uid://1f2bb125rnng" path="res://candycap_2.tscn" id="12_cy621"]
@@ -2188,6 +2189,10 @@ animations = [{
 size = Vector2(16, 5.5)
 
 [node name="Hubworld" type="Node2D" unique_id=1879873675]
+
+[node name="Main HUD" parent="." unique_id=797063695 instance=ExtResource("1_af8dv")]
+currentlevel = 1
+clock = 400
 
 [node name="Node2D" type="Node2D" parent="." unique_id=684259243]
 position = Vector2(57.895996, 76.14374)
