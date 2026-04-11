@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cyjct7oplfstn"]
+
+[ext_resource type="Texture2D" uid="uid://cmvmn4yctig2u" path="res://scenes/Ice Platform.png" id="1_iacnx"]
+[ext_resource type="Script" uid="uid://dian0p82awws1" path="res://ice_platform.gd" id="2_nymv0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iacnx"]
+radius = 3.5
+height = 22.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iacnx"]
+size = Vector2(20, 4)
+
+[node name="Ice Platform" type="Sprite2D" unique_id=1550369480]
+texture = ExtResource("1_iacnx")
+script = ExtResource("2_nymv0")
+
+[node name="StaticBody2d" type="StaticBody2D" parent="." unique_id=150762876]
+collision_layer = 262144
+collision_mask = 262144
+collision_priority = 19.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2d" unique_id=524343413]
+position = Vector2(0, -4.5)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_iacnx")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=383719019]
+collision_layer = 262145
+collision_mask = 262147
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1429539092]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_iacnx")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

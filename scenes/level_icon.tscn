@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://sv6c6baj6phw"]
+
+[ext_resource type="FontFile" uid="uid://cihhuwrtty5jn" path="res://enemies/Mystery Font (1).ttf" id="1_0t5nk"]
+[ext_resource type="Script" uid="uid://dmqnvfpsi2rxb" path="res://scenes/level_icon.gd" id="1_1c1rg"]
+[ext_resource type="Texture2D" uid="uid://dkoiebenihxhu" path="res://enemies/Level Select.png" id="2_1c1rg"]
+
+[node name="Level Icon" type="Control" unique_id=218420289]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -21.0
+offset_top = -24.0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(32.15, 0)
+script = ExtResource("1_1c1rg")
+
+[node name="Label" type="Label" parent="." unique_id=755284157]
+layout_mode = 0
+offset_top = -40.0
+offset_right = 256.0
+offset_bottom = -4.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_0t5nk")
+theme_override_font_sizes/font_size = 32
+text = "LEVEL ???"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=709628886]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 256.0
+texture = ExtResource("2_1c1rg")
+
+[node name="Label2" type="Label" parent="." unique_id=1122873324]
+layout_mode = 0
+offset_top = 260.0
+offset_right = 256.0
+offset_bottom = 296.0
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("1_0t5nk")
+theme_override_font_sizes/font_size = 32
+text = "LEVEL ???"
+horizontal_alignment = 1

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cm1j8rtwumsxv"]
+
+[ext_resource type="Texture2D" uid="uid://cl0wx7xs5ogqt" path="res://scenes/Flag 1.png" id="1_mu40c"]
+[ext_resource type="Script" uid="uid://cgf566c6jarna" path="res://scenes/winter_flag.gd" id="1_sjghi"]
+[ext_resource type="Texture2D" uid="uid://cjwhh7xde0q5u" path="res://scenes/Flag 2.png" id="2_sjghi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ouid0"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("1_mu40c")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_sjghi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipvys"]
+size = Vector2(16, 32)
+
+[node name="winter flag" type="Node2D" unique_id=1072874949]
+script = ExtResource("1_sjghi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=936614222]
+sprite_frames = SubResource("SpriteFrames_ouid0")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=209214492]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=630055884]
+shape = SubResource("RectangleShape2D_ipvys")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

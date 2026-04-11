@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cn54ookdrx73t"]
+
+[ext_resource type="Texture2D" uid="uid://db1sj0qgravp0" path="res://enemies/Snaily/Snaily.png" id="1_grgdn"]
+
+[node name="Player Icon" type="TextureRect" unique_id=140951755]
+anchors_preset = -1
+anchor_left = -0.028
+anchor_top = -0.049000002
+anchor_right = 0.23600002
+anchor_bottom = 0.407
+offset_left = 56.256
+offset_top = 47.752
+offset_right = -39.871994
+offset_bottom = -23.735992
+pivot_offset = Vector2(16, 0)
+pivot_offset_ratio = Vector2(16, 0)
+texture = ExtResource("1_grgdn")

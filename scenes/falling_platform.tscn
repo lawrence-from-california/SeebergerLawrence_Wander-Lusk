@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c2y0na00tngwr"]
+
+[ext_resource type="Texture2D" uid="uid://pps1p2dx0fir" path="res://enemies/Snaily/Falling Platform.png" id="1_l3rcd"]
+[ext_resource type="Script" uid="uid://clkobjr7f3vi0" path="res://scenes/falling_platform.gd" id="2_eyv7q"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eyv7q"]
+radius = 5.0
+height = 20.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyv7q"]
+size = Vector2(16, 4)
+
+[node name="Falling Platform" type="Sprite2D" unique_id=439368297]
+texture = ExtResource("1_l3rcd")
+script = ExtResource("2_eyv7q")
+metadata/_edit_horizontal_guides_ = [-9.0]
+
+[node name="StaticBody2d" type="StaticBody2D" parent="." unique_id=929668348]
+collision_layer = 129
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2d" unique_id=282848391]
+position = Vector2(0, -3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_eyv7q")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1989753151]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1389609573]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_eyv7q")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

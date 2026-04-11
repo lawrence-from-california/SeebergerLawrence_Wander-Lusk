@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ct8a7unm5rlp5"]
 
-[ext_resource type="Texture2D" uid="uid://vf40iqa53fhl" path="res://enemies/Snaily/Pendulum.png" id="1_301do"]
+[ext_resource type="Texture2D" uid="uid://bch7f83rpfmtj" path="res://scenes/Pendulum 2.png" id="1_301do"]
 [ext_resource type="PackedScene" uid="uid://l8alsvbkqara" path="res://scenes/killzone.tscn" id="2_rhq0a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5m5pe"]
@@ -40,7 +40,7 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.93333334, 1.0333333),
+"times": PackedFloat32Array(0, 0.2, 0.8333333, 1.0333333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [1.7453293, 1.7453293, -1.7453293, -1.7453293]
@@ -53,15 +53,15 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kb6p7"]
-radius = 3.0
-height = 20.0
+radius = 6.6977367
+height = 16.12452
 
 [node name="PENDULUM" type="AnimatableBody2D" unique_id=16992796]
 rotation = 1.7453293
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=216825959]
 sprite_frames = SubResource("SpriteFrames_5m5pe")
-frame_progress = 0.17422406
+frame_progress = 0.47218063
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1776659212]
 libraries/ = SubResource("AnimationLibrary_nu0j7")
@@ -71,5 +71,5 @@ speed_scale = 1.931
 [node name="Killzone" parent="." unique_id=312773291 instance=ExtResource("2_rhq0a")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1093161798]
-position = Vector2(0, 4)
+position = Vector2(-0.012211561, 32.249027)
 shape = SubResource("CapsuleShape2D_kb6p7")

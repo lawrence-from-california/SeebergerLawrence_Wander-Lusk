@@ -1,6 +1,8 @@
 [gd_scene format=4 uid="uid://d75xcybkvwoi"]
 
+[ext_resource type="PackedScene" uid="uid://bfuf5xuuhhxeu" path="res://scripts/main_hud.tscn" id="1_0lped"]
 [ext_resource type="Script" uid="uid://v0pu1ikrmb8m" path="res://scripts/game_manager.gd" id="1_bsk3x"]
+[ext_resource type="Script" uid="uid://dx8t2dv6hf04m" path="res://tutorial.gd" id="1_dudfa"]
 [ext_resource type="Texture2D" uid="uid://weebaravlvax" path="res://tilesets/sky.png" id="2_dl7dh"]
 [ext_resource type="Texture2D" uid="uid://b8npejfyafo6x" path="res://tilesets/back.png" id="3_r4o0u"]
 [ext_resource type="Texture2D" uid="uid://bigao8j0775hc" path="res://tilesets/NewOriginalTilemap.png" id="4_k08xv"]
@@ -8,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://ca15b1hp2046j" path="res://tilesets/ground_tileset_one.png" id="6_0lped"]
 [ext_resource type="Texture2D" uid="uid://dp1peolbv5dnu" path="res://tilesets/ground_tileset_two.png" id="7_dudfa"]
 [ext_resource type="PackedScene" uid="uid://bbobgwkypxy3u" path="res://Levels/player.tscn" id="8_5gpbq"]
-[ext_resource type="PackedScene" uid="uid://cjitqspq2vqp0" path="res://score_ui.tscn" id="9_tfgte"]
 [ext_resource type="PackedScene" uid="uid://bx04mmj7xy35i" path="res://scenes/spikes.tscn" id="10_dyhf1"]
 [ext_resource type="PackedScene" uid="uid://mhfuhs2bth6b" path="res://scenes/madflower.tscn" id="11_53tq2"]
 [ext_resource type="PackedScene" uid="uid://bum5ltath7q71" path="res://scenes/tomatocopter.tscn" id="12_4ods2"]
@@ -1664,23 +1665,29 @@ sources/2 = SubResource("TileSetAtlasSource_gdd2h")
 distance = -17.01355
 
 [node name="tutorial" type="Node2D" unique_id=2123229766]
-position = Vector2(1, 0)
+script = ExtResource("1_dudfa")
+
+[node name="Main HUD" parent="." unique_id=797063695 instance=ExtResource("1_0lped")]
+unique_name_in_owner = true
+offset_left = -731.0
+offset_top = -243.0
+offset_right = -731.0
+offset_bottom = -243.0
+currentlevel = "1 - CLASSIC"
+clock = 400
+areatype = "ground"
+leveltype = "classic"
 
 [node name="Player" parent="." unique_id=1749316360 instance=ExtResource("8_5gpbq")]
 unique_name_in_owner = true
 z_index = 10
 position = Vector2(-567, 37)
 
-[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=1362919651]
-position = Vector2(-18, -4)
-zoom = Vector2(3.5, 3.5)
-
-[node name="Score UI" parent="Player/Camera2D2" unique_id=437349504 instance=ExtResource("9_tfgte")]
-z_index = 4096
-offset_left = 68.0
-offset_top = -92.0
-offset_right = 191.0
-offset_bottom = -71.0
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1219474641]
+zoom = Vector2(3, 3)
+limit_left = -630
+limit_top = -706
+limit_right = 293
 
 [node name="Game Manager" type="Node" parent="." unique_id=823413]
 unique_name_in_owner = true

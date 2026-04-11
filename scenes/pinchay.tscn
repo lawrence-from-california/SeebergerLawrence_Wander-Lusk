@@ -31,7 +31,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6afx8"]
-size = Vector2(16, 4.5)
+size = Vector2(18, 6.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsx05"]
 size = Vector2(6, 4)
@@ -54,7 +54,7 @@ frame_progress = 0.0627742
 [node name="Killzone" parent="." unique_id=279969451 instance=ExtResource("5_15ynk")]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Killzone" unique_id=1525219985]
-position = Vector2(0, 5)
+position = Vector2(0, 4.125)
 shape = SubResource("RectangleShape2D_6afx8")
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=570846444]

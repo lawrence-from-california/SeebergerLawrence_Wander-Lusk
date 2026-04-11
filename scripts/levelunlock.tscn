@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cj1tv0weslin5"]
+
+[ext_resource type="Script" uid="uid://duloklp8gkqo0" path="res://scripts/levelunlock.gd" id="1_iwdil"]
+
+[node name="levelunlock" type="Node" unique_id=1681526425]
+script = ExtResource("1_iwdil")

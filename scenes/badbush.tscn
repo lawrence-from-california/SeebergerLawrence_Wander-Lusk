@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://brvynotwk5cjl"]
 
 [ext_resource type="Script" uid="uid://bei8e3qtgyr5j" path="res://badbush.gd" id="1_5phvi"]
-[ext_resource type="Texture2D" uid="uid://c60cu3hyibdpa" path="res://characters/Tumbleweed.png" id="2_cn32m"]
-[ext_resource type="Texture2D" uid="uid://bjbe7u4d8gp8s" path="res://characters/Tumbleweed2.png" id="3_8ju2e"]
+[ext_resource type="Texture2D" uid="uid://d3eoubjpv1ene" path="res://enemies/Snaily/Tumbleweed3.png" id="2_cn32m"]
+[ext_resource type="Texture2D" uid="uid://wl4nj85pntjr" path="res://enemies/Snaily/Tumbleweed2.png" id="3_8ju2e"]
 [ext_resource type="PackedScene" uid="uid://l8alsvbkqara" path="res://scenes/killzone.tscn" id="4_8ju2e"]
-[ext_resource type="Texture2D" uid="uid://khg0lrmfodb7" path="res://characters/Tumbleweed3.png" id="4_tovp5"]
-[ext_resource type="Texture2D" uid="uid://b6s8kiwrsr5y2" path="res://characters/Tumbleweed4.png" id="5_0gd3c"]
+[ext_resource type="Texture2D" uid="uid://cljnipji6w7gd" path="res://enemies/Snaily/Tumbleweed4.png" id="4_tovp5"]
+[ext_resource type="Texture2D" uid="uid://2rqcbq3plnix" path="res://enemies/Snaily/Tumbleweed.png" id="5_0gd3c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tovp5"]
 animations = [{

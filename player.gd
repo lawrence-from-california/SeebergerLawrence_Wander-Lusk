@@ -1,8 +1,8 @@
 extends CharacterBody2D
 class_name MainCharacter
 @onready var animated_sprite_2d: AnimatedSprite2D = $graphics
-const SPEED:float = 200.0
-const JUMP_VELOCITY:float = -333.0
+var SPEED:float = 200.0
+var JUMP_VELOCITY:float = -333.0
 @onready var JUMP_COUNT: int = 1
 var MAX_JUMP_COUNT: int = 1
 var last_direction : float = 0
@@ -10,15 +10,67 @@ var last_direction : float = 0
 @onready var jumpbuff: Timer= $JumpBuffer
 @onready var lvltime: Timer = $LVLTime
 var coyoteactivate: bool = false
-
+var physicscheck: bool = false
+@onready var down: RayCast2D = $RayCast2D
+@onready var graphics: AnimatedSprite2D = $graphics
+@onready var right: RayCast2D = $RayCast2D2
+@onready var left: RayCast2D = $RayCast2D3
+@onready var rightdown: RayCast2D = $RayCast2D4
+@onready var leftdown: RayCast2D = $RayCast2D5
+var plainjump : bool = true
+var rotatable: bool = true
+var ice: bool = false
+var acceleration: float = 50
+var maxspeed: float = 3
+var friction: float = 1.4
+var motion: = Vector2()  
+var velocityweight: float
 
 #func_ready():
 	#$elixir.connect("jump", self, 0)
 	
-#func timelevel(delta: float) -> void:
-	#lvltime.start()
+#THIS IS THE CHARACTER ROTATION ON SLOPES
+func _process(_delta: float) -> void:
+	
+	if !is_on_floor() and last_direction==0:
+		plainjump = true
+		
+	if !rotation_degrees == 0:
+		plainjump=false
+		
+	if plainjump == true:
+		if !leftdown.is_colliding() and rightdown.is_colliding():
+			if graphics.scale.x > 0:
+				last_direction = 1
+			if graphics.scale.x < 0:
+				last_direction = -1
+		if leftdown.is_colliding() and !rightdown.is_colliding():
+			if graphics.scale.x > 0:
+				last_direction = -1
+			if graphics.scale.x < 0:
+				last_direction = 1
+				
+	if !is_on_floor() or (!rotation_degrees ==0 and((!leftdown.is_colliding() and last_direction==-1) or (!rightdown.is_colliding() and last_direction==1))):
+		rotation_degrees = 0
+		last_direction = 0
+		rotatable= false
+	
+	if left.is_colliding() or right.is_colliding():
+		if rotation_degrees == 0:
+			rotatable=true
+			
+
+	if !down.is_colliding() and is_on_floor() and rotatable==true and rotation_degrees ==0 and ice==false:
+		rotation_degrees = (-45*last_direction)
+		
+	if down.is_colliding():
+		rotatable=false
 	
 
+
+
+		
+# jumping  mechanics
 
 func _physics_process(delta: float) -> void:
 	
@@ -27,6 +79,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		rotatable=true
 
 	# Handle jump.
 	if is_on_floor():
@@ -53,24 +106,42 @@ func _physics_process(delta: float) -> void:
 		JUMP_COUNT = MAX_JUMP_COUNT
 		
 	
-	#
+	
 	
 	
 
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction:float = Input.get_axis("move_left", "move_right")
-	last_direction=direction
 
+	var direction:float = Input.get_axis("move_left", "move_right")
+	var icedirection: float = Input.get_action_strength("move_left") or Input.get_action_strength("move_right")
 	
-	
-	#apply movement
+	if (down.is_colliding() and !collision_mask==19):
+		ice=false
+		last_direction=0
+		
+	if ice == true:
+		SPEED = 300
+		rotatable=false
+		velocityweight = delta * (acceleration if icedirection else friction)
+		print("ice")
+	else:
+		SPEED = 220
+		print("noice")
+	if !direction ==0:
+		last_direction=direction
+ 
+
 	if direction:
 		velocity.x = direction * SPEED
 	
+		
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if ice == false:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		if ice == true:
+			velocity.x = lerp(velocity.x, icedirection * maxspeed, velocityweight)
 		
 	if direction < 0:
 		animated_sprite_2d.flip_h = true
@@ -114,5 +185,5 @@ func _on_area_2d_area_entered(_area: Area2D) -> void:
 			velocity.y *= 0.5
 func add_jumps (jumps : int) -> void:
 	MAX_JUMP_COUNT += jumps
-	JUMP_COUNT + 1
+	JUMP_COUNT += 1
 	print (MAX_JUMP_COUNT)

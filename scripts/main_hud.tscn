@@ -7,6 +7,7 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_46ak2")
+areatype = "beach"
 metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1031991351]

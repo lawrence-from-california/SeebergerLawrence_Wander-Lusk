@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://djig57hlcgctf"]
 
 [ext_resource type="Script" uid="uid://qotakby6dwq4" path="res://scripts/coin.gd" id="1_0t63x"]
-[ext_resource type="Texture2D" uid="uid://ctay2m4ie3pqg" path="res://characters/Fruit 1.png" id="2_1ikuy"]
+[ext_resource type="Texture2D" uid="uid://csmxcsfo5c6sg" path="res://enemies/Snaily/Fruit 1.png" id="2_d14el"]
+[ext_resource type="Texture2D" uid="uid://cuyalext80hbd" path="res://enemies/Snaily/Fruit 2.png" id="3_1ikuy"]
 [ext_resource type="AudioStream" uid="uid://deki4x57xk5lp" path="res://sounds/sfx_coin.ogg" id="3_11l1o"]
-[ext_resource type="Texture2D" uid="uid://cibhadsbpddmr" path="res://characters/Fruit 2.png" id="3_wnlwo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s5w7y"]
 animations = [{
 "frames": [{
-"duration": 0.9,
-"texture": ExtResource("2_1ikuy")
+"duration": 1.0,
+"texture": ExtResource("2_d14el")
 }, {
-"duration": 0.9,
-"texture": ExtResource("3_wnlwo")
+"duration": 1.0,
+"texture": ExtResource("3_1ikuy")
 }],
 "loop": true,
 "name": &"default",

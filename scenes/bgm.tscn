@@ -2,10 +2,22 @@
 
 [ext_resource type="AudioStream" uid="uid://bjvbf6pv7syye" path="res://music/Jazz for Turtles (1).mp3" id="1_q5y64"]
 [ext_resource type="Script" uid="uid://cgav2bp0q2hyh" path="res://scripts/bgm.gd" id="2_3c3jb"]
+[ext_resource type="AudioStream" uid="uid://cquoi3pkfseee" path="res://Winter Wanderland.mp3" id="3_48mr8"]
+[ext_resource type="AudioStream" uid="uid://bnc7tdyavs4h6" path="res://Island Wanders.mp3" id="4_dg162"]
 
-[node name="BGM" type="AudioStreamPlayer" unique_id=2091230748]
+[node name="BGM" type="Node" unique_id=593244188]
+script = ExtResource("2_3c3jb")
+
+[node name="Jazz for Turtles" type="AudioStreamPlayer" parent="." unique_id=554163455]
 stream = ExtResource("1_q5y64")
 autoplay = true
 bus = &"BGM"
 parameters/looping = true
-script = ExtResource("2_3c3jb")
+
+[node name="Winter Wanderland" type="AudioStreamPlayer" parent="." unique_id=970119671]
+stream = ExtResource("3_48mr8")
+bus = &"BGM"
+
+[node name="Island Wanders" type="AudioStreamPlayer" parent="." unique_id=290716043]
+stream = ExtResource("4_dg162")
+bus = &"BGM"

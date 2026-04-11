@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bjxg257thi4xv" path="res://enemies/SnailySprites3.png" id="2_cko2x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gwlcl"]
-radius = 2.0
+radius = 4.0
 height = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gwlcl"]
@@ -75,10 +75,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rgs0"]
-size = Vector2(7.5, 3)
+size = Vector2(8, 3)
 
 [node name="Player" type="CharacterBody2D" unique_id=1749316360]
-collision_layer = 2
+collision_layer = 262298
+collision_mask = 262297
 script = ExtResource("1_cko2x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1875709266]
@@ -95,7 +96,7 @@ collision_layer = 8
 collision_mask = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1932386970]
-position = Vector2(1, 8)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_5rgs0")
 
 [node name="CanisLatrans" type="Timer" parent="." unique_id=901586338]
@@ -107,5 +108,24 @@ wait_time = 0.08
 one_shot = true
 
 [node name="LVLTime" type="Timer" parent="." unique_id=834898141]
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=427335514]
+target_position = Vector2(0, 8.5)
+
+[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1084918639]
+position = Vector2(2, 0)
+target_position = Vector2(8, 0)
+
+[node name="RayCast2D4" type="RayCast2D" parent="." unique_id=900009087]
+position = Vector2(4, 0)
+target_position = Vector2(0, 9)
+
+[node name="RayCast2D5" type="RayCast2D" parent="." unique_id=1171061398]
+position = Vector2(-4, 0)
+target_position = Vector2(0, 9)
+
+[node name="RayCast2D3" type="RayCast2D" parent="." unique_id=1372425918]
+position = Vector2(-2, 0)
+target_position = Vector2(-8, 0)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

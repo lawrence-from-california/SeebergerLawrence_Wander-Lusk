@@ -18,7 +18,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8bxr"]
-size = Vector2(32, 16)
+size = Vector2(32, 11.5)
 
 [node name="Platform" type="AnimatableBody2D" unique_id=926225892]
 
@@ -27,5 +27,6 @@ sprite_frames = SubResource("SpriteFrames_n1ckp")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=259698033]
+position = Vector2(0, -2.25)
 shape = SubResource("RectangleShape2D_s8bxr")
 one_way_collision = true

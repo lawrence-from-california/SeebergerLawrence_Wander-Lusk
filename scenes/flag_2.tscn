@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://c351l7kwb7vb1"]
 
 [ext_resource type="Script" uid="uid://d27d24tukhi4m" path="res://scenes/flag_2.gd" id="1_8hto7"]
-[ext_resource type="Texture2D" uid="uid://d2j1asgdjskli" path="res://characters/Flag 1.png" id="2_hss23"]
-[ext_resource type="Texture2D" uid="uid://cbpiwamfn78lr" path="res://characters/Flag 2.png" id="3_gtemw"]
+[ext_resource type="Texture2D" uid="uid://cl0wx7xs5ogqt" path="res://scenes/Flag 1.png" id="2_8hto7"]
+[ext_resource type="Texture2D" uid="uid://cjwhh7xde0q5u" path="res://scenes/Flag 2.png" id="3_hss23"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uqc4p"]
 animations = [{
 "frames": [{
 "duration": 0.5,
-"texture": ExtResource("2_hss23")
+"texture": ExtResource("2_8hto7")
 }, {
 "duration": 0.5,
-"texture": ExtResource("3_gtemw")
+"texture": ExtResource("3_hss23")
 }],
 "loop": true,
 "name": &"default",

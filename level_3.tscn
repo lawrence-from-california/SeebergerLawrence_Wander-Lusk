@@ -1,6 +1,8 @@
 [gd_scene format=4 uid="uid://wvpkl5jkxwdp"]
 
 [ext_resource type="PackedScene" uid="uid://bbobgwkypxy3u" path="res://Levels/player.tscn" id="1_kmy7e"]
+[ext_resource type="PackedScene" uid="uid://bfuf5xuuhhxeu" path="res://scripts/main_hud.tscn" id="1_m8gss"]
+[ext_resource type="Script" uid="uid://dors47wwinap3" path="res://level_3.gd" id="1_wnq0t"]
 [ext_resource type="Script" uid="uid://v0pu1ikrmb8m" path="res://scripts/game_manager.gd" id="3_ghrvs"]
 [ext_resource type="Texture2D" uid="uid://weebaravlvax" path="res://tilesets/sky.png" id="4_jvy75"]
 [ext_resource type="Texture2D" uid="uid://b8npejfyafo6x" path="res://tilesets/back.png" id="5_g0tlw"]
@@ -1393,11 +1395,29 @@ _data = {
 }
 
 [node name="level 3" type="Node2D" unique_id=735955581]
+script = ExtResource("1_wnq0t")
+
+[node name="Main HUD" parent="." unique_id=797063695 instance=ExtResource("1_m8gss")]
+unique_name_in_owner = true
+offset_left = -731.0
+offset_top = -243.0
+offset_right = -731.0
+offset_bottom = -243.0
+currentlevel = "2 - CLASSIC"
+clock = 400
+areatype = "ground"
+leveltype = "classic"
 
 [node name="Player" parent="." unique_id=1749316360 instance=ExtResource("1_kmy7e")]
 unique_name_in_owner = true
 z_index = 10
 position = Vector2(-490, 37)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=963080057]
+zoom = Vector2(3, 3)
+limit_left = -534
+limit_top = -706
+limit_right = 479
 
 [node name="Game Manager" type="Node" parent="." unique_id=2044460653]
 unique_name_in_owner = true

@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b4w1rv6sip7he"]
+
+[ext_resource type="Script" uid="uid://diu4owbvlrocf" path="res://scripts/clock.gd" id="1_8faam"]
+[ext_resource type="Texture2D" uid="uid://hd01j7kp2u3c" path="res://enemies/import_examples/Clock 1.png" id="1_pou1q"]
+[ext_resource type="Texture2D" uid="uid://c1po4vtndt6u" path="res://enemies/import_examples/Clock 5.png" id="2_8faam"]
+[ext_resource type="Texture2D" uid="uid://bstffg6ewlrdf" path="res://enemies/import_examples/Clock 2.png" id="3_6w1bo"]
+[ext_resource type="Texture2D" uid="uid://yyljooe4irn7" path="res://enemies/import_examples/Clock 6.png" id="4_262ah"]
+[ext_resource type="Texture2D" uid="uid://c2c7b41h1vgc7" path="res://enemies/import_examples/Clock 3.png" id="5_pcawy"]
+[ext_resource type="Texture2D" uid="uid://ccndy0t6l4ini" path="res://enemies/import_examples/Clock 7.png" id="6_u1xuc"]
+[ext_resource type="Texture2D" uid="uid://bdx0rtws5srw0" path="res://enemies/import_examples/Clock 4.png" id="7_xud12"]
+[ext_resource type="Texture2D" uid="uid://dphdb0oifw3m5" path="res://enemies/import_examples/Clock 8.png" id="8_oxju8"]
+[ext_resource type="AudioStream" uid="uid://deki4x57xk5lp" path="res://sounds/sfx_coin.ogg" id="9_kbovr"]
+[ext_resource type="PackedScene" uid="uid://bsh1hj4c0f7ur" path="res://scenes/pickupanimation.tscn" id="10_ebj68"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_upxra"]
+animations = [{
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("1_pou1q")
+}, {
+"duration": 0.7,
+"texture": ExtResource("2_8faam")
+}, {
+"duration": 0.7,
+"texture": ExtResource("3_6w1bo")
+}, {
+"duration": 0.7,
+"texture": ExtResource("4_262ah")
+}, {
+"duration": 0.7,
+"texture": ExtResource("5_pcawy")
+}, {
+"duration": 0.7,
+"texture": ExtResource("6_u1xuc")
+}, {
+"duration": 0.7,
+"texture": ExtResource("7_xud12")
+}, {
+"duration": 0.7,
+"texture": ExtResource("8_oxju8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lq5uk"]
+radius = 9.513149
+
+[node name="Clock" type="Area2D" unique_id=1936782267]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_8faam")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1139445962]
+visibility_layer = 1023
+sprite_frames = SubResource("SpriteFrames_upxra")
+autoplay = "default"
+frame_progress = 0.009370669
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=135275628]
+position = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_lq5uk")
+
+[node name="Chaching" type="AudioStreamPlayer2D" parent="." unique_id=1270534515]
+stream = ExtResource("9_kbovr")
+bus = &"SFX"
+
+[node name="AnimationPlayer" parent="." unique_id=1130378463 instance=ExtResource("10_ebj68")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

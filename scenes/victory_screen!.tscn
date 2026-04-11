@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://cqsaklwbdmpf6"]
 
 [ext_resource type="Texture2D" uid="uid://cc4tblluji765" path="res://Victory Screen.png" id="1_wml3v"]
+[ext_resource type="FontFile" uid="uid://cihhuwrtty5jn" path="res://enemies/Mystery Font (1).ttf" id="2_6ijhk"]
+[ext_resource type="Script" uid="uid://d0vypd44earcs" path="res://scenes/menu_button.gd" id="3_bt2oo"]
+[ext_resource type="PackedScene" uid="uid://bfuf5xuuhhxeu" path="res://scripts/main_hud.tscn" id="4_ynsm5"]
 
 [node name="Victory Screen!" type="Node2D" unique_id=1880872683]
 
@@ -8,3 +11,36 @@
 position = Vector2(573, 409)
 scale = Vector2(0.5854492, 0.65234375)
 texture = ExtResource("1_wml3v")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1144247255]
+position = Vector2(581, 331)
+
+[node name="Menu button" type="Button" parent="." unique_id=1819708374]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 263.0
+offset_top = 565.0
+offset_right = 847.0
+offset_bottom = 637.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_6ijhk")
+theme_override_font_sizes/font_size = 64
+text = "RETURN TO MENU"
+script = ExtResource("3_bt2oo")
+
+[node name="Main HUD" parent="." unique_id=797063695 instance=ExtResource("4_ynsm5")]
+unique_name_in_owner = true
+offset_left = -731.0
+offset_top = -243.0
+offset_right = -731.0
+offset_bottom = -243.0
+currentlevel = "3 - CLASSIC"
+clock = 400
+areatype = "ground"
+leveltype = "Victory"
+
+[connection signal="pressed" from="Menu button" to="Menu button" method="_on_pressed"]

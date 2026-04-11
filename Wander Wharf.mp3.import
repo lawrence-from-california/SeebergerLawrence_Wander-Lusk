@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://drb5oe6ccfutb"
+path="res://.godot/imported/Wander Wharf.mp3-b4ee0020eaed13bbb8a49a289f18b41d.mp3str"
+
+[deps]
+
+source_file="res://Wander Wharf.mp3"
+dest_files=["res://.godot/imported/Wander Wharf.mp3-b4ee0020eaed13bbb8a49a289f18b41d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

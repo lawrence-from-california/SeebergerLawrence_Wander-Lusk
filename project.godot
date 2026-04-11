@@ -23,6 +23,8 @@ config/icon="res://icon.svg"
 
 Bgm="*uid://dnjjmxw4fgqp4"
 LevelManager="*uid://qriuk1rm6gw1"
+Saving="*uid://dl3hg6r475aee"
+Unlocks="*uid://cj1tv0weslin5"
 
 [debug]
 
@@ -31,6 +33,11 @@ gdscript/warnings/unsafe_property_access=2
 gdscript/warnings/unsafe_method_access=2
 gdscript/warnings/unsafe_cast=1
 gdscript/warnings/unsafe_call_argument=2
+
+[display]
+
+window/size/mode=2
+window/stretch/mode="canvas_items"
 
 [input]
 

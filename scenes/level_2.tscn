@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://weebaravlvax" path="res://tilesets/sky.png" id="1_d0mm5"]
 [ext_resource type="Script" uid="uid://c33fhm8ikiiw1" path="res://scripts/level_2.gd" id="1_fldb1"]
 [ext_resource type="Texture2D" uid="uid://b8npejfyafo6x" path="res://tilesets/back.png" id="2_38npl"]
-[ext_resource type="Script" uid="uid://v0pu1ikrmb8m" path="res://scripts/game_manager.gd" id="2_guvtl"]
+[ext_resource type="PackedScene" uid="uid://bfuf5xuuhhxeu" path="res://scripts/main_hud.tscn" id="2_k22d5"]
 [ext_resource type="Texture2D" uid="uid://bhtcoxbpdvr7v" path="res://tilesets/tileset.png" id="3_mm8br"]
 [ext_resource type="Texture2D" uid="uid://ca15b1hp2046j" path="res://tilesets/ground_tileset_one.png" id="4_0cxqw"]
 [ext_resource type="Texture2D" uid="uid://dp1peolbv5dnu" path="res://tilesets/ground_tileset_two.png" id="5_iue5c"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://brvynotwk5cjl" path="res://scenes/badbush.tscn" id="14_igmy8"]
 [ext_resource type="PackedScene" uid="uid://blnnp1rcf3xpg" path="res://scenes/candycap.tscn" id="15_wdtqu"]
 [ext_resource type="PackedScene" uid="uid://clo6qdxwrpl3u" path="res://superdiamond.tscn" id="18_bv48q"]
-[ext_resource type="PackedScene" uid="uid://cjitqspq2vqp0" path="res://score_ui.tscn" id="19_bv48q"]
 [ext_resource type="PackedScene" uid="uid://t1qqucs34tge" path="res://arrow.tscn" id="21_k6a82"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k6a82"]
@@ -1662,8 +1661,6 @@ sources/0 = SubResource("TileSetAtlasSource_bgibu")
 sources/1 = SubResource("TileSetAtlasSource_73m23")
 sources/2 = SubResource("TileSetAtlasSource_45kkt")
 
-[sub_resource type="LabelSettings" id="LabelSettings_xdadj"]
-
 [sub_resource type="Animation" id="Animation_1y8me"]
 length = 5.0
 loop_mode = 2
@@ -1750,31 +1747,35 @@ size = Vector2(1356, 210)
 [node name="level2" type="Node2D" unique_id=1328021483]
 script = ExtResource("1_fldb1")
 
+[node name="Main HUD" parent="." unique_id=797063695 instance=ExtResource("2_k22d5")]
+unique_name_in_owner = true
+offset_left = -731.0
+offset_top = -243.0
+offset_right = -731.0
+offset_bottom = -243.0
+currentlevel = "3 - CLASSIC"
+clock = 400
+areatype = "ground"
+leveltype = "classic"
+
 [node name="Player" parent="." unique_id=1871681032 instance=ExtResource("6_aypmf")]
 unique_name_in_owner = true
 z_index = 10
 position = Vector2(-490, 37)
 
-[node name="Score UI" parent="Player" unique_id=437349504 instance=ExtResource("19_bv48q")]
-z_index = 4096
-offset_left = 70.0
-offset_top = -97.0
-offset_right = 146.0
-offset_bottom = -76.0
-
-[node name="Game Manager" type="Node" parent="." unique_id=898972762]
-unique_name_in_owner = true
-script = ExtResource("2_guvtl")
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=217883434]
+zoom = Vector2(3, 3)
+limit_left = -528
+limit_top = -706
+limit_right = 590
 
 [node name="tilemaps" type="Node" parent="." unique_id=20567819]
 
 [node name="Parallax2D" type="Parallax2D" parent="tilemaps" unique_id=160112313]
-visible = false
 scroll_scale = Vector2(1.1, 1.1)
 scroll_offset = Vector2(2, 2)
 
 [node name="sky" type="Sprite2D" parent="tilemaps/Parallax2D" unique_id=1973370232]
-visible = false
 position = Vector2(522, -89.00001)
 scale = Vector2(8.302083, 5.9385414)
 texture = ExtResource("1_d0mm5")
@@ -1789,22 +1790,11 @@ tile_map_data = PackedByteArray("AAD+/wAAAwAPAAEAAAD9/wAAAwANAAIAAAD8/wAAAwAMAAE
 tile_set = SubResource("TileSet_1y8me")
 
 [node name="foreground" type="TileMapLayer" parent="tilemaps" unique_id=1201085175]
-visible = false
 z_index = 15
-tile_map_data = PackedByteArray("AADn/wIAAgAOAAEAAADo/wIAAgANAAEAAADp/wIAAgAOAAEAAADq/wIAAgANAAEAAADr/wIAAgAOAAEAAADs/wIAAgANAAEAAAD5/wIAAgAOAAEAAAD4/wIAAgANAAEAAAD4/wMAAgANAAIAAAD3/wMAAgAOAAIAAAD2/wMAAgANAAIAAAD1/wMAAgAOAAIAAAD0/wMAAgANAAIAAADz/wMAAgAOAAIAAADy/wMAAgANAAIAAADx/wMAAgAOAAIAAADw/wMAAgANAAIAAADv/wMAAgAOAAIAAADu/wMAAgANAAIAAADt/wMAAgAOAAIAAADs/wMAAgANAAIAAADr/wMAAgAOAAIAAADt/wIAAgAOAAEAAADu/wEAAgANAAIAAADv/wEAAgAOAAIAAADw/wEAAgANAAIAAADx/wEAAgAOAAIAAADx/wIAAgAOAAEAAADy/wIAAgANAAEAAADz/wIAAgAOAAEAAAD0/wIAAgANAAEAAAD1/wIAAgAOAAEAAAD2/wIAAgANAAEAAAD3/wIAAgAOAAEAAAD5/wMAAgAOAAIAAADw/wIAAgANAAEAAADv/wIAAgAOAAEAAADu/wIAAgANAAEAAADt/wEAAgAOAAIAAADq/wMAAgANAAIAAADp/wMAAgAOAAIAAADo/wMAAgANAAIAAADn/wMAAgAOAAIAAADn/wEAAgAOAAIAAADo/wEAAgANAAIAAADp/wEAAgAOAAIAAADq/wEAAgANAAIAAADr/wEAAgAOAAIAAADs/wEAAgANAAIAAADy/wEAAgANAAIAAADz/wEAAgAOAAIAAAD0/wEAAgANAAIAAAD1/wEAAgAOAAIAAAD2/wEAAgANAAIAAAD3/wEAAgAOAAIAAAD4/wEAAgANAAIAAAD5/wEAAgAOAAIAAAAfAPH/AgANAAEAAAAfAPL/AgAOAAEAAAAfAPP/AgAOAAIAAAAeAPP/AgANAAIAAAAdAPP/AgAOAAIAAAAdAPL/AgAOAAEAAAAdAPH/AgANAAEAAAAeAPH/AgAOAAEAAAAeAPL/AgANAAEAAAAcAPP/AgANAAIAAAAbAPP/AgAOAAIAAAAbAPL/AgAOAAEAAAAcAPL/AgANAAEAAAAaAPP/AgANAAIAAAAZAPP/AgAOAAIAAAAZAPL/AgAOAAEAAAAYAPP/AgANAAIAAAAYAPL/AgANAAEAAAAaAPL/AgANAAEAAAAXAPL/AgAOAAEAAAAXAPP/AgAOAAIAAAAXAPH/AgANAAEAAAAYAPH/AgAOAAEAAAAZAPH/AgANAAEAAAAaAPH/AgAOAAEAAAAbAPH/AgANAAEAAAAcAPH/AgAOAAEAAAAVAOz/AgAOAAEAAAAUAOz/AgANAAEAAAATAOz/AgAOAAEAAAAUAOv/AgANAAIAAAAVAOv/AgAOAAIAAAATAOv/AgAOAAIAAAASAOv/AgANAAIAAAASAOz/AgANAAEAAAARAOv/AgAOAAIAAAARAOz/AgAOAAEAAAAQAOz/AgANAAEAAAAQAOv/AgANAAIAAAAPAOv/AgAOAAIAAAAOAOv/AgANAAIAAAAPAOz/AgAOAAEAAAAOAOz/AgANAAEAAAAOAO3/AgANAAIAAAAOAO7/AgANAAEAAAAOAO//AgANAAIAAAAOAPD/AgANAAEAAAAPAPD/AgAOAAEAAAAQAPD/AgANAAEAAAARAPD/AgAOAAEAAAASAPD/AgANAAEAAAATAPD/AgAOAAEAAAAUAPD/AgANAAEAAAAVAPD/AgAOAAEAAAAVAO//AgAOAAIAAAAVAO7/AgAOAAEAAAAVAO3/AgAOAAIAAAAUAO3/AgANAAIAAAAUAO7/AgANAAEAAAAUAO//AgANAAIAAAATAO7/AgAOAAEAAAATAO3/AgAOAAIAAAASAO3/AgANAAIAAAASAO7/AgANAAEAAAASAO//AgANAAIAAAATAO//AgAOAAIAAAARAO//AgAOAAIAAAARAO7/AgAOAAEAAAAQAO7/AgANAAEAAAARAO3/AgAOAAIAAAAQAO3/AgANAAIAAAAPAO7/AgAOAAEAAAAPAO//AgAOAAIAAAAQAO//AgANAAIAAAAPAO3/AgAOAAIAAAAWAPP/AgANAAIAAAAWAPL/AgANAAEAAAAWAPH/AgANAAIAAAAWAPD/AgANAAEAAAAWAO//AgANAAIAAAA=")
 tile_set = SubResource("TileSet_n7ypv")
 
 [node name="FlagWIN" parent="tilemaps" unique_id=1594258572 instance=ExtResource("11_k6a82")]
 position = Vector2(-176, -322)
-
-[node name="Sign" type="Label" parent="." unique_id=846281349]
-visible = false
-z_index = 1
-offset_left = -119.0
-offset_top = -23.0
-offset_right = -77.0
-text = "JUMP"
-label_settings = SubResource("LabelSettings_xdadj")
 
 [node name="Spikeset" type="Node" parent="." unique_id=1217151597]
 
