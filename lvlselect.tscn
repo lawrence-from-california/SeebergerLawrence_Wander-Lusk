@@ -1461,11 +1461,17 @@ theme_override_fonts/font = ExtResource("2_cjqu6")
 theme_override_font_sizes/font_size = 32
 text = "WINTER 2"
 
-[node name="Winter 3" type="Button" parent="GridContainer" unique_id=1320997155]
+[node name="Winter 3A" type="Button" parent="GridContainer" unique_id=1320997155]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_cjqu6")
 theme_override_font_sizes/font_size = 32
-text = "WINTER 3"
+text = "WINTER 3A"
+
+[node name="Winter 3B" type="Button" parent="GridContainer" unique_id=321247389]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cjqu6")
+theme_override_font_sizes/font_size = 32
+text = "WINTER 3B"
 
 [node name="Epic 1" type="Button" parent="GridContainer" unique_id=173055844]
 layout_mode = 2
@@ -1529,7 +1535,10 @@ flip_h = true
 [connection signal="pressed" from="GridContainer/Beach 2" to="." method="_on_beach_2_pressed"]
 [connection signal="pressed" from="GridContainer/Beach 3" to="." method="_on_beach_3_pressed"]
 [connection signal="pressed" from="GridContainer/Winter 2" to="." method="_on_winter_2_pressed"]
-[connection signal="pressed" from="GridContainer/Winter 3" to="." method="_on_winter_3_pressed"]
+[connection signal="pressed" from="GridContainer/Winter 3A" to="." method="_on_winter_3_pressed"]
+[connection signal="pressed" from="GridContainer/Winter 3A" to="." method="_on_winter_3a_pressed"]
+[connection signal="pressed" from="GridContainer/Winter 3B" to="." method="_on_winter_3_pressed"]
+[connection signal="pressed" from="GridContainer/Winter 3B" to="." method="_on_winter_3b_pressed"]
 [connection signal="pressed" from="GridContainer/Epic 1" to="." method="_on_epic_1_pressed"]
 [connection signal="pressed" from="GridContainer/Epic 2" to="." method="_on_epic_2_pressed"]
 [connection signal="pressed" from="GridContainer/Epic 3" to="." method="_on_epic_3_pressed"]

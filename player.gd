@@ -1,5 +1,6 @@
 extends CharacterBody2D
 class_name MainCharacter
+@onready var collider: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $graphics
 var SPEED:float = 200.0
 var JUMP_VELOCITY:float = -333.0
@@ -11,6 +12,7 @@ var last_direction : float = 0
 @onready var lvltime: Timer = $LVLTime
 var coyoteactivate: bool = false
 var physicscheck: bool = false
+var walljump: bool = false
 @onready var down: RayCast2D = $RayCast2D
 @onready var graphics: AnimatedSprite2D = $graphics
 @onready var right: RayCast2D = $RayCast2D2
@@ -31,40 +33,63 @@ var velocityweight: float
 	
 #THIS IS THE CHARACTER ROTATION ON SLOPES
 func _process(_delta: float) -> void:
+	if down.is_colliding() or !is_on_floor():
+		graphics.rotation_degrees=0
 	
+	if !down.is_colliding() and rotatable==true and is_on_floor():
+		if !left.is_colliding():
+			if right.is_colliding():
+				if graphics.scale.x > 0:
+					graphics.rotation_degrees=-45
+				if graphics.scale.y < 0:
+					graphics.rotation_degrees=45
+		if !right.is_colliding():
+			if left.is_colliding():
+				if graphics.scale.x > 0:
+					graphics.rotation_degrees=45
+				if graphics.scale.y < 0:
+					graphics.rotation_degrees=-45
+					graphics.position.x
+	if graphics.rotation_degrees==0:
+		graphics.position.y = collider.position.y-3
+	else:
+		graphics.position.y = collider.position.y-6
 	if !is_on_floor() and last_direction==0:
 		plainjump = true
 		
 	if !rotation_degrees == 0:
 		plainjump=false
-		
-	if plainjump == true:
-		if !leftdown.is_colliding() and rightdown.is_colliding():
-			if graphics.scale.x > 0:
-				last_direction = 1
-			if graphics.scale.x < 0:
-				last_direction = -1
-		if leftdown.is_colliding() and !rightdown.is_colliding():
-			if graphics.scale.x > 0:
-				last_direction = -1
-			if graphics.scale.x < 0:
-				last_direction = 1
-				
-	if !is_on_floor() or (!rotation_degrees ==0 and((!leftdown.is_colliding() and last_direction==-1) or (!rightdown.is_colliding() and last_direction==1))):
-		rotation_degrees = 0
-		last_direction = 0
-		rotatable= false
-	
-	if left.is_colliding() or right.is_colliding():
-		if rotation_degrees == 0:
-			rotatable=true
-			
+		#
+	#if plainjump == true:
+		#if !leftdown.is_colliding() and rightdown.is_colliding():
+			#if graphics.scale.x > 0:
+				#last_direction = 1
+			#if graphics.scale.x < 0:
+				#last_direction = -1
+		#if leftdown.is_colliding() and !rightdown.is_colliding():
+			#if graphics.scale.x > 0:
+				#last_direction = -1
+			#if graphics.scale.x < 0:
+				#last_direction = 1
+				#
+	#if !is_on_floor() or (!rotation_degrees ==0 and((!leftdown.is_colliding() and last_direction==-1) or (!rightdown.is_colliding() and last_direction==1))):
+		#rotation_degrees = 0
+		#last_direction = 0
+		#rotatable= false
+	#
+	#if left.is_colliding() or right.is_colliding():
+		#if rotation_degrees == 0:
+			#rotatable=true
+			#
+#
+	#if !down.is_colliding():
+		#if is_on_floor() and rotatable==true and rotation_degrees ==0 and ice==false and !last_direction==0:
+			#rotation_degrees = (-45*last_direction)
+		#if !rotation_degrees == 0:
+			#rotatable=false
+	#if down.is_colliding():
+		#rotatable=false
 
-	if !down.is_colliding() and is_on_floor() and rotatable==true and rotation_degrees ==0 and ice==false:
-		rotation_degrees = (-45*last_direction)
-		
-	if down.is_colliding():
-		rotatable=false
 	
 
 
@@ -129,11 +154,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		SPEED = 220
 		print("noice")
-	if !direction ==0:
-		last_direction=direction
+
  
 
 	if direction:
+		last_direction=direction
 		velocity.x = direction * SPEED
 	
 		

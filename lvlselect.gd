@@ -7,7 +7,8 @@ extends Control
 @onready var beach_2: Button = $"GridContainer/Beach 2"
 @onready var beach_3: Button = $"GridContainer/Beach 3"
 @onready var winter_2: Button = $"GridContainer/Winter 2"
-@onready var winter_3: Button = $"GridContainer/Winter 3"
+@onready var winter_3a: Button = $"GridContainer/Winter 3A"
+@onready var winter_3b: Button = $"GridContainer/Winter 3B"
 
 
 func _on_main_menu_pressed() -> void:
@@ -33,9 +34,17 @@ func _on_winter_2_pressed() -> void:
 		get_tree().change_scene_to_file("res://scripts/winter_1.tscn")
 
 
-func _on_winter_3_pressed() -> void:
-	if levelunlock.winter2 == true:
+func _on_winter_3a_pressed() -> void:
+	if levelunlock.winter2a == true:
 		get_tree().change_scene_to_file("res://winter_2_1.tscn")
+		
+		
+
+func _on_winter_3b_pressed() -> void:
+	if levelunlock.winter2b == true:
+		get_tree().change_scene_to_file("res://scenes/winter_2.tscn")
+
+
 
 
 func _on_epic_1_pressed() -> void:
@@ -63,8 +72,10 @@ func _ready() -> void:
 		beach_3.text= "LOCKED"
 	if levelunlock.winter1 == false:
 		winter_2.text= "LOCKED"
-	if levelunlock.winter2 == false:
-		winter_3.text= "LOCKED"
+	if levelunlock.winter2a == false:
+		winter_3a.text= "LOCKED"
+	if levelunlock.winter2b == false:
+		winter_3b.text= "LOCKED"
 	if levelunlock.classic1 == false:
 		epic_1.text= "LOCKED"
 	if levelunlock.classic2 == false:
