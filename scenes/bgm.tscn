@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://cgav2bp0q2hyh" path="res://scripts/bgm.gd" id="2_3c3jb"]
 [ext_resource type="AudioStream" uid="uid://cquoi3pkfseee" path="res://Winter Wanderland.mp3" id="3_48mr8"]
 [ext_resource type="AudioStream" uid="uid://bnc7tdyavs4h6" path="res://Island Wanders.mp3" id="4_dg162"]
+[ext_resource type="AudioStream" uid="uid://bowmk6cin4upn" path="res://scenes/Ouchh.wav" id="5_0ebda"]
+[ext_resource type="AudioStream" uid="uid://dogg5mhe66xl" path="res://scenes/Oh Yeahh.wav" id="6_y8o4f"]
 
 [node name="BGM" type="Node" unique_id=593244188]
 script = ExtResource("2_3c3jb")
@@ -21,3 +23,11 @@ bus = &"BGM"
 [node name="Island Wanders" type="AudioStreamPlayer" parent="." unique_id=290716043]
 stream = ExtResource("4_dg162")
 bus = &"BGM"
+
+[node name="Ouch" type="AudioStreamPlayer" parent="." unique_id=1198808642]
+stream = ExtResource("5_0ebda")
+bus = &"SFX"
+
+[node name="Oh Yeah" type="AudioStreamPlayer" parent="." unique_id=1826982159]
+stream = ExtResource("6_y8o4f")
+bus = &"SFX"

@@ -1,5 +1,6 @@
 extends Node
 class_name Manager
+@onready var player: MainCharacter = %Player
 var lives : int =5
 
 func lose_game ()-> void:
@@ -10,5 +11,6 @@ func lose_life (amount: int) -> void:
 	lives -= amount
 	print (lives)
 	if lives <= 0:
+		player.ouch.play()
 		lose_game()
 		

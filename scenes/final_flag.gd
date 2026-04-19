@@ -9,6 +9,7 @@ func _process(_delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is MainCharacter:
+		Bgm.oh_yeah.play()
 		if hud.stage == 0:
 			if level>=1 and level<=5:
 				get_tree().change_scene_to_file("res://scripts/beach_1.tscn")
@@ -22,7 +23,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 				if level>=6 and level<=10:
 					get_tree().change_scene_to_file("res://scenes/winter_2.tscn")
 			if hud.areatype == "beach":
-				get_tree().change_scene_to_file("res://Levels/beach_2.tscn")
+				if level>=1 and level<=5:
+					get_tree().change_scene_to_file("res://Levels/beach_2.tscn")
+				if level>=6 and level<=10:
+					get_tree().change_scene_to_file("res://scripts/beach_2b.tscn")
 		if hud.stage == 2:
 			if hud.areatype == "winter":
 				get_tree().change_scene_to_file("res://scripts/beach_1.tscn")

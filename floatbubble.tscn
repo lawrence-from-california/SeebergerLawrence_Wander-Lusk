@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dt2cjtywrnwrm"]
+
+[ext_resource type="Script" uid="uid://b23ar20esqsc6" path="res://floatbubble.gd" id="1_ww1u8"]
+[ext_resource type="Texture2D" uid="uid://dccmhb0fpcsil" path="res://Floatbubble 1.png" id="2_nprh0"]
+[ext_resource type="Texture2D" uid="uid://baf6n0wu20kyt" path="res://Floatbubble 2.png" id="3_axqjk"]
+[ext_resource type="AudioStream" uid="uid://deki4x57xk5lp" path="res://sounds/sfx_coin.ogg" id="9_grxus"]
+[ext_resource type="PackedScene" uid="uid://bsh1hj4c0f7ur" path="res://scenes/pickupanimation.tscn" id="10_xje26"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kylg4"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("2_nprh0")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_axqjk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qclby"]
+radius = 9.513149
+
+[node name="Floatbubble" type="Area2D" unique_id=552239477]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ww1u8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=8063682]
+visibility_layer = 1023
+sprite_frames = SubResource("SpriteFrames_kylg4")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1640751193]
+position = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_qclby")
+
+[node name="Chaching" type="AudioStreamPlayer2D" parent="." unique_id=277935694]
+stream = ExtResource("9_grxus")
+bus = &"SFX"
+
+[node name="AnimationPlayer" parent="." unique_id=1130378463 instance=ExtResource("10_xje26")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

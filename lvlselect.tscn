@@ -1453,7 +1453,13 @@ text = "BEACH 2"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_cjqu6")
 theme_override_font_sizes/font_size = 32
-text = "BEACH 3"
+text = "BEACH 3A"
+
+[node name="Beach 3B" type="Button" parent="GridContainer" unique_id=1581806237]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cjqu6")
+theme_override_font_sizes/font_size = 32
+text = "BEACH 3B"
 
 [node name="Winter 2" type="Button" parent="GridContainer" unique_id=977441530]
 layout_mode = 2
@@ -1534,6 +1540,8 @@ flip_h = true
 [connection signal="pressed" from="GridContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="GridContainer/Beach 2" to="." method="_on_beach_2_pressed"]
 [connection signal="pressed" from="GridContainer/Beach 3" to="." method="_on_beach_3_pressed"]
+[connection signal="pressed" from="GridContainer/Beach 3B" to="." method="_on_beach_3_pressed"]
+[connection signal="pressed" from="GridContainer/Beach 3B" to="." method="_on_beach_3b_pressed"]
 [connection signal="pressed" from="GridContainer/Winter 2" to="." method="_on_winter_2_pressed"]
 [connection signal="pressed" from="GridContainer/Winter 3A" to="." method="_on_winter_3_pressed"]
 [connection signal="pressed" from="GridContainer/Winter 3A" to="." method="_on_winter_3a_pressed"]

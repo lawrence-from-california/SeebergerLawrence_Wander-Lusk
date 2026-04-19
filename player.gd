@@ -2,6 +2,9 @@ extends CharacterBody2D
 class_name MainCharacter
 @onready var collider: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $graphics
+@onready var jumpsound: AudioStreamPlayer2D = $Jumpsound
+@onready var ouch: AudioStreamPlayer2D = $Ouch
+@onready var ohyeah: AudioStreamPlayer2D = $Ohyeah
 var SPEED:float = 200.0
 var JUMP_VELOCITY:float = -333.0
 @onready var JUMP_COUNT: int = 1
@@ -22,6 +25,10 @@ var walljump: bool = false
 var plainjump : bool = true
 var rotatable: bool = true
 var ice: bool = false
+var bubble: bool = false
+var bubbleweight: float = 1
+var antigrav: = false
+var icechecker: bool = false
 var acceleration: float = 50
 var maxspeed: float = 3
 var friction: float = 1.4
@@ -33,26 +40,31 @@ var velocityweight: float
 	
 #THIS IS THE CHARACTER ROTATION ON SLOPES
 func _process(_delta: float) -> void:
-	if down.is_colliding() or !is_on_floor():
+	if antigrav == true:
+		scale.y=-1
+	if antigrav == false:
+		scale.y=1
+	if down.is_colliding() or !is_on_floor() or (!left.is_colliding() and !right.is_colliding()):
 		graphics.rotation_degrees=0
 	
-	if !down.is_colliding() and rotatable==true and is_on_floor():
+	if !down.is_colliding() and rotatable==true and is_on_floor() and ice==false:
 		if !left.is_colliding():
 			if right.is_colliding():
 				if graphics.scale.x > 0:
 					graphics.rotation_degrees=-45
-				if graphics.scale.y < 0:
+				if graphics.scale.x < 0:
 					graphics.rotation_degrees=45
 		if !right.is_colliding():
 			if left.is_colliding():
 				if graphics.scale.x > 0:
 					graphics.rotation_degrees=45
-				if graphics.scale.y < 0:
+				if graphics.scale.x < 0:
 					graphics.rotation_degrees=-45
-					graphics.position.x
+					
 	if graphics.rotation_degrees==0:
 		graphics.position.y = collider.position.y-3
 	else:
+		ice=false
 		graphics.position.y = collider.position.y-6
 	if !is_on_floor() and last_direction==0:
 		plainjump = true
@@ -60,6 +72,8 @@ func _process(_delta: float) -> void:
 	if !rotation_degrees == 0:
 		plainjump=false
 		#
+		
+
 	#if plainjump == true:
 		#if !leftdown.is_colliding() and rightdown.is_colliding():
 			#if graphics.scale.x > 0:
@@ -98,100 +112,194 @@ func _process(_delta: float) -> void:
 # jumping  mechanics
 
 func _physics_process(delta: float) -> void:
-	
-	if Input.is_action_just_pressed("jump"):
-		jumpbuff.start()
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-		rotatable=true
+	if antigrav==false:
+		if Input.is_action_just_pressed("jump"):
+			jumpbuff.start()
+		# Add the gravity.
+		if not is_on_floor():
+			rotatable=true
+			if bubble == false:
+				velocity += get_gravity() * delta
+			if bubble == true:
+				velocity += get_gravity() * (delta/bubbleweight)
 
-	# Handle jump.
-	if is_on_floor():
-		if coyoteactivate:
-			coyoteactivate = false
-			canis_latrans.stop()
-	else:
-		if !coyoteactivate:
-			canis_latrans.start()
-			coyoteactivate = true
-	if velocity.y < 0.0:
-		if Input.is_action_just_released("jump") and !is_on_floor():
-			velocity.y *= 0.5
-		
-	if !jumpbuff.is_stopped() and (!canis_latrans.is_stopped() or is_on_floor()):
-		velocity.y = JUMP_VELOCITY
-		canis_latrans.stop()
-		coyoteactivate=true
-	elif Input.is_action_just_pressed("jump") and JUMP_COUNT > 1 and canis_latrans.is_stopped() and !is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		JUMP_COUNT -=1
-	
-	if is_on_floor() or  !canis_latrans.is_stopped():
-		JUMP_COUNT = MAX_JUMP_COUNT
-		
-	
-	
-	
-	
-
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-
-	var direction:float = Input.get_axis("move_left", "move_right")
-	var icedirection: float = Input.get_action_strength("move_left") or Input.get_action_strength("move_right")
-	
-	if (down.is_colliding() and !collision_mask==19):
-		ice=false
-		last_direction=0
-		
-	if ice == true:
-		SPEED = 300
-		rotatable=false
-		velocityweight = delta * (acceleration if icedirection else friction)
-		print("ice")
-	else:
-		SPEED = 220
-		print("noice")
-
- 
-
-	if direction:
-		last_direction=direction
-		velocity.x = direction * SPEED
-	
-		
-	else:
-		if ice == false:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-		if ice == true:
-			velocity.x = lerp(velocity.x, icedirection * maxspeed, velocityweight)
-		
-	if direction < 0:
-		animated_sprite_2d.flip_h = true
+		# Handle jump.
+		if is_on_floor():
+			if coyoteactivate:
+				coyoteactivate = false
+				canis_latrans.stop()
+		else:
+			if !coyoteactivate:
+				canis_latrans.start()
+				coyoteactivate = true
+		if velocity.y < 0.0:
+			if Input.is_action_just_released("jump") and !is_on_floor():
+				velocity.y *= 0.5
 			
-	elif direction > 0:
-		animated_sprite_2d.flip_h = false
-	
+		if !jumpbuff.is_stopped() and (!canis_latrans.is_stopped() or is_on_floor()):
+			velocity.y = JUMP_VELOCITY
+			jumpbreath()
+			canis_latrans.stop()
+			coyoteactivate=true
+		elif Input.is_action_just_pressed("jump") and JUMP_COUNT > 1 and canis_latrans.is_stopped() and !is_on_floor():
+			velocity.y = JUMP_VELOCITY
+			jumpbreath()
+			JUMP_COUNT -=1
+		
+		if is_on_floor() or  !canis_latrans.is_stopped():
+			JUMP_COUNT = MAX_JUMP_COUNT
+			
+		
+		
+		
+		
 
-	
 
-	move_and_slide()
-	
-	
-	#move animations
-	handle_animation()
-	
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+
+		var direction:float = Input.get_axis("move_left", "move_right")
+		var icedirection: float = Input.get_action_strength("move_left") or Input.get_action_strength("move_right")
+		last_direction = direction
+		if down.is_colliding() and !collision_mask == 19:
+			ice = false
+				
+		
+
+			
+		if ice == true:
+			SPEED = 300
+			velocityweight = delta * (acceleration if icedirection else friction)
+			print("ice")
+		else:
+			SPEED = 220
+			print("noice")
+
+	 
+
+		if direction:
+			velocity.x = direction * SPEED
+		
+			
+		else:
+			if ice == false:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+			if ice == true:
+				velocity.x = lerp(velocity.x, icedirection * maxspeed, velocityweight)
+			
+		if direction < 0:
+			animated_sprite_2d.flip_h = true
+				
+		elif direction > 0:
+			animated_sprite_2d.flip_h = false
+		
+
+		
+
+		move_and_slide()
+		
+		
+		#move animations
+		handle_animation()
+		
+	if antigrav==true:	
+		if Input.is_action_just_pressed("jump"):
+			jumpbuff.start()
+		# Add the gravity.
+		if not is_on_ceiling():
+			rotatable=true
+			if bubble == false:
+				velocity -= get_gravity() * delta
+			if bubble == true:
+				velocity -= get_gravity() * (delta/bubbleweight)
+
+		# Handle jump.
+		if is_on_ceiling():
+			if coyoteactivate:
+				coyoteactivate = false
+				canis_latrans.stop()
+		else:
+			if !coyoteactivate:
+				canis_latrans.start()
+				coyoteactivate = true
+		if velocity.y < 0.0:
+			if Input.is_action_just_released("jump") and !is_on_ceiling():
+				velocity.y = 0.5
+			
+		if !jumpbuff.is_stopped() and (!canis_latrans.is_stopped() or is_on_ceiling()):
+			velocity.y = -1*(JUMP_VELOCITY)
+			jumpbreath()
+			canis_latrans.stop()
+			coyoteactivate=true
+		elif Input.is_action_just_pressed("jump") and JUMP_COUNT > 1 and canis_latrans.is_stopped() and !is_on_ceiling():
+			velocity.y = -1*(JUMP_VELOCITY)
+			jumpbreath()
+			JUMP_COUNT -=1
+		
+		if is_on_floor() or  !canis_latrans.is_stopped():
+			JUMP_COUNT = MAX_JUMP_COUNT
+			
+		
+		
+		
+		
+
+
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+
+		var direction:float = Input.get_axis("move_left", "move_right")
+		var icedirection: float = Input.get_action_strength("move_left") or Input.get_action_strength("move_right")
+		last_direction = direction
+		if down.is_colliding() and !collision_mask == 19:
+			ice = false
+				
+		
+
+			
+		if ice == true:
+			SPEED = 300
+			velocityweight = delta * (acceleration if icedirection else friction)
+			print("ice")
+		else:
+			SPEED = 220
+			print("noice")
+
+	 
+
+		if direction:
+			velocity.x = direction * SPEED
+		
+			
+		else:
+			if ice == false:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+			if ice == true:
+				velocity.x = lerp(velocity.x, icedirection * maxspeed, velocityweight)
+			
+		if direction < 0:
+			animated_sprite_2d.flip_h = true
+				
+		elif direction > 0:
+			animated_sprite_2d.flip_h = false
+		
+
+		
+
+		move_and_slide()
+		
+		
+		#move animations
+		handle_animation()
 func handle_animation() -> void:
 	
-	if is_on_floor() and last_direction ==0:
+	if ((is_on_floor() and antigrav==false) or (is_on_ceiling() and antigrav== true)) and last_direction ==0:
 		animated_sprite_2d.play("idle")
 		
-	elif is_on_floor() and last_direction != 0:
+	elif ((is_on_floor() and antigrav==false) or (is_on_ceiling() and antigrav==true)) and last_direction != 0:
 		animated_sprite_2d.play("run")
-		
-	else:
+	
+	if !is_on_floor() and !is_on_ceiling():
 		animated_sprite_2d.play("jump")
 		
 
@@ -212,3 +320,7 @@ func add_jumps (jumps : int) -> void:
 	MAX_JUMP_COUNT += jumps
 	JUMP_COUNT += 1
 	print (MAX_JUMP_COUNT)
+
+func jumpbreath() -> void:
+	if !jumpsound.playing:
+		jumpsound.play()

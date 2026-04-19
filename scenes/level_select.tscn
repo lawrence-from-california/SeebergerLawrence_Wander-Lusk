@@ -1438,9 +1438,17 @@ offset_left = 640.0
 offset_top = -4.0
 offset_right = 680.0
 offset_bottom = 36.0
-lvlindex = "LEVEL 3"
+lvlindex = "LEVEL 3A"
 
-[node name="TUTORIAL" parent="." unique_id=218420289 instance=ExtResource("1_3shnc")]
+[node name="BEACH 4" parent="." unique_id=218420289 instance=ExtResource("1_3shnc")]
+layout_mode = 0
+offset_left = 640.0
+offset_top = -4.0
+offset_right = 680.0
+offset_bottom = 36.0
+lvlindex = "LEVEL 3B"
+
+[node name="TUTORIAL" parent="." unique_id=1693249126 instance=ExtResource("1_3shnc")]
 layout_mode = 0
 offset_left = 0.0
 offset_top = 384.0

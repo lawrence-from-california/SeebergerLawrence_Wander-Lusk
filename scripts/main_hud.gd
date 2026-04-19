@@ -13,6 +13,11 @@ class_name HUD
 @export var stage: int = 1
 @onready var bgm: Musictrack = Bgm
 @onready var player: MainCharacter = %Player
+@onready var second : int = time_limit.time_left
+@onready var timertxt: int = second-clock
+@onready var maxtime: int = second-clock
+@onready var pause_menu: Pauser = $"Pause Menu"
+
 
 func _ready() -> void:
 	if areatype== "winter":
@@ -24,15 +29,23 @@ func _ready() -> void:
 	if !bgm.changer==bgm.track:
 		bgm.music.stop()
 		bgm.changer=bgm.track
+		
+
 
 	
 func _process(_delta: float) -> void:
-	var second : int = time_limit.time_left
+	if timertxt < maxtime/3:
+		bgm.music.pitch_scale=1.1
+	else:
+		bgm.music.pitch_scale=1
+	second = time_limit.time_left
+	timertxt = second-clock
 	level.text = "LEVEL: " + str(currentlevel)
-	time.text = "TIME: " + str(second-clock)
+	time.text = "TIME: " + str(timertxt)
 	lives.text = "@ X" + str(levelmanager.lives)
 	if second < clock:
 		if levelmanager.lives > 1:
+			bgm.ouch.play()
 			levelmanager.lose_life(1)
 			get_tree().reload_current_scene()
 		else: levelmanager.lose_game()

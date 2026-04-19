@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://by1c64xect34n"]
+
+[ext_resource type="Script" uid="uid://6bq5hf44ea28" path="res://gravity_zone.gd" id="1_ommba"]
+[ext_resource type="Texture2D" uid="uid://baf6n0wu20kyt" path="res://Floatbubble 2.png" id="2_i7wy5"]
+[ext_resource type="Script" uid="uid://0jq11e7ft066" path="res://particles.gd" id="2_x67g0"]
+[ext_resource type="Texture2D" uid="uid://oy3nu8ug5oew" path="res://scenes/Green 4.png" id="7_7pyxy"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ommba"]
+light_mode = 2
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 10
+particles_anim_loop = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x67g0"]
+size = Vector2(195.30035, 21.448437)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sumwd"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, -9, 0)
+linear_accel_min = 48.1
+linear_accel_max = 48.1
+scale_min = 0.0
+scale_max = 0.0
+color = Color(1, 1, 1, 0.16862746)
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_co36j"]
+animations = [{
+"frames": [{
+"duration": 0.51,
+"texture": ExtResource("7_7pyxy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Gravity Zone" type="Area2D" unique_id=53042964]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ommba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=215178072]
+process_thread_group = 1
+process_thread_group_order = 0
+process_thread_messages = 0
+modulate = Color(0.7882353, 0.84705883, 0.6117647, 0.4862745)
+self_modulate = Color(0.8276913, 0.47487748, 0.5516977, 1)
+visibility_layer = 7
+z_index = 4
+material = SubResource("CanvasItemMaterial_ommba")
+use_parent_material = true
+position = Vector2(1.1324638e-07, -0.749997)
+rotation = -3.1415925
+scale = Vector2(0.29185814, 1.5618852)
+shape = SubResource("RectangleShape2D_x67g0")
+debug_color = Color(0.69140595, 0.44598037, 0.5926818, 0.41960785)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1189603025]
+process_priority = 1
+physics_interpolation_mode = 1
+position = Vector2(-3.5527137e-14, 15.999999)
+scale = Vector2(0.444834, 4.3038116)
+amount = 2
+lifetime = 0.41000000000000003
+draw_order = 1
+emission_shape = 3
+emission_rect_extents = Vector2(64, 0)
+gravity = Vector2(0, -500)
+scale_amount_max = 3.0
+script = ExtResource("2_x67g0")
+
+[node name="GPU Particles" type="GPUParticles2D" parent="." unique_id=1837492631]
+process_priority = 1
+physics_interpolation_mode = 1
+visible = false
+self_modulate = Color(18.892002, 18.892002, 18.892002, 1)
+texture_repeat = 3
+position = Vector2(1.01454475e-07, -0.6719028)
+rotation = -3.1415925
+scale = Vector2(28.378319, -16.9404)
+amount = 300
+texture = ExtResource("2_i7wy5")
+lifetime = 0.22
+interp_to_end = 0.118
+preprocess = 9.7
+speed_scale = 0.1
+collision_base_size = 47.58
+visibility_rect = Rect2(-10, -10, 20, 20)
+local_coords = true
+trail_enabled = true
+trail_lifetime = 5.12
+trail_sections = 3
+trail_section_subdivisions = 34
+process_material = SubResource("ParticleProcessMaterial_sumwd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=88293219]
+show_behind_parent = true
+position = Vector2(0, -0.66)
+scale = Vector2(0.02784386, 0.01628716)
+sprite_frames = SubResource("SpriteFrames_co36j")
+autoplay = "default"
+frame_progress = 0.41471368
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

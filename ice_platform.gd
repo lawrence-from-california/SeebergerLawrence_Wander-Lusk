@@ -9,4 +9,7 @@ class_name IcePlatform
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is MainCharacter:
+		#if player.ice == false:
+			#player.whoah.play()
 		player.ice=true
+	

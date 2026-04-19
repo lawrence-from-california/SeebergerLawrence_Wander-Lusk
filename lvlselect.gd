@@ -5,6 +5,7 @@ extends Control
 @onready var epic_2: Button = $"GridContainer/Epic 2"
 @onready var epic_3: Button = $"GridContainer/Epic 3"
 @onready var beach_2: Button = $"GridContainer/Beach 2"
+@onready var beach_3b: Button = $"GridContainer/Beach 3B"
 @onready var beach_3: Button = $"GridContainer/Beach 3"
 @onready var winter_2: Button = $"GridContainer/Winter 2"
 @onready var winter_3a: Button = $"GridContainer/Winter 3A"
@@ -27,7 +28,11 @@ func _on_beach_2_pressed() -> void:
 func _on_beach_3_pressed() -> void:
 	if levelunlock.beach2 == true:
 		get_tree().change_scene_to_file("res://Levels/beach_2.tscn")
+		
 
+func _on_beach_3b_pressed() -> void:
+	if levelunlock.beach2b == true:
+		get_tree().change_scene_to_file("res://scripts/beach_2b.tscn")
 
 func _on_winter_2_pressed() -> void:
 	if levelunlock.winter1 == true:
@@ -70,6 +75,8 @@ func _ready() -> void:
 		beach_2.text= "LOCKED"
 	if levelunlock.beach2 == false:
 		beach_3.text= "LOCKED"
+	if levelunlock.beach2b == false:
+		beach_3b.text= "LOCKED"
 	if levelunlock.winter1 == false:
 		winter_2.text= "LOCKED"
 	if levelunlock.winter2a == false:

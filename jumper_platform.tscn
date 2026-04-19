@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cbw00b5tu8efk"]
+
+[ext_resource type="Texture2D" uid="uid://csgtub3bncbin" path="res://Placeholder Platform.png" id="1_a5jts"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucxt2"]
+size = Vector2(144, 32)
+
+[node name="Jumper platform" type="RigidBody2D" unique_id=820188991]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2141845090]
+texture = ExtResource("1_a5jts")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=453653116]
+shape = SubResource("RectangleShape2D_ucxt2")

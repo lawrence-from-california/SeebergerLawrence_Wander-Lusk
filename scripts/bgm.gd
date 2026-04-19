@@ -6,6 +6,8 @@ var changer: int
 @onready var music: AudioStreamPlayer = $"Jazz for Turtles"
 @onready var winter_wanderland: AudioStreamPlayer = $"Winter Wanderland"
 @onready var island_wanders: AudioStreamPlayer = $"Island Wanders"
+@onready var ouch: AudioStreamPlayer = $Ouch
+@onready var oh_yeah: AudioStreamPlayer = $"Oh Yeah"
 #@onready var hud: HUD = %"Main HUD"
 var currentmusic: String
 var reload : bool = false
