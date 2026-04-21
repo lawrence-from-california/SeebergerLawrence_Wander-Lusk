@@ -11,6 +11,9 @@ const JUMP_VELOCITY = -100.0
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var ray_cast_right_2: RayCast2D = $RayCastRight2
 @onready var ray_cast_left_2: RayCast2D = $RayCastLeft2
+@onready var killzone: Killer = $Killzone
+@onready var bouncearea_safe_: Area2D = $"bouncearea(safe)"
+@onready var collision: CollisionShape2D = $collision
 
 
 func _process (delta: float) -> void:
@@ -43,3 +46,17 @@ func _physics_process(delta: float) -> void:
 
 
 	move_and_slide()
+	
+
+		
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	queue_free()
+
+
+func _on_bounceareasafe_area_entered(area: Area2D) -> void:
+		killzone.queue_free()
+		direction=0
+		animated_sprite_2d.play("dead")
+		bouncearea_safe_.queue_free()

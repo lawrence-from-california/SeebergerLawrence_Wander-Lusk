@@ -1,4 +1,5 @@
 extends Area2D
+class_name  Killer
 @onready var levelmanager: Manager = LevelManager
 @onready var killtimer: Timer = $killtimer
 @onready var player: MainCharacter = %Player

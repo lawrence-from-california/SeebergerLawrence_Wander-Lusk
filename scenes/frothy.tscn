@@ -3,8 +3,12 @@
 [ext_resource type="Script" uid="uid://cwr8yqeusn7jf" path="res://scenes/frothy.gd" id="1_2h28p"]
 [ext_resource type="Texture2D" uid="uid://dmcktax7mtqot" path="res://scripts/Frothy 3.png" id="1_csgej"]
 [ext_resource type="Texture2D" uid="uid://c3rppr2tckuxk" path="res://scripts/Frothy.png" id="2_2h28p"]
+[ext_resource type="Texture2D" uid="uid://bvy0wta41tis7" path="res://scripts/FrothyDead1.png" id="2_gdd1v"]
 [ext_resource type="Texture2D" uid="uid://c4vr7m4fkfkw4" path="res://scripts/Frothy 2.png" id="3_25ie4"]
+[ext_resource type="Texture2D" uid="uid://bhcyvend3wosl" path="res://scripts/FrothyDead2.png" id="3_ixumn"]
 [ext_resource type="PackedScene" uid="uid://l8alsvbkqara" path="res://scenes/killzone.tscn" id="4_a0nok"]
+[ext_resource type="Texture2D" uid="uid://brg637raq3p6x" path="res://scripts/FrothyDead3.png" id="4_xvpol"]
+[ext_resource type="Texture2D" uid="uid://d2smifjbl1j55" path="res://scripts/FrothyDead4.png" id="5_fncta"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ius10"]
 radius = 4.0
@@ -12,6 +16,23 @@ height = 10.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gdd1v"]
 animations = [{
+"frames": [{
+"duration": 0.6,
+"texture": ExtResource("2_gdd1v")
+}, {
+"duration": 0.6,
+"texture": ExtResource("3_ixumn")
+}, {
+"duration": 0.6,
+"texture": ExtResource("4_xvpol")
+}, {
+"duration": 0.6,
+"texture": ExtResource("5_fncta")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_csgej")
@@ -48,8 +69,10 @@ shape = SubResource("CapsuleShape2D_ius10")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=819666626]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_gdd1v")
+animation = &"dead"
 autoplay = "default"
-frame_progress = 0.99211633
+frame = 3
+frame_progress = 1.0
 
 [node name="Node2D" type="Node2D" parent="AnimatedSprite2D" unique_id=850634908]
 
@@ -80,3 +103,6 @@ light_mask = 31
 visibility_layer = 31
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_xvpol")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="bouncearea(safe)" to="." method="_on_bounceareasafe_area_entered"]

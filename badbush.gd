@@ -16,3 +16,4 @@ func _process (delta: float) -> void:
 		animated_sprite_2d.flip_h = true
 		
 	position.x += SPEED * direction *delta
+	

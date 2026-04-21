@@ -55,7 +55,7 @@ shape = SubResource("CapsuleShape2D_gbqnp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1246451078]
 sprite_frames = SubResource("SpriteFrames_d1aoo")
-animation = &"alive"
+animation = &"dead"
 autoplay = "alive"
 
 [node name="Killzone" parent="." unique_id=1450893820 instance=ExtResource("7_5t5tf")]
@@ -80,4 +80,5 @@ visibility_layer = 31
 position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_r5y43")
 
+[connection signal="area_entered" from="bounce_area" to="." method="_on_bounce_area_area_entered"]
 [connection signal="body_entered" from="bounce_area" to="bounce_area" method="_on_body_entered"]

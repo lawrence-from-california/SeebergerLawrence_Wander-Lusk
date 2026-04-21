@@ -32,7 +32,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_cvopc")
 }],
-"loop": true,
+"loop": false,
 "name": &"dead",
 "speed": 7.0
 }]
@@ -43,14 +43,13 @@ size = Vector2(4, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcvah"]
 size = Vector2(10, 3)
 
-[node name="Madflower" type="Node2D" unique_id=1765818220 groups=["Enemies"]]
+[node name="Madflower" type="CharacterBody2D" unique_id=1858399713 groups=["Enemies"]]
 script = ExtResource("1_jle3w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1746519008]
 sprite_frames = SubResource("SpriteFrames_htt4o")
-animation = &"alive"
+animation = &"dead"
 autoplay = "alive"
-frame_progress = 0.45871884
 
 [node name="Killzone" parent="." unique_id=939065333 instance=ExtResource("2_jle3w")]
 
@@ -74,5 +73,10 @@ visibility_layer = 31
 position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_qcvah")
 
-[connection signal="body_entered" from="bounce_area" to="." method="_on_bounce_area_body_entered"]
+[node name="Hitbox2" type="CollisionShape2D" parent="." unique_id=1989225262]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_wjvnt")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="bounce_area" to="." method="_on_bounce_area_area_entered"]
 [connection signal="body_entered" from="bounce_area" to="bounce_area" method="_on_body_entered"]
