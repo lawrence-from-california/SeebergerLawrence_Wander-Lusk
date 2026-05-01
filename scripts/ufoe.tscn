@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://djwj8rnxoxety"]
+
+[ext_resource type="Texture2D" uid="uid://cm43kcj5qhpyi" path="res://scenes/Ufoe1.png" id="1_m4r8w"]
+[ext_resource type="Script" uid="uid://dmg2b43o7avi4" path="res://scripts/terner.gd" id="1_q8d1w"]
+[ext_resource type="Texture2D" uid="uid://be2w351suyuoj" path="res://scenes/Ufoe2.png" id="2_q8d1w"]
+[ext_resource type="Texture2D" uid="uid://d1lykx1bkntex" path="res://scenes/Ufoe3.png" id="3_e1vpu"]
+[ext_resource type="PackedScene" uid="uid://l8alsvbkqara" path="res://scenes/killzone.tscn" id="4_rnu3b"]
+[ext_resource type="Script" uid="uid://de2thdgoqcpee" path="res://scripts/tractor_beam.gd" id="6_e1vpu"]
+[ext_resource type="Texture2D" uid="uid://oy3nu8ug5oew" path="res://scenes/Green 4.png" id="7_rnu3b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7m31r"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": ExtResource("1_m4r8w")
+}, {
+"duration": 0.3,
+"texture": ExtResource("2_q8d1w")
+}, {
+"duration": 0.3,
+"texture": ExtResource("3_e1vpu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upg2u"]
+size = Vector2(14, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4w5d"]
+size = Vector2(14, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8d1w"]
+size = Vector2(24, 43.75)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_upg2u"]
+animations = [{
+"frames": [{
+"duration": 0.51,
+"texture": ExtResource("7_rnu3b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Ufoe" type="Node2D" unique_id=395504107]
+script = ExtResource("1_q8d1w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=866677821]
+sprite_frames = SubResource("SpriteFrames_7m31r")
+autoplay = "default"
+
+[node name="Node2D" type="Node2D" parent="AnimatedSprite2D" unique_id=1263540512]
+
+[node name="Killzone" parent="." unique_id=477196220 instance=ExtResource("4_rnu3b")]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Killzone" unique_id=353070788]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_upg2u")
+
+[node name="bouncearea(safe)" type="Area2D" parent="." unique_id=640316929]
+collision_layer = 8
+collision_mask = 8
+
+[node name="hurtbox" type="CollisionShape2D" parent="bouncearea(safe)" unique_id=1641360607]
+light_mask = 31
+visibility_layer = 31
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_k4w5d")
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=100531082]
+target_position = Vector2(9, 0)
+
+[node name="RayCastDown" type="RayCast2D" parent="." unique_id=2034790118]
+target_position = Vector2(0, 40)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=263705713]
+target_position = Vector2(-9, 0)
+
+[node name="Tractor Beam" type="Area2D" parent="." unique_id=1800854813]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("6_e1vpu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tractor Beam" unique_id=1918479424]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_q8d1w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tractor Beam" unique_id=1342238967]
+show_behind_parent = true
+position = Vector2(5.9604645e-08, 19.5)
+scale = Vector2(0.0058593755, 0.019042969)
+sprite_frames = SubResource("SpriteFrames_upg2u")
+autoplay = "default"
+
+[connection signal="area_entered" from="Tractor Beam" to="Tractor Beam" method="_on_area_entered"]
+[connection signal="body_entered" from="Tractor Beam" to="." method="_on_tractor_beam_body_entered"]
+[connection signal="body_exited" from="Tractor Beam" to="." method="_on_tractor_beam_body_exited"]

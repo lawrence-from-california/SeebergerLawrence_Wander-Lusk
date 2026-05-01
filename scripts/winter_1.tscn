@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dlkkl4wkhcurt" path="res://scenes/frostiflake.tscn" id="13_clbr8"]
 [ext_resource type="PackedScene" uid="uid://k6b8y6l5706x" path="res://scenes/enigloo.tscn" id="14_uoh4q"]
 [ext_resource type="PackedScene" uid="uid://elji1skpiaca" path="res://scenes/final_flag.tscn" id="21_lqyfc"]
+[ext_resource type="Script" uid="uid://drm0o88kejqoq" path="res://scenes/weathereffect.gd" id="21_mag63"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mag63"]
 texture = ExtResource("3_r1l2b")
@@ -2406,8 +2407,10 @@ position = Vector2(-270, -200)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1233088698]
 zoom = Vector2(3, 3)
-limit_left = -393
-limit_right = 1418
+limit_left = -362
+limit_top = -644
+limit_right = 1423
+limit_bottom = -112
 
 [node name="tilemaps" type="Node" parent="." unique_id=463864061]
 
@@ -2541,6 +2544,7 @@ emission_rect_extents = Vector2(1000, 500)
 spread = 180.0
 gravity = Vector2(0, 30)
 color = Color(0.3372549, 0.5803922, 1, 0.6627451)
+script = ExtResource("21_mag63")
 
 [node name="FINAL FLAG" parent="." unique_id=2098700523 instance=ExtResource("21_lqyfc")]
 position = Vector2(1376, -222)

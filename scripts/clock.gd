@@ -10,5 +10,6 @@ extends Area2D
 
 
 func _on_body_entered(body: Node2D) -> void:
-	main_hud.add_time(5)
-	animation_player.play("chaching")
+	if body is MainCharacter:
+		main_hud.add_time(5)
+		animation_player.play("chaching")

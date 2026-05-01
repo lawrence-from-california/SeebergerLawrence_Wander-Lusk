@@ -24,8 +24,10 @@ func _ready() -> void:
 		bgm.track = 3
 	if areatype== "beach":
 		bgm.track = 4
-	if areatype== "ground":
+	if areatype== "classic":
 		bgm.track = 1
+	if areatype== "ground":
+		bgm.track = 2
 	if !bgm.changer==bgm.track:
 		bgm.music.stop()
 		bgm.changer=bgm.track
@@ -50,7 +52,9 @@ func _process(_delta: float) -> void:
 			get_tree().reload_current_scene()
 		else: levelmanager.lose_game()
 	if leveltype == "Menu" or leveltype == "Victory":
-		queue_free()
+		visible=false
+		if timertxt==99:
+			queue_free()
 	if leveltype == "classic":
 		player.rotatable= false
 		

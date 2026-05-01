@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b7qdj7tf3eugo" path="res://scenes/Scenery Greenery Tileset.png" id="10_7151u"]
 [ext_resource type="PackedScene" uid="uid://l8alsvbkqara" path="res://scenes/killzone.tscn" id="12_hvlhr"]
 [ext_resource type="PackedScene" uid="uid://su8dqdykbd22" path="res://scenes/doublespikes.tscn" id="13_2t2w2"]
+[ext_resource type="Script" uid="uid://drm0o88kejqoq" path="res://scenes/weathereffect.gd" id="13_28ski"]
 [ext_resource type="PackedScene" uid="uid://ct8a7unm5rlp5" path="res://scenes/pendulum.tscn" id="15_b7py7"]
 [ext_resource type="PackedScene" uid="uid://djig57hlcgctf" path="res://scenes/coin.tscn" id="16_qef5t"]
 [ext_resource type="PackedScene" uid="uid://k6b8y6l5706x" path="res://scenes/enigloo.tscn" id="17_fk4y2"]
@@ -2359,8 +2360,9 @@ position = Vector2(-281, -232)
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=499550045]
 zoom = Vector2(3, 3)
 limit_left = -405
-limit_top = -981
+limit_top = -972
 limit_right = 716
+limit_bottom = -71
 
 [node name="tilemaps" type="Node" parent="." unique_id=547096771]
 
@@ -2409,6 +2411,7 @@ emission_rect_extents = Vector2(1000, 500)
 spread = 180.0
 gravity = Vector2(0, 30)
 color = Color(0.3372549, 0.5803922, 1, 0.6627451)
+script = ExtResource("13_28ski")
 
 [node name="Doublespikes" parent="." unique_id=635916432 instance=ExtResource("13_2t2w2")]
 position = Vector2(636, -182)

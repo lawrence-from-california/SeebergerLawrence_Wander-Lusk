@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bv05ikcyl7hnk"]
+
+[ext_resource type="Script" uid="uid://dh5qri63yfti7" path="res://water.gd" id="1_qi1wl"]
+
+[node name="Water" type="Node2D" unique_id=267662136]
+script = ExtResource("1_qi1wl")
+water_size = null
+surface_pos_y = null
+segment_count = null
+player_splash_multiplier = null
+water_physics_speed = null
+water_restoring_force = null
+wave_energy_loss = null
+wave_strength = null
+wave_spread_updates = null
+surface_line_thickness = null
+surface_color = null
+water_fill_color = null

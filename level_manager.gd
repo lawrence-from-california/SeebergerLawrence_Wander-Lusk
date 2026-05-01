@@ -2,6 +2,7 @@ extends Node
 class_name Manager
 @onready var player: MainCharacter = %Player
 var lives : int =5
+var weather: bool = true
 
 func lose_game ()-> void:
 	get_tree().change_scene_to_file("res://main_menu.tscn")

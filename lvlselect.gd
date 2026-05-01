@@ -27,7 +27,7 @@ func _on_beach_2_pressed() -> void:
 
 func _on_beach_3_pressed() -> void:
 	if levelunlock.beach2 == true:
-		get_tree().change_scene_to_file("res://Levels/beach_2.tscn")
+		get_tree().change_scene_to_file("res://scripts/beach_2.tscn")
 		
 
 func _on_beach_3b_pressed() -> void:
@@ -69,6 +69,7 @@ func _on_epic_3_pressed() -> void:
 
 
 func _ready() -> void:
+	LevelManager.lives=5
 	if levelunlock.tutorial == false:
 		tutorial.text= "LOCKED"
 	if levelunlock.beach1 == false:

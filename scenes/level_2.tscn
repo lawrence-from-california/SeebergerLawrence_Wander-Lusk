@@ -1761,7 +1761,7 @@ offset_right = -731.0
 offset_bottom = -243.0
 currentlevel = "3 - CLASSIC"
 clock = 400
-areatype = "ground"
+areatype = "classic"
 leveltype = "classic"
 
 [node name="Player" parent="." unique_id=1871681032 instance=ExtResource("6_aypmf")]

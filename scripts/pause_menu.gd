@@ -29,7 +29,8 @@ func escaped()-> void:
 
 
 func _on_button_pressed() -> void:
-	resume()
+	if menuable == true:
+		resume()
 	
 
 

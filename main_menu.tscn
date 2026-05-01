@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://c7ggn1x2pumdk" path="res://fullscreen.gd" id="5_w44g7"]
 [ext_resource type="Texture2D" uid="uid://dylxek25y6lve" path="res://scenes/Scenery Greenery Tileset (Trans).png" id="6_0k4wn"]
 [ext_resource type="Texture2D" uid="uid://cwu8kx7wldcqp" path="res://Sky Tileset.png" id="6_nlkkf"]
+[ext_resource type="Script" uid="uid://4vpobbje8hqi" path="res://particlefxbutton.gd" id="7_g8g3n"]
 [ext_resource type="Texture2D" uid="uid://mpptwate7kul" path="res://scenes/Helpful Items.png" id="7_j5v2v"]
 [ext_resource type="PackedScene" uid="uid://clo6qdxwrpl3u" path="res://superdiamond.tscn" id="11_0k4wn"]
 
@@ -1476,17 +1477,17 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=312021309]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = -80.0
-offset_top = -117.0
+offset_top = -126.0
 offset_right = 80.0
-offset_bottom = 162.0
+offset_bottom = 154.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 theme_override_constants/separation = 16
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=1508408853]
@@ -1534,8 +1535,17 @@ theme_override_constants/outline_size = 5
 theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("3_j5v2v")
 theme_override_font_sizes/font_size = 16
-text = "FULLSCREEN"
+text = "WEATHER"
 script = ExtResource("5_w44g7")
+
+[node name="Particles" type="CheckButton" parent="Panel/VBoxContainer" unique_id=437887499]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("3_j5v2v")
+theme_override_font_sizes/font_size = 16
+text = "FULLSCREEN"
+script = ExtResource("7_g8g3n")
 
 [node name="Back" type="Button" parent="Panel/VBoxContainer" unique_id=1370233330]
 layout_mode = 2
@@ -1589,4 +1599,5 @@ position = Vector2(278, 357)
 [connection signal="value_changed" from="Panel/VBoxContainer/Music Slider" to="Panel/VBoxContainer/Music Slider" method="_on_value_changed"]
 [connection signal="value_changed" from="Panel/VBoxContainer/Music Slider2" to="Panel/VBoxContainer/Music Slider2" method="_on_value_changed"]
 [connection signal="toggled" from="Panel/VBoxContainer/Fullscreen" to="Panel/VBoxContainer/Fullscreen" method="_on_toggled"]
+[connection signal="toggled" from="Panel/VBoxContainer/Particles" to="Panel/VBoxContainer/Particles" method="_on_toggled"]
 [connection signal="pressed" from="Panel/VBoxContainer/Back" to="." method="_on_back_pressed"]

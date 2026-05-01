@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://svxhuor6nx6v"
+path="res://.godot/imported/Wanders and Waves.mp3-5a4ddc9b0d75ec21b15b1f09b0e256e3.mp3str"
+
+[deps]
+
+source_file="res://Wanders and Waves.mp3"
+dest_files=["res://.godot/imported/Wanders and Waves.mp3-5a4ddc9b0d75ec21b15b1f09b0e256e3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

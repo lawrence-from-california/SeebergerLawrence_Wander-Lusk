@@ -2312,15 +2312,15 @@ JUMP ON"
 
 [node name="Label3" type="Label" parent="Node2D" unique_id=567730049]
 z_index = 5
-offset_left = 691.104
-offset_top = -158.14374
-offset_right = 885.104
-offset_bottom = -135.14374
+offset_left = 674.104
+offset_top = -157.14374
+offset_right = 868.104
+offset_bottom = -134.14374
 theme_override_colors/font_color = Color(0.8326259, 0.78499806, 0.4628821, 1)
 theme_override_fonts/font = ExtResource("8_o0rbd")
 theme_override_font_sizes/font_size = 8
-text = "DIAMONDS ADD
-AN EXTRA JUMP"
+text = "DIAMONDS INCREASE
+YOUR MAX AIR JUMPS"
 
 [node name="Label5" type="Label" parent="Node2D" unique_id=244467534]
 z_index = 5

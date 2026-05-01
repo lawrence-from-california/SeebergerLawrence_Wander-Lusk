@@ -6,6 +6,9 @@
 [ext_resource type="AudioStream" uid="uid://bnc7tdyavs4h6" path="res://Island Wanders.mp3" id="4_dg162"]
 [ext_resource type="AudioStream" uid="uid://bowmk6cin4upn" path="res://scenes/Ouchh.wav" id="5_0ebda"]
 [ext_resource type="AudioStream" uid="uid://dogg5mhe66xl" path="res://scenes/Oh Yeahh.wav" id="6_y8o4f"]
+[ext_resource type="AudioStream" uid="uid://nh52em33qqai" path="res://Uhoh.mp3" id="7_gvtrw"]
+[ext_resource type="AudioStream" uid="uid://cmmv0ce4hapuq" path="res://Wahoo.mp3" id="8_hyb76"]
+[ext_resource type="AudioStream" uid="uid://doavbqefv1luy" path="res://Yay!.mp3" id="9_s6hem"]
 
 [node name="BGM" type="Node" unique_id=593244188]
 script = ExtResource("2_3c3jb")
@@ -31,3 +34,12 @@ bus = &"SFX"
 [node name="Oh Yeah" type="AudioStreamPlayer" parent="." unique_id=1826982159]
 stream = ExtResource("6_y8o4f")
 bus = &"SFX"
+
+[node name="UHOH" type="AudioStreamPlayer" parent="." unique_id=396730919]
+stream = ExtResource("7_gvtrw")
+
+[node name="Wahoo" type="AudioStreamPlayer" parent="." unique_id=1688273015]
+stream = ExtResource("8_hyb76")
+
+[node name="YAY" type="AudioStreamPlayer" parent="." unique_id=1263949002]
+stream = ExtResource("9_s6hem")

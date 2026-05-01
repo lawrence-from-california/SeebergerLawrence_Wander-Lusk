@@ -5,6 +5,12 @@ extends CheckButton
 
 func _on_toggled(toggled_on: bool) -> void:
 	if toggled_on == true:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		LevelManager.weather=true
 	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		LevelManager.weather=false
+
+func _ready() -> void:
+	if LevelManager.weather==true:
+		button_pressed=true
+	else:
+		button_pressed=false

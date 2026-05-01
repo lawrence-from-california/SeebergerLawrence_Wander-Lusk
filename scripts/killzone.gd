@@ -2,13 +2,14 @@ extends Area2D
 class_name  Killer
 @onready var levelmanager: Manager = LevelManager
 @onready var killtimer: Timer = $killtimer
-@onready var player: MainCharacter = %Player
 
-func _on_body_entered(_body: Node2D) -> void:
-	Bgm.ouch.play()
-	killtimer.start()
-	print("You died")
-	Engine.time_scale=0.6
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is MainCharacter:
+		Bgm.ouch.play()
+		killtimer.start()
+		print("You died")
+		Engine.time_scale=0.6
 
 
 func _on_timer_timeout() -> void:

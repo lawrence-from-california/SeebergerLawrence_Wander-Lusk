@@ -2,7 +2,7 @@ extends CenterContainer
 @onready var main_buttons: VBoxContainer = $"Main Buttons"
 @onready var panel: Panel = $Panel
 @onready var main_hud: HUD = %"Main HUD"
-@onready var pause_menu: Pauser = $"Pause Menu"
+
 
 @onready var musiclabel: Label = $Panel/VBoxContainer/Label3
 @onready var musics: Audiolabel = $"Panel/VBoxContainer/Music Slider"
