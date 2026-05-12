@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://d3cy8tua4exqi"]
+
+[ext_resource type="Script" uid="uid://cl5njw5g7lffq" path="res://poulterghoul.gd" id="1_h01b6"]
+[ext_resource type="Texture2D" uid="uid://bofkmygfutnbf" path="res://scripts/Poulterghoul 1.png" id="2_rjufj"]
+[ext_resource type="Texture2D" uid="uid://bjcuy0ysa4i21" path="res://scripts/Poulterghoul 3.png" id="3_7ble4"]
+[ext_resource type="Texture2D" uid="uid://b84lek133t1kf" path="res://scripts/Poulterghoul 2.png" id="4_15gb1"]
+[ext_resource type="PackedScene" uid="uid://l8alsvbkqara" path="res://scenes/killzone.tscn" id="5_mu0nc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vi8lv"]
+animations = [{
+"frames": [{
+"duration": 0.6,
+"texture": ExtResource("2_rjufj")
+}, {
+"duration": 0.6,
+"texture": ExtResource("3_7ble4")
+}, {
+"duration": 0.6,
+"texture": ExtResource("4_15gb1")
+}, {
+"duration": 0.6,
+"texture": ExtResource("3_7ble4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w626t"]
+size = Vector2(14, 3)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h01b6"]
+radius = 8.0
+
+[sub_resource type="Animation" id="Animation_h01b6"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_rjufj"]
+resource_name = "floating"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.33333334, 0, 0, 0),
+"times": PackedFloat32Array(0, 4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(-1, -0.25, 0, 0.25, 0, -3, -0.33333334, 0.33333334, 0, 0),
+"times": PackedFloat32Array(0, 4)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ble4"]
+_data = {
+&"RESET": SubResource("Animation_h01b6"),
+&"floating": SubResource("Animation_rjufj")
+}
+
+[node name="Poulterghoul" type="Node2D" unique_id=768347556]
+script = ExtResource("1_h01b6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1603270613]
+sprite_frames = SubResource("SpriteFrames_vi8lv")
+autoplay = "default"
+frame_progress = 0.6874128
+offset = Vector2(0, -3)
+
+[node name="Node2D" type="Node2D" parent="AnimatedSprite2D" unique_id=783394236]
+
+[node name="Killzone" parent="." unique_id=477196220 instance=ExtResource("5_mu0nc")]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Killzone" unique_id=900315435]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_w626t")
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=279456076]
+target_position = Vector2(14, 0)
+
+[node name="RayCastDown" type="RayCast2D" parent="." unique_id=831816176]
+target_position = Vector2(0, 59)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=179400750]
+target_position = Vector2(-14, 0)
+
+[node name="bouncearea(safe)" type="Area2D" parent="." unique_id=162094854]
+collision_layer = 8
+collision_mask = 8
+
+[node name="hurtbox" type="CollisionShape2D" parent="bouncearea(safe)" unique_id=1254025141]
+light_mask = 31
+visibility_layer = 31
+shape = SubResource("CircleShape2D_h01b6")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=866810231]
+libraries/ = SubResource("AnimationLibrary_7ble4")
+autoplay = &"floating"
+speed_scale = 4.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=990046676]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

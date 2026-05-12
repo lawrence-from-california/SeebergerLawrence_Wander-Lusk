@@ -30,6 +30,8 @@ size = Vector2(12, 5.25)
 size = Vector2(18, 8.75)
 
 [node name="Squishy" type="CharacterBody2D" unique_id=568052605]
+collision_layer = 33
+collision_mask = 33
 script = ExtResource("1_h85he")
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=421203381]
@@ -67,3 +69,7 @@ light_mask = 31
 visibility_layer = 31
 position = Vector2(0, -6.625)
 shape = SubResource("RectangleShape2D_styxw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1474749739]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

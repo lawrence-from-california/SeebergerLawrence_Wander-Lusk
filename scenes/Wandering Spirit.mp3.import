@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kr0owa7ele35"
+path="res://.godot/imported/Wandering Spirit.mp3-0ff917ac7fa01d46d4562d06a8bd46d3.mp3str"
+
+[deps]
+
+source_file="res://scenes/Wandering Spirit.mp3"
+dest_files=["res://.godot/imported/Wandering Spirit.mp3-0ff917ac7fa01d46d4562d06a8bd46d3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

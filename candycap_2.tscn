@@ -37,6 +37,8 @@ size = Vector2(12, 4.5)
 size = Vector2(16, 5.5)
 
 [node name="Candycap 2" type="CharacterBody2D" unique_id=2117866724]
+collision_layer = 33
+collision_mask = 33
 script = ExtResource("1_u1odk")
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1065026948]

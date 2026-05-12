@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ba2yfu226hlmi"
+path="res://.godot/imported/Charming Sea.mp3-466897fa5e0b01825f706dbc57b2d263.mp3str"
+
+[deps]
+
+source_file="res://enemies/zombie/Scenes/Charming Sea.mp3"
+dest_files=["res://.godot/imported/Charming Sea.mp3-466897fa5e0b01825f706dbc57b2d263.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

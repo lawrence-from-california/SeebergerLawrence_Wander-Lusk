@@ -9,8 +9,8 @@ extends Area2D
 
 
 func _ready() -> void:
-	particles.amount = (10+(scale.x*150*scale.y))
-	particles.lifetime = scale.y/5
+	particles.amount = (20+(scale.x*50*scale.y))
+
 
 
 

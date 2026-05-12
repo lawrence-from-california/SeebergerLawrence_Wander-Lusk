@@ -5,8 +5,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	unlock.classic1= true
-	unlock.save()
+	unlock.levelsunlocked.append("classic1")
+	unlock._save()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

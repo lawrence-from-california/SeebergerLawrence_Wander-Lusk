@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://cq51pofh0mivx"]
+
+[ext_resource type="Texture2D" uid="uid://mips15k6baqx" path="res://enemies/import_examples/Webboo Eyes.png" id="1_dii8q"]
+[ext_resource type="Script" uid="uid://lb3tvpxvk204" path="res://webboo.gd" id="1_pb2c6"]
+[ext_resource type="Texture2D" uid="uid://cj3ifsiociqup" path="res://enemies/zombie/Scenes/Webboo dead.png" id="2_pb2c6"]
+[ext_resource type="Texture2D" uid="uid://bv64uuakg7wdg" path="res://enemies/zombie/Scenes/Webboo dead2.png" id="3_fs1ja"]
+[ext_resource type="Texture2D" uid="uid://dj3gvs5mykl4t" path="res://enemies/zombie/Scenes/Webboo dead3.png" id="4_fli66"]
+[ext_resource type="Texture2D" uid="uid://eaxos5eflol4" path="res://enemies/import_examples/Webboo 1.png" id="5_bm0b1"]
+[ext_resource type="Texture2D" uid="uid://dyjejc43bnudp" path="res://enemies/zombie/Scenes/Webboo 2 fixed.png" id="6_dii8q"]
+[ext_resource type="PackedScene" uid="uid://l8alsvbkqara" path="res://scenes/killzone.tscn" id="7_mqxf7"]
+[ext_resource type="Texture2D" uid="uid://m2cu7uwf102c" path="res://enemies/import_examples/Webboo Eyes Flipped.png" id="9_pb2c6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqyar"]
+radius = 4.0
+height = 10.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jwl06"]
+animations = [{
+"frames": [{
+"duration": 0.9,
+"texture": ExtResource("2_pb2c6")
+}, {
+"duration": 0.9,
+"texture": ExtResource("3_fs1ja")
+}, {
+"duration": 0.9,
+"texture": ExtResource("4_fli66")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.9,
+"texture": ExtResource("5_bm0b1")
+}, {
+"duration": 0.9,
+"texture": ExtResource("6_dii8q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dknk"]
+size = Vector2(20, 7.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cad8j"]
+size = Vector2(16, 5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pb2c6"]
+radius = 37.054016
+
+[node name="Webboo" type="CharacterBody2D" unique_id=533363226]
+script = ExtResource("1_pb2c6")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=341209259]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_dqyar")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1061395958]
+sprite_frames = SubResource("SpriteFrames_jwl06")
+animation = &"dead"
+autoplay = "default"
+frame = 2
+frame_progress = 1.0
+
+[node name="Killzone" parent="." unique_id=477196220 instance=ExtResource("7_mqxf7")]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Killzone" unique_id=2101535826]
+position = Vector2(0, 4.25)
+shape = SubResource("RectangleShape2D_4dknk")
+
+[node name="bouncearea(safe)" type="Area2D" parent="." unique_id=2046499447]
+collision_layer = 8
+collision_mask = 8
+
+[node name="hurtbox" type="CollisionShape2D" parent="bouncearea(safe)" unique_id=1426663083]
+light_mask = 31
+visibility_layer = 31
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_cad8j")
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1542227768]
+target_position = Vector2(12, -8)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1827715260]
+target_position = Vector2(-12, -8)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=203046463]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1452430506]
+energy = 0.5
+texture = ExtResource("1_dii8q")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=429253590]
+visible = false
+energy = 0.5
+texture = ExtResource("9_pb2c6")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1311443825]
+collision_layer = 262147
+collision_mask = 262147
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=413877308]
+shape = SubResource("CircleShape2D_pb2c6")
+
+[node name="VisibleOnScreenNotifier2D2" type="VisibleOnScreenNotifier2D" parent="." unique_id=128142684]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="bouncearea(safe)" to="." method="_on_bounceareasafe_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D2" to="." method="_on_visible_on_screen_notifier_2d_2_screen_entered"]

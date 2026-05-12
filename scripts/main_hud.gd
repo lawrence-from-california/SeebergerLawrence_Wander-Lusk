@@ -28,6 +28,12 @@ func _ready() -> void:
 		bgm.track = 1
 	if areatype== "ground":
 		bgm.track = 2
+	if areatype== "desert":
+		bgm.track = 5
+	if areatype== "haunted":
+		bgm.track = 6
+	if areatype== "cave":
+		bgm.track = 7
 	if !bgm.changer==bgm.track:
 		bgm.music.stop()
 		bgm.changer=bgm.track

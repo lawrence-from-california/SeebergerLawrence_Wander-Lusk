@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bayjgrijdn1sq"]
+
+[ext_resource type="Script" uid="uid://bps46dbc3xp8w" path="res://snailhouette.gd" id="1_tbwfh"]
+[ext_resource type="Texture2D" uid="uid://n8x7tnn8efjn" path="res://enemies/Snailhouette.png" id="1_wh82q"]
+[ext_resource type="Texture2D" uid="uid://bivcgjv8hxgvg" path="res://scenes/SnailhouetteJump.png" id="2_k7hx3"]
+[ext_resource type="Texture2D" uid="uid://clo4drkg1lfyx" path="res://scenes/SnailhouetteRun.png" id="3_13tcv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_irfq0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wh82q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k7hx3")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_13tcv")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wh82q"]
+radius = 1.0
+
+[node name="Snailhouette" type="AnimatedSprite2D" unique_id=52537003]
+modulate = Color(0.18431373, 0.18431373, 0.18431373, 0.78431374)
+z_index = 1000
+sprite_frames = SubResource("SpriteFrames_irfq0")
+animation = &"jump"
+script = ExtResource("1_tbwfh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=307321837]
+
+[node name="Body Collider" type="CollisionShape2D" parent="StaticBody2D" unique_id=2055025874]
+shape = SubResource("CircleShape2D_wh82q")
+one_way_collision = true

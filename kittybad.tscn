@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://yqdq23w7gxv7"]
+
+[ext_resource type="Script" uid="uid://c35l527v4a4ie" path="res://kittybad.gd" id="1_6euqe"]
+[ext_resource type="Texture2D" uid="uid://deg6ub4m3j62q" path="res://scenes/Kittybad dead1.png" id="1_dsjiy"]
+[ext_resource type="Texture2D" uid="uid://u0bird145na6" path="res://scenes/Kittybad dead2.png" id="2_6euqe"]
+[ext_resource type="Texture2D" uid="uid://bto6dh0xnnbbd" path="res://scenes/Kittybad dead3.png" id="3_xvjh2"]
+[ext_resource type="Texture2D" uid="uid://bvli2c6tagwwi" path="res://scenes/Kittybad4.png" id="4_hivc2"]
+[ext_resource type="Texture2D" uid="uid://cx3scix5fkwdk" path="res://scenes/Kittybad3.png" id="5_ai1ho"]
+[ext_resource type="Texture2D" uid="uid://bagdeguc0abtt" path="res://scenes/Kittybad.png" id="6_5qsfy"]
+[ext_resource type="PackedScene" uid="uid://l8alsvbkqara" path="res://scenes/killzone.tscn" id="8_d6kby"]
+[ext_resource type="Texture2D" uid="uid://cmufan5npsi8x" path="res://scenes/Kittybad 6.png" id="8_xvjh2"]
+[ext_resource type="AudioStream" uid="uid://pi772apolnsw" path="res://scripts/MEOWW.wav" id="10_xvjh2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ast7n"]
+radius = 4.0
+height = 10.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mg4i0"]
+animations = [{
+"frames": [{
+"duration": 0.9,
+"texture": ExtResource("1_dsjiy")
+}, {
+"duration": 0.9,
+"texture": ExtResource("2_6euqe")
+}, {
+"duration": 0.9,
+"texture": ExtResource("3_xvjh2")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hivc2")
+}, {
+"duration": 0.7,
+"texture": ExtResource("5_ai1ho")
+}, {
+"duration": 0.7,
+"texture": ExtResource("6_5qsfy")
+}, {
+"duration": 0.7,
+"texture": ExtResource("5_ai1ho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xvjh2")
+}, {
+"duration": 0.7,
+"texture": ExtResource("5_ai1ho")
+}, {
+"duration": 0.7,
+"texture": ExtResource("6_5qsfy")
+}, {
+"duration": 0.7,
+"texture": ExtResource("5_ai1ho")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4tch"]
+size = Vector2(16, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpn4l"]
+size = Vector2(16, 5)
+
+[node name="Kittybad" type="CharacterBody2D" unique_id=1987514413]
+script = ExtResource("1_6euqe")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1956617925]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_ast7n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=150409985]
+sprite_frames = SubResource("SpriteFrames_mg4i0")
+autoplay = "default"
+
+[node name="Node2D" type="Node2D" parent="AnimatedSprite2D" unique_id=998034690]
+position = Vector2(-1, 0)
+
+[node name="Killzone" parent="." unique_id=477196220 instance=ExtResource("8_d6kby")]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Killzone" unique_id=1226400381]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_w4tch")
+
+[node name="bouncearea(safe)" type="Area2D" parent="." unique_id=691553123]
+collision_layer = 8
+collision_mask = 8
+
+[node name="hurtbox" type="CollisionShape2D" parent="bouncearea(safe)" unique_id=1647563542]
+light_mask = 31
+visibility_layer = 31
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_qpn4l")
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1572924707]
+target_position = Vector2(12, -8)
+
+[node name="RayCastRight2" type="RayCast2D" parent="." unique_id=1088702786]
+position = Vector2(7, 0)
+target_position = Vector2(0, 14)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1069038715]
+target_position = Vector2(-12, -8)
+
+[node name="RayCastLeft2" type="RayCast2D" parent="." unique_id=38478085]
+position = Vector2(-7, 0)
+target_position = Vector2(0, 14)
+
+[node name="RayCastDown" type="RayCast2D" parent="." unique_id=788340876]
+target_position = Vector2(0, -28)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1724291054]
+stream = ExtResource("10_xvjh2")
+pitch_scale = 1.19
+bus = &"SFX"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=521676287]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="bouncearea(safe)" to="." method="_on_bounceareasafe_area_entered"]
+[connection signal="body_entered" from="bouncearea(safe)" to="." method="_on_bounceareasafe_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

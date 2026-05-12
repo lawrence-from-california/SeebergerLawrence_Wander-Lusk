@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://gine46u0vjim"]
+
+[ext_resource type="Script" uid="uid://dndhlcqon55qw" path="res://Snailhouettezone.gd" id="1_acqyg"]
+
+[node name="Snailhouettezone" type="Area2D" unique_id=1379683763]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_acqyg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

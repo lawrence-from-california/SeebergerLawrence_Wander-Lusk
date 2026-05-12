@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bm8chikakwe1t"]
+
+[ext_resource type="Script" uid="uid://dgs5tll7sif44" path="res://minecart.gd" id="1_5t1p2"]
+[ext_resource type="Texture2D" uid="uid://bfpswjitwh1id" path="res://Minecart1.png" id="1_717ro"]
+[ext_resource type="Texture2D" uid="uid://dx4i8am2istoh" path="res://Minecart2.png" id="2_5t1p2"]
+[ext_resource type="Script" uid="uid://de2thdgoqcpee" path="res://scripts/tractor_beam.gd" id="4_3h0qk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xpbh0"]
+animations = [{
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("1_717ro")
+}, {
+"duration": 0.7,
+"texture": ExtResource("2_5t1p2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8qnb"]
+size = Vector2(14, 33.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4g6sd"]
+size = Vector2(14, 7)
+
+[node name="Minecart" type="StaticBody2D" unique_id=846081692]
+script = ExtResource("1_5t1p2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1019108230]
+sprite_frames = SubResource("SpriteFrames_xpbh0")
+autoplay = "default"
+frame_progress = 0.09652934
+
+[node name="Node2D" type="Node2D" parent="AnimatedSprite2D" unique_id=10809929]
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1564470154]
+target_position = Vector2(9, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=469836679]
+target_position = Vector2(-9, 0)
+
+[node name="Tractor Beam" type="Area2D" parent="." unique_id=393089139]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("4_3h0qk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tractor Beam" unique_id=490355392]
+position = Vector2(0, -17.0625)
+shape = SubResource("RectangleShape2D_q8qnb")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1101504462]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_4g6sd")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=855571943]
+
+[connection signal="body_entered" from="Tractor Beam" to="." method="_on_tractor_beam_body_entered"]
+[connection signal="body_exited" from="Tractor Beam" to="." method="_on_tractor_beam_body_exited"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

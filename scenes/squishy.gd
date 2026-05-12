@@ -3,7 +3,7 @@ extends CharacterBody2D
 const SPEED : float = 20.0
 var direction : int = -1
 const JUMP_VELOCITY = -300.0
-
+var onscreen: bool=false
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_cast_right: RayCast2D = $RayCastRight
@@ -12,19 +12,18 @@ const JUMP_VELOCITY = -300.0
 
 
 func _process (delta: float) -> void:
-	
-		
-	if ray_cast_right.is_colliding():
-		direction = -1
-		animated_sprite_2d.flip_h = false
-		
-	if ray_cast_left.is_colliding():
-		direction = 1
-		animated_sprite_2d.flip_h = true
-		
-	if is_on_floor():
-		velocity.y = JUMP_VELOCITY
-	position.x += SPEED * direction *delta
+	if onscreen==true:
+		if ray_cast_right.is_colliding():
+			direction = -1
+			animated_sprite_2d.flip_h = false
+			
+		if ray_cast_left.is_colliding():
+			direction = 1
+			animated_sprite_2d.flip_h = true
+			
+		if is_on_floor():
+			velocity.y = JUMP_VELOCITY
+		position.x += SPEED * direction *delta
 
 
 
@@ -43,3 +42,7 @@ func _physics_process(delta: float) -> void:
 	
 
 	move_and_slide()
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	onscreen=true

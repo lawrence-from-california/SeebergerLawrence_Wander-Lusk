@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://egkpvop3yb3n"]
+
+[ext_resource type="Script" uid="uid://dweldgqn40kas" path="res://torch.gd" id="1_cfxwm"]
+[ext_resource type="Texture2D" uid="uid://bs6bjv5f4vtw8" path="res://scripts/Torch2.png" id="1_wfdi7"]
+[ext_resource type="Texture2D" uid="uid://cgffyfk6g6gdk" path="res://scripts/Torch4.png" id="2_vkaj5"]
+[ext_resource type="Texture2D" uid="uid://ydpwyx4pci7k" path="res://scripts/Torch1.png" id="3_cfb3y"]
+[ext_resource type="Texture2D" uid="uid://jbt2qevo6en0" path="res://scripts/Torch5.png" id="4_cfxwm"]
+[ext_resource type="Texture2D" uid="uid://dse4v5rmkura2" path="res://scripts/Torch3.png" id="5_vsxk6"]
+[ext_resource type="Texture2D" uid="uid://te5mufs00iq1" path="res://scripts/Torch6.png" id="6_yjfty"]
+[ext_resource type="Shader" uid="uid://b2ffkt8ty5oq5" path="res://scripts/blur.gdshader" id="7_cfxwm"]
+[ext_resource type="Texture2D" uid="uid://cmckanegt0xbx" path="res://scenes/White Light.png" id="8_vsxk6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hm310"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": ExtResource("1_wfdi7")
+}, {
+"duration": 0.3,
+"texture": ExtResource("2_vkaj5")
+}, {
+"duration": 0.3,
+"texture": ExtResource("3_cfb3y")
+}, {
+"duration": 0.1,
+"texture": ExtResource("4_cfxwm")
+}, {
+"duration": 0.3,
+"texture": ExtResource("5_vsxk6")
+}, {
+"duration": 0.3,
+"texture": ExtResource("6_yjfty")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hm310"]
+shader = ExtResource("7_cfxwm")
+shader_parameter/lod = 2.7450001303875
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jl6w5"]
+radius = 870.6677
+
+[node name="Torch" type="Node2D" unique_id=846183425]
+z_index = -1
+script = ExtResource("1_cfxwm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1396476236]
+sprite_frames = SubResource("SpriteFrames_hm310")
+autoplay = "default"
+frame_progress = 0.4053304
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=299012308]
+material = SubResource("ShaderMaterial_hm310")
+position = Vector2(-1.6940659e-21, 4.7683716e-07)
+scale = Vector2(0.03, 0.03)
+color = Color(0.97037715, 0.9517949, 0.79834956, 1)
+energy = 0.6
+shadow_enabled = true
+texture = ExtResource("8_vsxk6")
+
+[node name="Lightzone" type="Area2D" parent="PointLight2D" unique_id=473369963]
+visible = false
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointLight2D/Lightzone" unique_id=839250778]
+shape = SubResource("CircleShape2D_jl6w5")

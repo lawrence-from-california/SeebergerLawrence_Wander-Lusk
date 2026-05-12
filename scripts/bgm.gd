@@ -22,9 +22,15 @@ func _process(_delta: float) -> void:
 		if track == 3:
 			music.stream = load("res://Winter Wanderland.mp3")
 		if track == 4:
-			music.stream = load("res://Wanderwaves.mp3")
+			music.stream = load("res://Wanderful Waters.mp3")
 		if track == 1:
 			music.stream = load("res://music/Jazz for Turtles (1).mp3")
 		if track == 2:
 			music.stream = load("res://Wanderwoods.mp3")
+		if track == 5:
+			music.stream = load("res://Wanderin Shadow.mp3")
+		if track == 6:
+			music.stream = load("res://scenes/Wandering Spirit.mp3")
+		if track == 7:
+			music.stream = load("res://scenes/Wanderock.mp3")
 		music.play()

@@ -1,5 +1,8 @@
 extends CharacterBody2D
 class_name MainCharacter
+@onready var kill_timer: Timer = $KillTimer
+@onready var main_hud: HUD = %"Main HUD"
+@onready var point_light_2d: PointLight2D = $PointLight2D
 @onready var collider: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $graphics
 @onready var jumpsound: AudioStreamPlayer2D = $Jumpsound
@@ -7,8 +10,11 @@ class_name MainCharacter
 @onready var jumpsound_3: AudioStreamPlayer2D = $Jumpsound3
 @onready var ouch: AudioStreamPlayer2D = $Ouch
 @onready var ohyeah: AudioStreamPlayer2D = $Ohyeah
+@onready var downtimer: Timer = $Downtimer
+@onready var levelman: LevelManager
 var SPEED:float = 200.0
 var JUMP_VELOCITY:float = -333.0
+var push_force: float = 40
 @onready var JUMP_COUNT: int = 1
 var MAX_JUMP_COUNT: int = 1
 var last_direction : float = 0
@@ -39,12 +45,14 @@ var motion: = Vector2()
 var velocityweight: float
 var slow: bool=false
 var swimmer: bool=false
+var downable: bool = true
 
 #func_ready():
 	#$elixir.connect("jump", self, 0)
 	
 #THIS IS THE CHARACTER ROTATION ON SLOPES
 func _process(_delta: float) -> void:
+	visible=true
 	if antigrav == true:
 		scale.y=-1
 	if antigrav == false:
@@ -77,8 +85,30 @@ func _process(_delta: float) -> void:
 	if !rotation_degrees == 0:
 		plainjump=false
 		#
-		
-
+	if downable == true:
+		if Input.is_action_just_pressed("down"):
+			downtimer.start()
+		if !downtimer.is_stopped():
+			set_collision_mask_value(6,false)
+			leftdown.set_collision_mask_value(6,false)
+			rightdown.set_collision_mask_value(6,false)
+			down.set_collision_mask_value(6,false)
+			left.set_collision_mask_value(6,false)
+			right.set_collision_mask_value(6,false)
+		if downtimer.is_stopped():
+			set_collision_mask_value(6,true)
+			leftdown.set_collision_mask_value(6,true)
+			rightdown.set_collision_mask_value(6,true)
+			down.set_collision_mask_value(6,true)
+			left.set_collision_mask_value(6,true)
+			right.set_collision_mask_value(6,true)
+	if downable == false:
+		set_collision_mask_value(6,true)
+		leftdown.set_collision_mask_value(6,true)
+		rightdown.set_collision_mask_value(6,true)
+		down.set_collision_mask_value(6,true)
+		left.set_collision_mask_value(6,true)
+		right.set_collision_mask_value(6,true)
 	#if plainjump == true:
 		#if !leftdown.is_colliding() and rightdown.is_colliding():
 			#if graphics.scale.x > 0:
@@ -244,6 +274,12 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
+	for i in get_slide_collision_count():
+		var c:= get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			var c_collider: RigidBody2D=c.get_collider()
+			c_collider.apply_central_impulse(-c.get_normal()*push_force)
+	
 	
 	#move animations
 	handle_animation()
@@ -259,15 +295,16 @@ func handle_animation() -> void:
 		animated_sprite_2d.play("jump")
 		
 
-func _on_area_2d_area_entered(_area: Area2D) -> void:
-	if Input.is_action_pressed("jump"):
-		velocity.y = JUMP_VELOCITY
-		
-	else:
-		if swimmer == true:
-			velocity.y = (JUMP_VELOCITY/5)
-		if swimmer == false:
-			velocity.y = (JUMP_VELOCITY/2)
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if !area is shadowzone:
+		if Input.is_action_pressed("jump"):
+			velocity.y = JUMP_VELOCITY
+			
+		else:
+			if swimmer == true:
+				velocity.y = (JUMP_VELOCITY/5)
+			if swimmer == false:
+				velocity.y = (JUMP_VELOCITY/2)
 		
 	JUMP_COUNT = MAX_JUMP_COUNT
 	move_and_slide()
@@ -289,3 +326,9 @@ func jumpbreath() -> void:
 		if jumptype ==3:
 			jumpsound_3.play()
 		jumptype = randi_range(1,3)
+
+
+
+
+
+		

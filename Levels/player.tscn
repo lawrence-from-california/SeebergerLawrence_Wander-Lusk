@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bjxg257thi4xv" path="res://enemies/SnailySprites3.png" id="2_cko2x"]
 [ext_resource type="AudioStream" uid="uid://msastuaefxo8" path="res://scenes/JumpSound.wav" id="3_gwlcl"]
 [ext_resource type="Script" uid="uid://upcjiy04ccyn" path="res://Levels/emitter.gd" id="4_5rgs0"]
+[ext_resource type="Shader" uid="uid://b2ffkt8ty5oq5" path="res://scripts/blur.gdshader" id="5_umq7g"]
+[ext_resource type="Script" uid="uid://ctov1jomjjcrx" path="res://Levels/lighter.gd" id="6_xeq3v"]
+[ext_resource type="Texture2D" uid="uid://cmckanegt0xbx" path="res://scenes/White Light.png" id="8_ln1lg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gwlcl"]
 radius = 4.0
@@ -79,9 +82,20 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rgs0"]
 size = Vector2(8, 3)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ln1lg"]
+shader = ExtResource("5_umq7g")
+shader_parameter/lod = 2.7450001303875
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_umq7g"]
+radius = 870.6677
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_umq7g"]
+radius = 1.0
+height = 2.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1749316360]
 collision_layer = 262298
-collision_mask = 262297
+collision_mask = 262329
 script = ExtResource("1_cko2x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1875709266]
@@ -110,7 +124,16 @@ one_shot = true
 wait_time = 0.08
 one_shot = true
 
+[node name="KillTimer" type="Timer" parent="." unique_id=1065518591]
+wait_time = 0.6
+one_shot = true
+ignore_time_scale = true
+
 [node name="LVLTime" type="Timer" parent="." unique_id=834898141]
+
+[node name="Downtimer" type="Timer" parent="." unique_id=424393531]
+wait_time = 0.1
+one_shot = true
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=427335514]
 target_position = Vector2(0, 8.5)
@@ -164,4 +187,32 @@ tangential_accel_max = 100.0
 color = Color(0.11145643, 1.300971, 0, 0.5764706)
 script = ExtResource("4_5rgs0")
 
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1546457555]
+material = SubResource("ShaderMaterial_ln1lg")
+position = Vector2(-2.842171e-14, 3)
+scale = Vector2(1.5, 1.5)
+color = Color(0.97037715, 0.9517949, 0.79834956, 1)
+energy = 0.6
+shadow_enabled = true
+texture = ExtResource("8_ln1lg")
+script = ExtResource("6_xeq3v")
+
+[node name="Lightzone" type="Area2D" parent="PointLight2D" unique_id=599098941]
+visible = false
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointLight2D/Lightzone" unique_id=1241617534]
+shape = SubResource("CircleShape2D_umq7g")
+
+[node name="Squishzone" type="Area2D" parent="." unique_id=712778199]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Squishzone" unique_id=722592993]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_umq7g")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]
+[connection signal="area_entered" from="PointLight2D/Lightzone" to="PointLight2D" method="_on_lightzone_area_entered"]
+[connection signal="body_entered" from="PointLight2D/Lightzone" to="PointLight2D" method="_on_lightzone_body_entered"]
+[connection signal="body_entered" from="Squishzone" to="." method="_on_squishzone_body_entered"]

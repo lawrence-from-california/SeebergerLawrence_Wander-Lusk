@@ -10,84 +10,92 @@ extends Control
 @onready var winter_2: Button = $"GridContainer/Winter 2"
 @onready var winter_3a: Button = $"GridContainer/Winter 3A"
 @onready var winter_3b: Button = $"GridContainer/Winter 3B"
-
+@onready var mine_1: Button = $GridContainer/Mine1
+@export var levelsunlocked: Array
 
 func _on_main_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://main_menu.tscn")
 
 
 func _on_tutorial_pressed() -> void:
-	if levelunlock.tutorial == true:
+	if levelsunlocked.has("tutorial"):
 		get_tree().change_scene_to_file("res://hubworld.tscn")
 
 func _on_beach_2_pressed() -> void:
-	if levelunlock.beach1 == true:
+	if levelsunlocked.has("beach1"):
 		get_tree().change_scene_to_file("res://scripts/beach_1.tscn")
 
 
 func _on_beach_3_pressed() -> void:
-	if levelunlock.beach2 == true:
+	if levelsunlocked.has("beach2a"):
 		get_tree().change_scene_to_file("res://scripts/beach_2.tscn")
 		
 
 func _on_beach_3b_pressed() -> void:
-	if levelunlock.beach2b == true:
+	if levelsunlocked.has("beach2b"):
 		get_tree().change_scene_to_file("res://scripts/beach_2b.tscn")
 
 func _on_winter_2_pressed() -> void:
-	if levelunlock.winter1 == true:
+	if levelsunlocked.has("winter1"):
 		get_tree().change_scene_to_file("res://scripts/winter_1.tscn")
 
 
 func _on_winter_3a_pressed() -> void:
-	if levelunlock.winter2a == true:
+	if levelsunlocked.has("winter2a"):
 		get_tree().change_scene_to_file("res://winter_2_1.tscn")
 		
 		
 
 func _on_winter_3b_pressed() -> void:
-	if levelunlock.winter2b == true:
+	if levelsunlocked.has("winter2b"):
 		get_tree().change_scene_to_file("res://scenes/winter_2.tscn")
 
-
+func _on_mine_1_pressed() -> void:
+	if levelsunlocked.has("mine1"):
+		get_tree().change_scene_to_file("res://mines_1.tscn")
 
 
 func _on_epic_1_pressed() -> void:
-	if levelunlock.classic1 == true:
+	if levelsunlocked.has("classic1"):
 		get_tree().change_scene_to_file("res://tutorial.tscn")
 
 
 
 func _on_epic_2_pressed() -> void:
-	if levelunlock.classic2 == true:
+	if levelsunlocked.has("classic2"):
 		get_tree().change_scene_to_file("res://level_3.tscn")
 	
 
 func _on_epic_3_pressed() -> void:
-	if levelunlock.classic3 == true:
+	if levelsunlocked.has("classic3"):
 		get_tree().change_scene_to_file("res://scenes/level_2.tscn")
 
 
 func _ready() -> void:
+	levelunlock._load_data()
+	levelsunlocked=levelunlock.levelsunlocked.duplicate()
 	LevelManager.lives=5
-	if levelunlock.tutorial == false:
+	if !levelsunlocked.has("tutorial"):
 		tutorial.text= "LOCKED"
-	if levelunlock.beach1 == false:
+	if !levelsunlocked.has("beach1"):
 		beach_2.text= "LOCKED"
-	if levelunlock.beach2 == false:
+	if !levelsunlocked.has("beach2a"):
 		beach_3.text= "LOCKED"
-	if levelunlock.beach2b == false:
+	if !levelsunlocked.has("beach2b"):
 		beach_3b.text= "LOCKED"
-	if levelunlock.winter1 == false:
+	if !levelsunlocked.has("winter1"):
 		winter_2.text= "LOCKED"
-	if levelunlock.winter2a == false:
+	if !levelsunlocked.has("winter2a"):
 		winter_3a.text= "LOCKED"
-	if levelunlock.winter2b == false:
+	if !levelsunlocked.has("winter2b"):
 		winter_3b.text= "LOCKED"
-	if levelunlock.classic1 == false:
+	if !levelsunlocked.has("mine1"):
+		mine_1.text= "LOCKED"
+	if !levelsunlocked.has("classic1"):
 		epic_1.text= "LOCKED"
-	if levelunlock.classic2 == false:
+	if !levelsunlocked.has("classic2"):
 		epic_2.text= "LOCKED"
-	if levelunlock.classic3 == false:
+	if !levelsunlocked.has("classic3"):
 		epic_3.text= "LOCKED"
+		
 	

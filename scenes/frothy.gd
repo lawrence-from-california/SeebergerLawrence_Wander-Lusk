@@ -52,10 +52,11 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
+	Engine.time_scale=1.0
 	queue_free()
 
 
-func _on_bounceareasafe_area_entered(area: Area2D) -> void:
+func _on_bounceareasafe_area_entered(_area: Area2D) -> void:
 		killzone.queue_free()
 		direction=0
 		animated_sprite_2d.play("dead")

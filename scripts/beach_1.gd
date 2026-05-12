@@ -3,5 +3,5 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	unlock.beach1= true
-	unlock.save()
+	unlock.levelsunlocked.append("beach1")
+	unlock._save()

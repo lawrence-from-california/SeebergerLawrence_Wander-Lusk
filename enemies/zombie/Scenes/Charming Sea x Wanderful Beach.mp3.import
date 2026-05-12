@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4adsnhj301jt"
+path="res://.godot/imported/Charming Sea x Wanderful Beach.mp3-fe81bc80d1f3490ee37f01eb0fa5c0d5.mp3str"
+
+[deps]
+
+source_file="res://enemies/zombie/Scenes/Charming Sea x Wanderful Beach.mp3"
+dest_files=["res://.godot/imported/Charming Sea x Wanderful Beach.mp3-fe81bc80d1f3490ee37f01eb0fa5c0d5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

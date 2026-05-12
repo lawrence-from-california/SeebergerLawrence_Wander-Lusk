@@ -2,7 +2,12 @@ extends Area2D
 class_name  Killer
 @onready var levelmanager: Manager = LevelManager
 @onready var killtimer: Timer = $killtimer
+const deathkiller = preload("res://deathkiller.tscn")
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
+#func _process(delta: float) -> void:
+	#if Engine.time_scale== 0.6:
+		#
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is MainCharacter:
@@ -10,6 +15,7 @@ func _on_body_entered(body: Node2D) -> void:
 		killtimer.start()
 		print("You died")
 		Engine.time_scale=0.6
+		
 
 
 func _on_timer_timeout() -> void:

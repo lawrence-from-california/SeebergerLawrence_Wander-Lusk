@@ -3,8 +3,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	unlock.winter1= true
-	unlock.save()
+	unlock.levelsunlocked.append("winter1")
+	unlock._save()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
