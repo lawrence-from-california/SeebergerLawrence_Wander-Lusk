@@ -10679,6 +10679,12 @@ theme_override_fonts/font = ExtResource("2_nlkkf")
 theme_override_font_sizes/font_size = 16
 text = "LEVEL SELECT"
 
+[node name="bestiary" type="Button" parent="Main Buttons" unique_id=865908619]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nlkkf")
+theme_override_font_sizes/font_size = 16
+text = "BESTIARY"
+
 [node name="options menu" type="Button" parent="Main Buttons" unique_id=6575557]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_nlkkf")
@@ -10896,6 +10902,7 @@ position = Vector2(278, 357)
 
 [connection signal="pressed" from="Main Buttons/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Main Buttons/level select" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="Main Buttons/bestiary" to="." method="_on_bestiary_pressed"]
 [connection signal="pressed" from="Main Buttons/options menu" to="." method="_on_options_menu_pressed"]
 [connection signal="pressed" from="Main Buttons/exit" to="." method="_on_exit_pressed"]
 [connection signal="value_changed" from="Panel/VBoxContainer/HBoxContainer/VBoxContainer/Music Slider" to="Panel/VBoxContainer/HBoxContainer/VBoxContainer/Music Slider" method="_on_value_changed"]

@@ -52,6 +52,8 @@ size = Vector2(16, 5)
 radius = 37.054016
 
 [node name="Webboo" type="CharacterBody2D" unique_id=533363226]
+collision_layer = 33
+collision_mask = 33
 script = ExtResource("1_pb2c6")
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=341209259]

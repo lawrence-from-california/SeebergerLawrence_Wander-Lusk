@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://1p75sq81nty6"]
+
+[ext_resource type="Texture2D" uid="uid://8svcgg52xr07" path="res://Platform Tileset.png" id="1_12m81"]
+[ext_resource type="Script" uid="uid://cyhmqgunxisv3" path="res://smallmechplatform.gd" id="1_ivn2c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivn2c"]
+atlas = ExtResource("1_12m81")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmemc"]
+atlas = ExtResource("1_12m81")
+region = Rect2(0, 64, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mmemc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivn2c")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmemc")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cp5la"]
+atlas = ExtResource("1_12m81")
+region = Rect2(64, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y270r"]
+atlas = ExtResource("1_12m81")
+region = Rect2(80, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pfw31"]
+animations = [{
+"frames": [{
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_cp5la")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_y270r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l26nh"]
+size = Vector2(32, 3)
+
+[node name="largemechplatform" type="AnimatableBody2D" unique_id=509743949]
+collision_layer = 262144
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("1_ivn2c")
+
+[node name="AnimatableBody2D" type="AnimatedSprite2D" parent="." unique_id=894439402]
+sprite_frames = SubResource("SpriteFrames_mmemc")
+animation = &"red"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1516783545]
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_pfw31")
+autoplay = "default"
+frame_progress = 0.51116234
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=842317071]
+z_index = -1
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_l26nh")
+
+[node name="Timer" type="Timer" parent="." unique_id=1227021502]
+one_shot = true

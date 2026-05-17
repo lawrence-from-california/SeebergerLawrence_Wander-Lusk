@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://hglc16qgejg4"]
+
+[ext_resource type="Texture2D" uid="uid://8svcgg52xr07" path="res://Platform Tileset.png" id="1_1btnt"]
+[ext_resource type="Script" uid="uid://coowra1oh8gt5" path="res://lever.gd" id="2_7uavd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soi7j"]
+atlas = ExtResource("1_1btnt")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1kj1s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soi7j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk4f0"]
+atlas = ExtResource("1_1btnt")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h01c4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk4f0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_awwea"]
+radius = 14.0
+
+[node name="Lever" type="AnimatedSprite2D" unique_id=1893439276]
+sprite_frames = SubResource("SpriteFrames_1kj1s")
+script = ExtResource("2_7uavd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1017456218]
+position = Vector2(0, 7)
+sprite_frames = SubResource("SpriteFrames_h01c4")
+offset = Vector2(0, -7)
+
+[node name="Activatorzone" type="Area2D" parent="." unique_id=1770202167]
+collision_layer = 33
+collision_mask = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Activatorzone" unique_id=1274591572]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_awwea")
+
+[connection signal="body_entered" from="Activatorzone" to="." method="_on_activatorzone_body_entered"]
+[connection signal="body_exited" from="Activatorzone" to="." method="_on_activatorzone_body_exited"]

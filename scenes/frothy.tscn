@@ -58,7 +58,7 @@ size = Vector2(14, 4.5)
 size = Vector2(6, 4)
 
 [node name="Frothy" type="CharacterBody2D" unique_id=2100537376]
-collision_layer = 262145
+collision_layer = 262177
 collision_mask = 262177
 script = ExtResource("1_2h28p")
 
@@ -84,15 +84,19 @@ shape = SubResource("RectangleShape2D_ixumn")
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=1393412953]
 target_position = Vector2(7, 0)
+collision_mask = 33
 
 [node name="RayCastRight2" type="RayCast2D" parent="." unique_id=1882846299]
 target_position = Vector2(11, 9)
+collision_mask = 33
 
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=2125041128]
 target_position = Vector2(-7, 0)
+collision_mask = 33
 
 [node name="RayCastLeft2" type="RayCast2D" parent="." unique_id=130397972]
 target_position = Vector2(-11, 9)
+collision_mask = 33
 
 [node name="bouncearea(safe)" type="Area2D" parent="." unique_id=1525909708]
 collision_layer = 8

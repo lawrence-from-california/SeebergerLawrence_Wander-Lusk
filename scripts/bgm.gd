@@ -33,4 +33,8 @@ func _process(_delta: float) -> void:
 			music.stream = load("res://scenes/Wandering Spirit.mp3")
 		if track == 7:
 			music.stream = load("res://scenes/Wanderock.mp3")
+		if track == 8:
+			music.stream = load("res://Wandering Workshop.mp3")
+		if track == 9:
+			music.stream = load("res://Shop of Wanders.mp3")
 		music.play()

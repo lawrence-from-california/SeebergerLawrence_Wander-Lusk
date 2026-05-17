@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://byqk7mkiu3bf7"]
+
+[ext_resource type="Texture2D" uid="uid://dby8h407qklwr" path="res://Large Rail Tileset.png" id="1_7cr4f"]
+[ext_resource type="Script" uid="uid://t0urxy50rc2d" path="res://invisitile.gd" id="2_tvg5o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvg5o"]
+atlas = ExtResource("1_7cr4f")
+region = Rect2(208, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03fco"]
+atlas = ExtResource("1_7cr4f")
+region = Rect2(240, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs1ca"]
+atlas = ExtResource("1_7cr4f")
+region = Rect2(208, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duft7"]
+atlas = ExtResource("1_7cr4f")
+region = Rect2(240, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wehew"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_tvg5o")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_03fco")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_gs1ca")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_duft7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cr4f"]
+size = Vector2(16, 3)
+
+[node name="Invisitile" type="AnimatedSprite2D" unique_id=742698848]
+sprite_frames = SubResource("SpriteFrames_wehew")
+autoplay = "default"
+frame_progress = 0.6001788
+script = ExtResource("2_tvg5o")
+
+[node name="StaticBody2d" type="StaticBody2D" parent="." unique_id=1115104262]
+collision_layer = 33
+collision_mask = 33
+collision_priority = 19.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2d" unique_id=128143104]
+z_index = -1
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_7cr4f")
+one_way_collision = true

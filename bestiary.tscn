@@ -1,0 +1,232 @@
+[gd_scene format=3 uid="uid://d1gdvj2tsa8go"]
+
+[ext_resource type="Script" uid="uid://d3rtp0povl6ts" path="res://bestiary.gd" id="1_g5rns"]
+[ext_resource type="Texture2D" uid="uid://brup0a0c5j8cy" path="res://Ency Snaily.png" id="1_nppm5"]
+[ext_resource type="Texture2D" uid="uid://bswop4iwclaxy" path="res://Ency Candycap.png" id="2_37yyb"]
+[ext_resource type="FontFile" uid="uid://cihhuwrtty5jn" path="res://enemies/Mystery Font (1).ttf" id="3_chdqa"]
+[ext_resource type="Texture2D" uid="uid://cxspncgnswgje" path="res://Ency Enigloo.png" id="3_diyxf"]
+[ext_resource type="Texture2D" uid="uid://bcupls7yag6lc" path="res://Ency Frostiflake.png" id="4_d5wjk"]
+[ext_resource type="Texture2D" uid="uid://4nsdnfxx5pc6" path="res://Ency Frothy.png" id="5_qjupi"]
+[ext_resource type="Texture2D" uid="uid://3ji2rwgih472" path="res://Ency Kittybad.png" id="6_ffxpu"]
+[ext_resource type="Texture2D" uid="uid://n1kbevemqwok" path="res://Ency Madflower.png" id="7_g2h0b"]
+[ext_resource type="Texture2D" uid="uid://umadlhbtrwod" path="res://Ency Nosferachu.png" id="8_mr0nb"]
+[ext_resource type="Texture2D" uid="uid://ou3pxd6of0r2" path="res://Ency Pinchay.png" id="9_drat0"]
+[ext_resource type="Texture2D" uid="uid://djqle1n5j0yif" path="res://Ency Poulterghoul.png" id="10_lhlyt"]
+[ext_resource type="Texture2D" uid="uid://csfrr2gtg7yo5" path="res://Ency Squishy.png" id="12_pemif"]
+[ext_resource type="Texture2D" uid="uid://crx1e2yf61878" path="res://Ency Terner.png" id="13_vdjmd"]
+[ext_resource type="Texture2D" uid="uid://f66656kcfaik" path="res://Ency Tumbleweeb.png" id="14_4ke5g"]
+[ext_resource type="Texture2D" uid="uid://bw44rp85wlbup" path="res://Ency Tomatocopter.png" id="14_37yyb"]
+[ext_resource type="Texture2D" uid="uid://cos2scwrb57bk" path="res://Ency Weboo.png" id="15_tq2i3"]
+[ext_resource type="Texture2D" uid="uid://bxyr5q0cy5bvj" path="res://Encyclopedia2.png" id="17_diyxf"]
+[ext_resource type="PackedScene" uid="uid://bfuf5xuuhhxeu" path="res://scripts/main_hud.tscn" id="19_diyxf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f1fk2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_37yyb")
+}],
+"loop": true,
+"name": &"Candycap",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_diyxf")
+}],
+"loop": true,
+"name": &"Enigloo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_d5wjk")
+}],
+"loop": true,
+"name": &"Frostiflake",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_qjupi")
+}],
+"loop": true,
+"name": &"Frothy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ffxpu")
+}],
+"loop": true,
+"name": &"Kittybad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_g2h0b")
+}],
+"loop": true,
+"name": &"Madflower",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_mr0nb")
+}],
+"loop": true,
+"name": &"Nosferachu",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_drat0")
+}],
+"loop": true,
+"name": &"Pinchay",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_lhlyt")
+}],
+"loop": true,
+"name": &"Poulterghoul",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nppm5")
+}],
+"loop": true,
+"name": &"Snaily",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_pemif")
+}],
+"loop": true,
+"name": &"Squishy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_vdjmd")
+}],
+"loop": true,
+"name": &"Terner",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_37yyb")
+}],
+"loop": true,
+"name": &"Tomatocopter",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_4ke5g")
+}],
+"loop": true,
+"name": &"Tumbleweeb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_tq2i3")
+}],
+"loop": true,
+"name": &"Webboo",
+"speed": 5.0
+}]
+
+[sub_resource type="FontVariation" id="FontVariation_37yyb"]
+base_font = ExtResource("3_chdqa")
+spacing_space = 2
+
+[node name="Bestiary" type="Control" unique_id=997034821]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g5rns")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1112984940]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D" unique_id=1929836720]
+z_index = 2
+position = Vector2(206, 76)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_f1fk2")
+animation = &"Madflower"
+
+[node name="BigOlBook" type="Sprite2D" parent="Node2D" unique_id=1345033984]
+modulate = Color(0.4075654, 0.40756536, 0.40756533, 1)
+position = Vector2(144, 112)
+scale = Vector2(1.029202, 1)
+texture = ExtResource("17_diyxf")
+
+[node name="Camera2D" type="Camera2D" parent="Node2D/BigOlBook" unique_id=848038690]
+position = Vector2(0, -16)
+zoom = Vector2(3.5, 3.5)
+
+[node name="Label" type="Label" parent="." unique_id=1110908504]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 12.0
+offset_right = 97.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0.31406352, 0.8688348, 0, 0.92156863)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("3_chdqa")
+theme_override_font_sizes/font_size = 8
+text = "SNAILY"
+
+[node name="Label2" type="Label" parent="." unique_id=1569288053]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 28.0
+offset_right = 136.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.86664706, 0.98211354, 0.77257055, 0.92156863)
+theme_override_colors/font_shadow_color = Color(0.4215954, 0.76427776, 0.38150358, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 6
+theme_override_constants/paragraph_spacing = 2
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = SubResource("FontVariation_37yyb")
+theme_override_font_sizes/font_size = 8
+text = "A GREEN MOLLUSK WHO IS THE HERO OF THE STORY. EVERYONE LOVES HIM.
+"
+autowrap_mode = 3
+
+[node name="Main HUD" parent="." unique_id=797063695 instance=ExtResource("19_diyxf")]
+unique_name_in_owner = true
+layout_mode = 0
+currentlevel = "1 - TUTORIAL"
+clock = 400
+areatype = "ground"
+leveltype = "Menu"
+stage = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1634954103]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=825895923]
+offset_left = 158.0
+offset_top = 576.0
+offset_right = 546.0
+offset_bottom = 616.0
+theme_override_fonts/font = ExtResource("3_chdqa")
+theme_override_font_sizes/font_size = 32
+text = "RETURN TO MAIN MENU"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

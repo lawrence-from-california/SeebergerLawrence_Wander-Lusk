@@ -4462,7 +4462,7 @@ sources/0 = SubResource("TileSetAtlasSource_6qcmk")
 sources/1 = SubResource("TileSetAtlasSource_1f16f")
 sources/4 = SubResource("TileSetAtlasSource_p156f")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jm615"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e0g62"]
 texture = ExtResource("9_3ix61")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -4512,7 +4512,7 @@ texture = ExtResource("9_3ix61")
 7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:0/0/physics_layer_0/polygon_0/one_way = true
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pdgd5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lrxdr"]
 texture = ExtResource("10_nud1u")
 0:0/0 = 0
 1:0/0 = 0
@@ -4663,7 +4663,7 @@ texture = ExtResource("10_nud1u")
 14:15/0 = 0
 15:15/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6lk5x"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oo025"]
 texture = ExtResource("5_0vceg")
 0:0/0 = 0
 1:0/0 = 0
@@ -4680,11 +4680,11 @@ texture = ExtResource("5_0vceg")
 5:1/0 = 0
 6:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d6jhn"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_egjck"]
 texture = ExtResource("11_e0g62")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27i4s"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ul7n"]
 texture = ExtResource("8_ep4fr")
 0:0/0 = 0
 1:0/0 = 0
@@ -5589,7 +5589,7 @@ texture = ExtResource("8_ep4fr")
 2:6/0 = 0
 2:7/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrw8p"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uwr46"]
 texture = ExtResource("12_lrxdr")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -5657,7 +5657,7 @@ texture = ExtResource("12_lrxdr")
 2:3/0 = 0
 3:3/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dd21l"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i4sn6"]
 texture = ExtResource("13_oo025")
 0:0/0 = 0
 1:0/0 = 0
@@ -5858,7 +5858,7 @@ texture = ExtResource("13_oo025")
 10:20/0 = 0
 11:20/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ep4fr"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqlm6"]
 texture = ExtResource("13_oo025")
 0:0/0 = 0
 1:0/0 = 0
@@ -6059,7 +6059,7 @@ texture = ExtResource("13_oo025")
 10:20/0 = 0
 11:20/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3ix61"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jm615"]
 texture = ExtResource("8_ep4fr")
 0:0/0 = 0
 1:0/0 = 0
@@ -6965,16 +6965,17 @@ texture = ExtResource("8_ep4fr")
 31:31/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_0lif4"]
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_jm615")
-sources/1 = SubResource("TileSetAtlasSource_pdgd5")
-sources/2 = SubResource("TileSetAtlasSource_6lk5x")
-sources/3 = SubResource("TileSetAtlasSource_d6jhn")
-sources/5 = SubResource("TileSetAtlasSource_wrw8p")
-sources/4 = SubResource("TileSetAtlasSource_27i4s")
-sources/6 = SubResource("TileSetAtlasSource_dd21l")
-sources/7 = SubResource("TileSetAtlasSource_ep4fr")
-sources/8 = SubResource("TileSetAtlasSource_3ix61")
+physics_layer_0/collision_layer = 32
+physics_layer_0/collision_mask = 32
+sources/0 = SubResource("TileSetAtlasSource_e0g62")
+sources/1 = SubResource("TileSetAtlasSource_lrxdr")
+sources/2 = SubResource("TileSetAtlasSource_oo025")
+sources/3 = SubResource("TileSetAtlasSource_egjck")
+sources/5 = SubResource("TileSetAtlasSource_uwr46")
+sources/4 = SubResource("TileSetAtlasSource_7ul7n")
+sources/6 = SubResource("TileSetAtlasSource_i4sn6")
+sources/7 = SubResource("TileSetAtlasSource_dqlm6")
+sources/8 = SubResource("TileSetAtlasSource_jm615")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fpblv"]
 distance = -33.0

@@ -20,18 +20,15 @@ func _process (delta: float) -> void:
 	
 		
 	if ray_cast_right.is_colliding():
-		velocity.y = JUMP_VELOCITY
 		direction = -1
 		animated_sprite_2d.flip_h = false
 		
 	if ray_cast_left.is_colliding():
-		velocity.y = JUMP_VELOCITY
 		direction = 1
 		animated_sprite_2d.flip_h = true
 		
 	position.x += SPEED * direction *delta
-	if (!ray_cast_right_2.is_colliding() or !ray_cast_left_2.is_colliding())and !ray_cast_left.is_colliding() and !ray_cast_right.is_colliding() and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+
 
 
 func _physics_process(delta: float) -> void:
@@ -41,8 +38,7 @@ func _physics_process(delta: float) -> void:
 		SPEED = 60
 	else:
 		SPEED = 30
-	if is_on_floor() and is_on_wall():
-		velocity.y = JUMP_VELOCITY
+
 
 
 	move_and_slide()

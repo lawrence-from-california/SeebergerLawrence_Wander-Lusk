@@ -5768,7 +5768,8 @@ texture = ExtResource("15_doley")
 11:20/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_clkf5"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 32
+physics_layer_0/collision_mask = 32
 sources/0 = SubResource("TileSetAtlasSource_hhhjd")
 sources/1 = SubResource("TileSetAtlasSource_ht2kb")
 sources/2 = SubResource("TileSetAtlasSource_adkpk")

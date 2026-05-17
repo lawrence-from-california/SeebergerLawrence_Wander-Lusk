@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cdy8opaajnjvo"]
+
+[ext_resource type="Script" uid="uid://bwr1tn0qmc673" path="res://safety_screen.gd" id="1_s2set"]
+
+[node name="Safety Screen" type="Area2D" unique_id=2136437190]
+collision_layer = 129
+collision_mask = 129
+script = ExtResource("1_s2set")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

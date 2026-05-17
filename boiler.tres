@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bbaa2c6jnde4q"]
+
+[ext_resource type="Shader" uid="uid://b645mke4mdjvo" path="res://boiler.gdshader" id="1_tb3la"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tb3la"]
+
+[resource]
+shader = ExtResource("1_tb3la")
+shader_parameter/scale = Vector2(10, 10)
+shader_parameter/strength = 0.03
+shader_parameter/fps = 30.0
+shader_parameter/noise = SubResource("NoiseTexture2D_tb3la")

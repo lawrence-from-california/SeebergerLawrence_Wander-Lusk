@@ -53,12 +53,15 @@ shape = SubResource("RectangleShape2D_vuaw7")
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=1074532061]
 target_position = Vector2(12, 0)
+collision_mask = 33
 
 [node name="RayCastDown" type="RayCast2D" parent="." unique_id=1324953513]
 target_position = Vector2(0, 14)
+collision_mask = 33
 
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=831991626]
 target_position = Vector2(-12, 0)
+collision_mask = 33
 
 [node name="bouncearea(safe)" type="Area2D" parent="." unique_id=1313971316]
 collision_layer = 8

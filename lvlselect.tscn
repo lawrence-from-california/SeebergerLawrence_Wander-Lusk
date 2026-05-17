@@ -3502,6 +3502,30 @@ theme_override_fonts/font = ExtResource("2_cjqu6")
 theme_override_font_sizes/font_size = 32
 text = "MINE 1"
 
+[node name="Desert1" type="Button" parent="GridContainer" unique_id=902725015]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cjqu6")
+theme_override_font_sizes/font_size = 32
+text = "DESERT 1"
+
+[node name="Haunted1" type="Button" parent="GridContainer" unique_id=1316951974]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cjqu6")
+theme_override_font_sizes/font_size = 32
+text = "HAUNTED 1"
+
+[node name="Factory1" type="Button" parent="GridContainer" unique_id=655667346]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cjqu6")
+theme_override_font_sizes/font_size = 32
+text = "FACTORY 1"
+
+[node name="Space1" type="Button" parent="GridContainer" unique_id=10097946]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cjqu6")
+theme_override_font_sizes/font_size = 32
+text = "SPACE 1"
+
 [node name="Epic 1" type="Button" parent="GridContainer" unique_id=173055844]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_cjqu6")
@@ -3575,6 +3599,10 @@ texture = ExtResource("12_0pyyh")
 [connection signal="pressed" from="GridContainer/Winter 3A" to="." method="_on_winter_3a_pressed"]
 [connection signal="pressed" from="GridContainer/Winter 3B" to="." method="_on_winter_3b_pressed"]
 [connection signal="pressed" from="GridContainer/Mine1" to="." method="_on_mine_1_pressed"]
+[connection signal="pressed" from="GridContainer/Desert1" to="." method="_on_desert_1_pressed"]
+[connection signal="pressed" from="GridContainer/Haunted1" to="." method="_on_haunted_1_pressed"]
+[connection signal="pressed" from="GridContainer/Factory1" to="." method="_on_factory_1_pressed"]
+[connection signal="pressed" from="GridContainer/Space1" to="." method="_on_space_1_pressed"]
 [connection signal="pressed" from="GridContainer/Epic 1" to="." method="_on_epic_1_pressed"]
 [connection signal="pressed" from="GridContainer/Epic 2" to="." method="_on_epic_2_pressed"]
 [connection signal="pressed" from="GridContainer/Epic 3" to="." method="_on_epic_3_pressed"]

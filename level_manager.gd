@@ -5,6 +5,10 @@ var lives : int =5
 var weather: bool = true
 var xposition: float = 1
 var ypositipn: float = 1
+var immunity: bool = false
+var onoff:bool=true
+var readysetgo: bool=false
+
 
 func _process(_delta: float) -> void:
 	if player:

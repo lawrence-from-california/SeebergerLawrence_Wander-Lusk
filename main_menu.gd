@@ -75,3 +75,7 @@ func _on_clear_data_pressed() -> void:
 	if clear_data.text=="CLICK  ONCE  MORE  TO  ERASE  EVERYTHING" and clickable==true:
 		clear_data.text= "EVERYTHING  WAS  DELETED..."
 		Unlocks._delete_everything_forever()
+
+
+func _on_bestiary_pressed() -> void:
+	get_tree().change_scene_to_file("res://bestiary.tscn")

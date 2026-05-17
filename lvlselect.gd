@@ -11,6 +11,11 @@ extends Control
 @onready var winter_3a: Button = $"GridContainer/Winter 3A"
 @onready var winter_3b: Button = $"GridContainer/Winter 3B"
 @onready var mine_1: Button = $GridContainer/Mine1
+@onready var desert_1: Button = $GridContainer/Desert1
+@onready var haunted_1: Button = $GridContainer/Haunted1
+@onready var factory_1: Button = $GridContainer/Factory1
+@onready var space_1: Button = $GridContainer/Space1
+
 @export var levelsunlocked: Array
 
 func _on_main_menu_pressed() -> void:
@@ -55,6 +60,26 @@ func _on_mine_1_pressed() -> void:
 		get_tree().change_scene_to_file("res://mines_1.tscn")
 
 
+func _on_desert_1_pressed() -> void:
+	if levelsunlocked.has("desert1"):
+		get_tree().change_scene_to_file("res://desert_1.tscn")
+
+
+func _on_haunted_1_pressed() -> void:
+	if levelsunlocked.has("haunted1"):
+		get_tree().change_scene_to_file("res://haunted_1.tscn")
+
+
+func _on_factory_1_pressed() -> void:
+	if levelsunlocked.has("factory1"):
+		get_tree().change_scene_to_file("res://factory_1.tscn")
+
+
+func _on_space_1_pressed() -> void:
+	if levelsunlocked.has("space1"):
+		get_tree().change_scene_to_file("res://space_2.tscn")
+
+
 func _on_epic_1_pressed() -> void:
 	if levelsunlocked.has("classic1"):
 		get_tree().change_scene_to_file("res://tutorial.tscn")
@@ -91,6 +116,14 @@ func _ready() -> void:
 		winter_3b.text= "LOCKED"
 	if !levelsunlocked.has("mine1"):
 		mine_1.text= "LOCKED"
+	if !levelsunlocked.has("desert1"):
+		desert_1.text= "LOCKED"
+	if !levelsunlocked.has("haunted1"):
+		haunted_1.text= "LOCKED"
+	if !levelsunlocked.has("factory1"):
+		factory_1.text= "LOCKED"
+	if !levelsunlocked.has("space1"):
+		space_1.text= "LOCKED"
 	if !levelsunlocked.has("classic1"):
 		epic_1.text= "LOCKED"
 	if !levelsunlocked.has("classic2"):

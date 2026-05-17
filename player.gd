@@ -12,6 +12,8 @@ class_name MainCharacter
 @onready var ohyeah: AudioStreamPlayer2D = $Ohyeah
 @onready var downtimer: Timer = $Downtimer
 @onready var levelman: LevelManager
+@onready var below_jumper: StaticBody2D = $"Below Jumper"
+var immunity: bool = false
 var SPEED:float = 200.0
 var JUMP_VELOCITY:float = -333.0
 var push_force: float = 40
@@ -30,6 +32,7 @@ var walljump: bool = false
 @onready var left: RayCast2D = $RayCast2D3
 @onready var rightdown: RayCast2D = $RayCast2D4
 @onready var leftdown: RayCast2D = $RayCast2D5
+@onready var ice_checker: RayCast2D = $"Ice Checker"
 var jumptype: int = randi_range(1,3)
 var plainjump : bool = true
 var rotatable: bool = true
@@ -45,11 +48,9 @@ var motion: = Vector2()
 var velocityweight: float
 var slow: bool=false
 var swimmer: bool=false
-var downable: bool = true
+var downable: bool = false
 
-#func_ready():
-	#$elixir.connect("jump", self, 0)
-	
+
 #THIS IS THE CHARACTER ROTATION ON SLOPES
 func _process(_delta: float) -> void:
 	visible=true
@@ -109,6 +110,11 @@ func _process(_delta: float) -> void:
 		down.set_collision_mask_value(6,true)
 		left.set_collision_mask_value(6,true)
 		right.set_collision_mask_value(6,true)
+		
+	if swimmer == true:
+		downtimer.wait_time=0.3
+	if swimmer == false:
+		downtimer.wait_time=0.1
 	#if plainjump == true:
 		#if !leftdown.is_colliding() and rightdown.is_colliding():
 			#if graphics.scale.x > 0:
@@ -238,10 +244,10 @@ func _physics_process(delta: float) -> void:
 	var direction:float = Input.get_axis("move_left", "move_right")
 	var icedirection: float = Input.get_action_strength("move_left") or Input.get_action_strength("move_right")
 	last_direction = direction
-	if down.is_colliding() and !collision_mask == 19:
-		ice = false
-			
-	
+	if down.is_colliding():
+		var collider: Object = down.get_collider()
+		if collider is not IcePlatform:
+			ice = false
 
 		
 	if ice == true:
@@ -331,4 +337,8 @@ func jumpbreath() -> void:
 
 
 
-		
+
+#
+func _on_below_jumper_body_entered(body: RigidBody2D) -> void:
+	var my_vec:Vector2 = Vector2(1000.0, 2000.0)
+	body.apply_central_force(my_vec *push_force)

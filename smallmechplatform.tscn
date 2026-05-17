@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://yil0j7ogbb0"]
+
+[ext_resource type="Texture2D" uid="uid://8svcgg52xr07" path="res://Platform Tileset.png" id="1_x42s8"]
+[ext_resource type="Texture2D" uid="uid://bsma7a2pd2r3" path="res://Platform Tileset Rails.png" id="2_5rdn2"]
+[ext_resource type="Script" uid="uid://cyhmqgunxisv3" path="res://smallmechplatform.gd" id="2_cnqu4"]
+[ext_resource type="Texture2D" uid="uid://dby8h407qklwr" path="res://Large Rail Tileset.png" id="4_kvlfa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvlfa"]
+atlas = ExtResource("2_5rdn2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4g0m"]
+atlas = ExtResource("1_x42s8")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5rdn2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvlfa")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4g0m")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cp5la"]
+atlas = ExtResource("4_kvlfa")
+region = Rect2(128, 176, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y270r"]
+atlas = ExtResource("4_kvlfa")
+region = Rect2(144, 176, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s4g0m"]
+animations = [{
+"frames": [{
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_cp5la")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_y270r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvlfa"]
+size = Vector2(14, 3)
+
+[node name="AnimatedSprite2D" type="AnimatableBody2D" unique_id=207915831]
+collision_layer = 262144
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("2_cnqu4")
+
+[node name="AnimatableBody2D" type="AnimatedSprite2D" parent="." unique_id=217776721]
+sprite_frames = SubResource("SpriteFrames_5rdn2")
+animation = &"red"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1205965703]
+sprite_frames = SubResource("SpriteFrames_s4g0m")
+autoplay = "default"
+frame_progress = 0.014325593
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1381379198]
+z_index = -1
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_kvlfa")
+
+[node name="Timer" type="Timer" parent="." unique_id=996001030]
+wait_time = 0.9
+one_shot = true

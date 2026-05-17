@@ -52,6 +52,8 @@ frame_progress = 0.472069
 [node name="Node2D" type="Node2D" parent="AnimatedSprite2D" unique_id=1926365821]
 
 [node name="Killzone" parent="." unique_id=638736096 instance=ExtResource("5_14sc1")]
+collision_layer = 34
+collision_mask = 34
 
 [node name="Hitbox" type="CollisionShape2D" parent="Killzone" unique_id=1308264934]
 position = Vector2(0, 3)
@@ -62,16 +64,18 @@ target_position = Vector2(11, 0)
 
 [node name="RayCastRight2" type="RayCast2D" parent="." unique_id=1097966551]
 target_position = Vector2(16, 7)
+collision_mask = 33
 
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=221311372]
 target_position = Vector2(-11, 0)
 
 [node name="RayCastLeft2" type="RayCast2D" parent="." unique_id=812043058]
 target_position = Vector2(-16, 7)
+collision_mask = 33
 
 [node name="bouncearea(safe)" type="Area2D" parent="." unique_id=1893946500]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 40
+collision_mask = 40
 
 [node name="hurtbox" type="CollisionShape2D" parent="bouncearea(safe)" unique_id=2104222362]
 light_mask = 31

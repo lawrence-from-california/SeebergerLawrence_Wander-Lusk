@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cqrl3th2clfqx" path="res://player.gd" id="1_cko2x"]
 [ext_resource type="Texture2D" uid="uid://bjxg257thi4xv" path="res://enemies/SnailySprites3.png" id="2_cko2x"]
 [ext_resource type="AudioStream" uid="uid://msastuaefxo8" path="res://scenes/JumpSound.wav" id="3_gwlcl"]
-[ext_resource type="Script" uid="uid://upcjiy04ccyn" path="res://Levels/emitter.gd" id="4_5rgs0"]
 [ext_resource type="Shader" uid="uid://b2ffkt8ty5oq5" path="res://scripts/blur.gdshader" id="5_umq7g"]
 [ext_resource type="Script" uid="uid://ctov1jomjjcrx" path="res://Levels/lighter.gd" id="6_xeq3v"]
 [ext_resource type="Texture2D" uid="uid://cmckanegt0xbx" path="res://scenes/White Light.png" id="8_ln1lg"]
@@ -93,9 +92,13 @@ radius = 870.6677
 radius = 1.0
 height = 2.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ln1lg"]
+radius = 2.1360009
+
 [node name="Player" type="CharacterBody2D" unique_id=1749316360]
-collision_layer = 262298
-collision_mask = 262329
+collision_layer = 262170
+collision_mask = 134480057
+platform_floor_layers = 4294967262
 script = ExtResource("1_cko2x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1875709266]
@@ -136,25 +139,32 @@ wait_time = 0.1
 one_shot = true
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=427335514]
+target_position = Vector2(0, 10)
+collision_mask = 262177
+
+[node name="Ice Checker" type="RayCast2D" parent="." unique_id=202930566]
 target_position = Vector2(0, 8.5)
+collision_mask = 262177
 
 [node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1084918639]
 position = Vector2(2, 5)
 target_position = Vector2(8, 0)
+collision_mask = 262177
 
 [node name="RayCast2D4" type="RayCast2D" parent="." unique_id=900009087]
 position = Vector2(2, 0)
 target_position = Vector2(0, 9)
-collision_mask = 262145
+collision_mask = 262177
 
 [node name="RayCast2D5" type="RayCast2D" parent="." unique_id=1171061398]
 position = Vector2(-2, 0)
 target_position = Vector2(0, 9)
-collision_mask = 262145
+collision_mask = 262177
 
 [node name="RayCast2D3" type="RayCast2D" parent="." unique_id=1372425918]
 position = Vector2(-2, 5)
 target_position = Vector2(-8, 0)
+collision_mask = 262177
 
 [node name="Jumpsound" type="AudioStreamPlayer2D" parent="." unique_id=1973151962]
 stream = ExtResource("3_gwlcl")
@@ -169,23 +179,6 @@ bus = &"SFX"
 stream = ExtResource("3_gwlcl")
 pitch_scale = 0.97
 bus = &"SFX"
-
-[node name="Emitter" type="CPUParticles2D" parent="." unique_id=1416525742]
-z_index = -1
-position = Vector2(0, 9)
-amount = 3
-lifetime = 0.08
-speed_scale = 0.1
-explosiveness = 0.18
-direction = Vector2(0, -1)
-gravity = Vector2(0, 400)
-initial_velocity_min = 100.0
-initial_velocity_max = 100.0
-linear_accel_min = -100.0
-linear_accel_max = -50.55
-tangential_accel_max = 100.0
-color = Color(0.11145643, 1.300971, 0, 0.5764706)
-script = ExtResource("4_5rgs0")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1546457555]
 material = SubResource("ShaderMaterial_ln1lg")
@@ -206,10 +199,22 @@ collision_mask = 128
 shape = SubResource("CircleShape2D_umq7g")
 
 [node name="Squishzone" type="Area2D" parent="." unique_id=712778199]
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Squishzone" unique_id=722592993]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_umq7g")
+
+[node name="Below Jumper" type="StaticBody2D" parent="." unique_id=77851873]
+position = Vector2(0, -11)
+collision_layer = 67108864
+collision_mask = 201326592
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Below Jumper" unique_id=90584265]
+position = Vector2(0, 7.75)
+shape = SubResource("CircleShape2D_ln1lg")
+one_way_collision = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]

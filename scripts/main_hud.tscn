@@ -12,7 +12,7 @@ shader_parameter/lod = 0.850000040375
 
 [sub_resource type="Animation" id="Animation_5qlgc"]
 resource_name = "Menu"
-length = 0.76666665
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -110,6 +110,7 @@ layout_mode = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("3_6774i")
 text = "TIME:"
+horizontal_alignment = 2
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer" unique_id=712096799]
 offset_left = 11.5
