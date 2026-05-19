@@ -7,6 +7,7 @@ var xposition: float = 1
 var ypositipn: float = 1
 var immunity: bool = false
 var onoff:bool=true
+var leverlevel: float=90
 var readysetgo: bool=false
 
 

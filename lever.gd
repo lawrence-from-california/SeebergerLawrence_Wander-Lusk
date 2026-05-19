@@ -4,29 +4,34 @@ extends AnimatedSprite2D
 var onoff: bool= false
 var rotatable: bool = false
 @onready var player: MainCharacter = %Player
-
+var leverposition: float
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	rotatable=false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if pull.rotation_degrees>0:
-		LevelManager.onoff=false
-	else:
-		LevelManager.onoff=true
-	
-	if pull.rotation_degrees>90:
-		pull.rotation_degrees=90
-	if pull.rotation_degrees<-90:
-		pull.rotation_degrees=-90
-		
 	if rotatable==true:
-		if player.position.x > position.x:
-			pull.rotation_degrees+=30*delta
-		if player.position.x < position.x:
-			pull.rotation_degrees-=30*delta
+		leverposition=5*(player.position.x-position.x)
+		pull.rotation_degrees+=(leverposition/10)
+		if pull.rotation_degrees>leverposition and leverposition>0:
+			pull.rotation_degrees=leverposition
+		if pull.rotation_degrees<leverposition and leverposition<0:
+			pull.rotation_degrees=leverposition
+		if pull.rotation_degrees>90:
+			pull.rotation_degrees=90
+		if pull.rotation_degrees<-90:
+			pull.rotation_degrees=-90
+		LevelManager.leverlevel=pull.rotation_degrees
+	
+	
+	if rotatable==false:
+		pull.rotation_degrees=LevelManager.leverlevel
+		#if player.position.x > position.x:
+			#pull.rotation_degrees+=30*delta
+		#if player.position.x < position.x:
+			#pull.rotation_degrees-=30*delta
 
 func _on_activatorzone_body_entered(body: Node2D) -> void:
 	if body is MainCharacter:

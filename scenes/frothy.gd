@@ -3,7 +3,7 @@ extends CharacterBody2D
 var SPEED : float = 30.0
 var direction : int = -1
 const JUMP_VELOCITY = -100.0
-
+var onscreen:bool=false
 
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -18,26 +18,27 @@ const JUMP_VELOCITY = -100.0
 
 func _process (delta: float) -> void:
 	
-		
-	if ray_cast_right.is_colliding():
-		direction = -1
-		animated_sprite_2d.flip_h = false
-		
-	if ray_cast_left.is_colliding():
-		direction = 1
-		animated_sprite_2d.flip_h = true
-		
-	position.x += SPEED * direction *delta
+	if onscreen==true:		
+		if ray_cast_right.is_colliding():
+			direction = -1
+			animated_sprite_2d.flip_h = false
+			
+		if ray_cast_left.is_colliding():
+			direction = 1
+			animated_sprite_2d.flip_h = true
+			
+		position.x += SPEED * direction *delta
 
 
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-		SPEED = 60
-	else:
-		SPEED = 30
+	if onscreen==true:
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+			SPEED = 60
+		else:
+			SPEED = 30
 
 
 
@@ -50,7 +51,13 @@ func _physics_process(delta: float) -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	Engine.time_scale=1.0
 	queue_free()
-
+	
+	
+@onready var unlock : lvlunlock = Unlocks
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	unlock.levelsunlocked.append("Snowbody")
+	unlock._save()
+	onscreen=true
 
 func _on_bounceareasafe_area_entered(_area: Area2D) -> void:
 		killzone.queue_free()

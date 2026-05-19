@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://dcsv4lpcv8qel" path="res://enemies/Wanderlusk Tileset Full Tileset 1Fix.png" id="9_mwy3e"]
 [ext_resource type="Texture2D" uid="uid://c13wjse4dk328" path="res://enemies/Ultimate Tilesheet.png" id="10_851im"]
 [ext_resource type="PackedScene" uid="uid://b8upenlhteeei" path="res://scenes/terner.tscn" id="10_mmdr4"]
-[ext_resource type="PackedScene" uid="uid://c233rc152at33" path="res://scenes/squishy.tscn" id="11_jkqjk"]
 [ext_resource type="Texture2D" uid="uid://bl1spf8rqcjig" path="res://enemies/Ocean Backdrop.png" id="14_f4gua"]
 [ext_resource type="Texture2D" uid="uid://b0thuceymlg6s" path="res://Ultimate Scenery Greenery Prototype.png" id="14_mwy3e"]
 [ext_resource type="PackedScene" uid="uid://ct8a7unm5rlp5" path="res://scenes/pendulum.tscn" id="17_a8t4m"]
@@ -8145,9 +8144,6 @@ position = Vector2(644, -393)
 
 [node name="Terner2" parent="." unique_id=1587911132 instance=ExtResource("10_mmdr4")]
 position = Vector2(-96, -280)
-
-[node name="Squishy" parent="." unique_id=568052605 instance=ExtResource("11_jkqjk")]
-position = Vector2(175, -251)
 
 [node name="PENDULUM" parent="." unique_id=16992796 instance=ExtResource("17_a8t4m")]
 position = Vector2(540, -287)

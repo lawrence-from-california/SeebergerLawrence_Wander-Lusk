@@ -1,4 +1,5 @@
 extends Control
+@onready var main_hud: HUD = $"Main HUD"
 @onready var levelunlock: lvlunlock = Unlocks
 @onready var tutorial: Button = $GridContainer/Tutorial
 @onready var epic_1: Button = $"GridContainer/Epic 1"
@@ -97,6 +98,7 @@ func _on_epic_3_pressed() -> void:
 
 
 func _ready() -> void:
+	main_hud.queue_free()
 	levelunlock._load_data()
 	levelsunlocked=levelunlock.levelsunlocked.duplicate()
 	LevelManager.lives=5
@@ -131,4 +133,8 @@ func _ready() -> void:
 	if !levelsunlocked.has("classic3"):
 		epic_3.text= "LOCKED"
 		
-	
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		if main_hud:
+			main_hud.queue_free()
+		get_tree().change_scene_to_file("res://main_menu.tscn")

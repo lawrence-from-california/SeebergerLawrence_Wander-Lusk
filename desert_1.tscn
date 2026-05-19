@@ -28,10 +28,11 @@
 [ext_resource type="Script" uid="uid://34b1kduxhkkh" path="res://parallax_2d.gd" id="22_hg7gn"]
 [ext_resource type="Texture2D" uid="uid://b5lu05w0wuud5" path="res://Desert Background.png" id="22_hqv7h"]
 [ext_resource type="Script" uid="uid://cc1n4y520k7hf" path="res://boiler.gd" id="24_hg7gn"]
-[ext_resource type="PackedScene" uid="uid://mk76gklr3oc0" path="res://test object.tscn" id="26_lld2n"]
+[ext_resource type="PackedScene" uid="uid://mk76gklr3oc0" path="res://Crate.tscn" id="26_lld2n"]
 [ext_resource type="PackedScene" uid="uid://clo6qdxwrpl3u" path="res://superdiamond.tscn" id="28_3t0o4"]
 [ext_resource type="PackedScene" uid="uid://djig57hlcgctf" path="res://scenes/coin.tscn" id="29_weyca"]
 [ext_resource type="PackedScene" uid="uid://brvynotwk5cjl" path="res://scenes/badbush.tscn" id="30_pp76l"]
+[ext_resource type="PackedScene" uid="uid://b0w3euq41ikit" path="res://rattalie.tscn" id="33_vm3ss"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t65bn"]
 texture = ExtResource("3_n26lt")
@@ -10396,6 +10397,7 @@ stage = 2
 
 [node name="Player" parent="." unique_id=1749316360 instance=ExtResource("2_t65bn")]
 unique_name_in_owner = true
+visible = false
 position = Vector2(-313, -137)
 collision_layer = 262330
 platform_floor_layers = 222
@@ -10423,7 +10425,7 @@ tile_set = SubResource("TileSet_wq6qp")
 [node name="Platforms" type="TileMapLayer" parent="tilemaps" unique_id=1248513601]
 z_index = -1
 position = Vector2(4, 0)
-tile_map_data = PackedByteArray("AAD3//3/BgABABwAAAD5//r/BgACABwAAADy//r/BQADAAAAAAD2//r/BgACABwAAAD4//r/BQAEAAAAAAD3//r/BQAEAAAAAAD1//r/BQAEAAAAAADz//r/BQAEAAAAAAD0//r/BQAEAAAAAAD5//v/BQAAAAEAAAD5//z/BQAAAAEAAAD5//3/BQAAAAEAAAD2//3/BQAAAAEAAAD2//z/BQAAAAEAAAD2//v/BQAAAAEAAADz//3/BQABAAIAAADy//z/BQABAAIAAADy//3/BQABAAMAAAD8//n/BwAJAAsAAAD7//3/BwAKAAsAAADx//j/BwAIAAkAAAD7//n/BwANAAoAAAD///n/BwAIAA8AAAD0//7/AAABAAAAAADz//7/AAABAAAAAADy//7/AAABAAAAAADz/wAAAAAAAAEAAADz////AAAAAAEAAAD0////AAAAAAEAAAD0/wAAAAAAAAEAAADy////AAAAAAEAAADy/wAAAAAAAAEAAADy/wEAAAAAAAEAAADz/wEAAAAAAAEAAAD0/wEAAAAAAAEAAAD6//r/BgACABwAAAD4//3/BgADABwAAADw//j/BgABAB0AAADw//f/BgABAB0AAADw//b/BgABAB0AAADw//X/BgABAB0AAADw//T/BgABABwAAAD+//T/BgADABwAAAD9//T/BAAFABwAAAD+//X/BgABAB0AAAD+//b/BgABAB0AAAD+//f/BgABAB0AAAD+//j/BgABAB0AAAD+//n/BgABAB0AAAD3//T/BgAHABwAAAD2//T/BgAIAB0AAAD1//T/BgAHABwAABD0//T/BgAFABwAAADz//T/BgAFABwAAADy//T/BgAFABwAAADx//T/BgAFABwAAAD8//T/BgAHABwAAAD7//T/BgAIAB0AAAD6//T/BgAHABwAABD5//T/BgAFABwAAAD4//T/BgAFABwAAAABAPT/BgACABwAAAAAAPT/BAAFABwAAAD///T/BgAHABwAAAACAPT/BAAGABwAAAADAPT/BAAFABwAAAABAPX/BAABAB0AAAAGAOz/BgABABwAAAAHAOz/BgAGABwAAAAGAPP/BgABAB0AAAAGAPL/BgABAB0AAAAGAPH/BgABAB0AAAAGAPD/BgABAB0AAAAGAO//BgABAB0AAAAGAO7/BgABAB0AAAAGAO3/BgABAB0AAADp/+b/BAAEABwAAADq/+b/BAAIABwAAADu//j/BAAAABsAAAABAPn/BAABABsAAAAIAPL/BAABABsAAAAEAPP/BAAAABsAABDv/+7/BAAAABsAAAA=")
+tile_map_data = PackedByteArray("AAD3//3/BgABABwAAAD5//r/BgACABwAAADy//r/BQADAAAAAAD2//r/BgACABwAAAD4//r/BQAEAAAAAAD3//r/BQAEAAAAAAD1//r/BQAEAAAAAADz//r/BQAEAAAAAAD0//r/BQAEAAAAAAD5//v/BQAAAAEAAAD5//z/BQAAAAEAAAD5//3/BQAAAAEAAAD2//3/BQAAAAEAAAD2//z/BQAAAAEAAAD2//v/BQAAAAEAAADz//3/BQABAAIAAADy//z/BQABAAIAAADy//3/BQABAAMAAAD8//n/BwAJAAsAAAD7//3/BwAKAAsAAADx//j/BwAIAAkAAAD7//n/BwANAAoAAAD///n/BwAIAA8AAAD0//7/AAABAAAAAADz//7/AAABAAAAAADy//7/AAABAAAAAADz/wAAAAAAAAEAAADz////AAAAAAEAAAD0////AAAAAAEAAAD0/wAAAAAAAAEAAADy////AAAAAAEAAADy/wAAAAAAAAEAAADy/wEAAAAAAAEAAADz/wEAAAAAAAEAAAD0/wEAAAAAAAEAAAD6//r/BgACABwAAAD4//3/BgADABwAAADw//j/BgABAB0AAADw//f/BgABAB0AAADw//b/BgABAB0AAADw//X/BgABAB0AAADw//T/BgABABwAAAD+//T/BAACABwAAAD9//T/BAAFABwAAAD+//X/BgABAB0AAAD+//b/BgABAB0AAAD+//f/BgABAB0AAAD+//j/BgABAB0AAAD+//n/BgABAB0AAAD3//T/BAAFABwAAAD2//T/BAAFABwAAAD1//T/BAAFABwAAAD0//T/BgAFABwAAADz//T/BgAFABwAAADy//T/BgAFABwAAADx//T/BgAFABwAAAD8//T/BAAFABwAAAD7//T/BAAFABwAAAD6//T/BAAFABwAAAD5//T/BgAFABwAAAD4//T/BgAFABwAAAABAPT/BAACABwAAAAAAPT/BAAFABwAAAD///T/BAAFABwAAAACAPT/BAAGABwAAAADAPT/BAAFABwAAAABAPX/BAABAB0AAAAGAOz/BgABABwAAAAHAOz/BgAGABwAAAAGAPP/BgABAB0AAAAGAPL/BgABAB0AAAAGAPH/BgABAB0AAAAGAPD/BgABAB0AAAAGAO//BgABAB0AAAAGAO7/BgABAB0AAAAGAO3/BgABAB0AAADp/+b/BAAEABwAAADq/+b/BAAIABwAAADu//j/BAAAABsAAAABAPn/BAABABsAAAAIAPL/BAABABsAAAAEAPP/BAAAABsAABDv/+7/BAAAABsAAAA=")
 tile_set = SubResource("TileSet_cuvic")
 
 [node name="Parallax2D" type="Parallax2D" parent="tilemaps" unique_id=191536588]
@@ -10511,3 +10513,6 @@ position = Vector2(-29, -102)
 
 [node name="Badbush2" parent="." unique_id=221861684 instance=ExtResource("30_pp76l")]
 position = Vector2(-182, -200)
+
+[node name="Rattalie" parent="." unique_id=834900196 instance=ExtResource("33_vm3ss")]
+position = Vector2(140, -217)

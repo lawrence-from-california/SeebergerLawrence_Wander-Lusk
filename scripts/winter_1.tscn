@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://wuv41qa6dx6j" path="res://scenes/downspikes.tscn" id="12_w3vmw"]
 [ext_resource type="PackedScene" uid="uid://dlkkl4wkhcurt" path="res://scenes/frostiflake.tscn" id="13_clbr8"]
 [ext_resource type="Texture2D" uid="uid://bxeo6ynn58xw3" path="res://enemies/Midnight Backdrop.png" id="14_bvboq"]
-[ext_resource type="PackedScene" uid="uid://k6b8y6l5706x" path="res://scenes/enigloo.tscn" id="14_uoh4q"]
 [ext_resource type="Texture2D" uid="uid://0qo2x3msr8lx" path="res://enemies/Scenery Greenery Tileset (Trans) 2.png" id="17_4oess"]
 [ext_resource type="Texture2D" uid="uid://bb7yhjbi1tkox" path="res://scenes/Modular Mountains.png" id="18_a7548"]
 [ext_resource type="Script" uid="uid://34b1kduxhkkh" path="res://parallax_2d.gd" id="19_a7548"]
@@ -11457,12 +11456,6 @@ position = Vector2(732, -438)
 [node name="Frostiflake" parent="." unique_id=1690928341 instance=ExtResource("13_clbr8")]
 position = Vector2(1164, -297)
 
-[node name="Enigloo" parent="." unique_id=2026032715 instance=ExtResource("14_uoh4q")]
-position = Vector2(295, -309)
-
-[node name="Enigloo2" parent="." unique_id=459842443 instance=ExtResource("14_uoh4q")]
-position = Vector2(901, -372)
-
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=525828745]
 position = Vector2(521, -710)
 amount = 10000
@@ -11477,3 +11470,15 @@ script = ExtResource("21_mag63")
 
 [node name="FINAL FLAG" parent="." unique_id=2098700523 instance=ExtResource("21_lqyfc")]
 position = Vector2(1376, -222)
+
+[node name="Frothy3" parent="." unique_id=764503548 instance=ExtResource("8_w3vmw")]
+position = Vector2(922, -375)
+
+[node name="Frothy4" parent="." unique_id=365434838 instance=ExtResource("8_w3vmw")]
+position = Vector2(347, -311)
+
+[node name="Frothy5" parent="." unique_id=1963773587 instance=ExtResource("8_w3vmw")]
+position = Vector2(1282, -263)
+
+[node name="Frothy6" parent="." unique_id=1976066307 instance=ExtResource("8_w3vmw")]
+position = Vector2(1296, -215)

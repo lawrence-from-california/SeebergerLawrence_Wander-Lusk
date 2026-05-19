@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cwu8kx7wldcqp" path="res://Sky Tileset.png" id="8_4eyoa"]
 [ext_resource type="Texture2D" uid="uid://db1sj0qgravp0" path="res://enemies/Snaily/Snaily.png" id="9_cjqu6"]
 [ext_resource type="Texture2D" uid="uid://wopknifbvqeo" path="res://enemies/Blue Sky Backdrop.png" id="12_0pyyh"]
+[ext_resource type="PackedScene" uid="uid://bfuf5xuuhhxeu" path="res://scripts/main_hud.tscn" id="13_tfpcs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5041d"]
 texture = ExtResource("3_dy8xb")
@@ -3589,6 +3590,10 @@ z_index = -5
 position = Vector2(1080, 848)
 scale = Vector2(3.053711, 1.6875)
 texture = ExtResource("12_0pyyh")
+
+[node name="Main HUD" parent="." unique_id=797063695 instance=ExtResource("13_tfpcs")]
+layout_mode = 0
+areatype = "ground"
 
 [connection signal="pressed" from="GridContainer/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="GridContainer/Tutorial" to="." method="_on_tutorial_pressed"]

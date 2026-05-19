@@ -37,7 +37,7 @@ shader_parameter/lod = 2.110000100225
 [sub_resource type="SpriteFrames" id="SpriteFrames_co36j"]
 animations = [{
 "frames": [{
-"duration": 0.51,
+"duration": 2.51,
 "texture": ExtResource("7_7pyxy")
 }],
 "loop": true,
@@ -84,8 +84,8 @@ shape = SubResource("RectangleShape2D_x67g0")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1189603025]
 process_priority = 1
 physics_interpolation_mode = 1
-modulate = Color(0.7968276, 0.8299721, 0.9999575, 0.47058824)
-self_modulate = Color(0.56078434, 1, 1, 0.5568628)
+modulate = Color(18.892157, 18.892157, 18.892157, 0.73333335)
+self_modulate = Color(11.004112, 18.892157, 18.892157, 0.5568628)
 position = Vector2(0, -1)
 scale = Vector2(0.444834, 4.2054462)
 amount = 100
@@ -137,6 +137,15 @@ scale = Vector2(0.02784386, 0.01644436)
 sprite_frames = SubResource("SpriteFrames_co36j")
 autoplay = "default"
 frame_progress = 0.41471368
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=882135035]
+modulate = Color(0.36862746, 1, 0.6039216, 1)
+show_behind_parent = true
+position = Vector2(0, -0.83902514)
+scale = Vector2(0.02784386, 0.01644436)
+sprite_frames = SubResource("SpriteFrames_co36j")
+autoplay = "default"
+frame_progress = 0.23979317
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

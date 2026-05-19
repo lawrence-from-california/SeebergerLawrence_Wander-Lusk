@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://djwj8rnxoxety"]
 
 [ext_resource type="Texture2D" uid="uid://cm43kcj5qhpyi" path="res://scenes/Ufoe1.png" id="1_m4r8w"]
-[ext_resource type="Script" uid="uid://dmg2b43o7avi4" path="res://scripts/terner.gd" id="1_q8d1w"]
+[ext_resource type="Script" uid="uid://dmg2b43o7avi4" path="res://scripts/uefoe.gd" id="1_q8d1w"]
 [ext_resource type="Texture2D" uid="uid://be2w351suyuoj" path="res://scenes/Ufoe2.png" id="2_q8d1w"]
 [ext_resource type="Texture2D" uid="uid://d1lykx1bkntex" path="res://scenes/Ufoe3.png" id="3_e1vpu"]
 [ext_resource type="PackedScene" uid="uid://l8alsvbkqara" path="res://scenes/killzone.tscn" id="4_rnu3b"]
@@ -95,6 +95,9 @@ scale = Vector2(0.0058593755, 0.019042969)
 sprite_frames = SubResource("SpriteFrames_upg2u")
 autoplay = "default"
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1839536408]
+
 [connection signal="area_entered" from="Tractor Beam" to="Tractor Beam" method="_on_area_entered"]
 [connection signal="body_entered" from="Tractor Beam" to="." method="_on_tractor_beam_body_entered"]
 [connection signal="body_exited" from="Tractor Beam" to="." method="_on_tractor_beam_body_exited"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

@@ -78,3 +78,7 @@ texture = ExtResource("6_fv760")
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=168049473]
 visible = false
 texture = ExtResource("7_o01vx")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=287956285]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

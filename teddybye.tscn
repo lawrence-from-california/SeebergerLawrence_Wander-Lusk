@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://dfmt1jxiyx88q"]
+
+[ext_resource type="Script" uid="uid://bojl4cr5le52r" path="res://teddybye.gd" id="1_018gl"]
+[ext_resource type="Texture2D" uid="uid://ckieprah2ucty" path="res://Teddybye dead 1.png" id="2_x6irk"]
+[ext_resource type="Texture2D" uid="uid://d3jmt2ekx6wju" path="res://Teddybye dead 2.png" id="3_cqyrk"]
+[ext_resource type="Texture2D" uid="uid://w8b13blali14" path="res://Teddybye dead 3.png" id="4_7bh7h"]
+[ext_resource type="Texture2D" uid="uid://dj48aii3xt0t1" path="res://Teddybye1.png" id="5_7kl2j"]
+[ext_resource type="Texture2D" uid="uid://bvhaflwoffqnk" path="res://Teddybye2.png" id="6_xk2fk"]
+[ext_resource type="Texture2D" uid="uid://b3desigjqmcsq" path="res://Teddybye3.png" id="7_p4gra"]
+[ext_resource type="Texture2D" uid="uid://dtjuwo3ayq43r" path="res://Teddybyef1.png" id="8_jmx02"]
+[ext_resource type="Texture2D" uid="uid://by8s2sktrkfds" path="res://Teddybyef2.png" id="9_41rf3"]
+[ext_resource type="Texture2D" uid="uid://dkc66tgk10jgm" path="res://Teddybyef3.png" id="10_cq7mc"]
+[ext_resource type="PackedScene" uid="uid://l8alsvbkqara" path="res://scenes/killzone.tscn" id="11_ba3xf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u26al"]
+radius = 4.0
+height = 14.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgjhv"]
+size = Vector2(10, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2xjja"]
+animations = [{
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("2_x6irk")
+}, {
+"duration": 0.7,
+"texture": ExtResource("3_cqyrk")
+}, {
+"duration": 0.7,
+"texture": ExtResource("4_7bh7h")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("5_7kl2j")
+}, {
+"duration": 0.7,
+"texture": ExtResource("6_xk2fk")
+}, {
+"duration": 0.7,
+"texture": ExtResource("5_7kl2j")
+}, {
+"duration": 0.7,
+"texture": ExtResource("7_p4gra")
+}],
+"loop": true,
+"name": &"running",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("8_jmx02")
+}, {
+"duration": 0.7,
+"texture": ExtResource("9_41rf3")
+}, {
+"duration": 0.7,
+"texture": ExtResource("8_jmx02")
+}, {
+"duration": 0.7,
+"texture": ExtResource("10_cq7mc")
+}],
+"loop": true,
+"name": &"runningf",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"still",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3q6vg"]
+size = Vector2(11.5, 7.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jfyrk"]
+radius = 128.06248
+
+[node name="Teddybye" type="CharacterBody2D" unique_id=1090594376]
+collision_layer = 129
+collision_mask = 161
+script = ExtResource("1_018gl")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=859954981]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_u26al")
+
+[node name="bouncearea(safe)" type="Area2D" parent="." unique_id=2118570696]
+collision_layer = 16
+collision_mask = 8
+
+[node name="hurtbox" type="CollisionShape2D" parent="bouncearea(safe)" unique_id=1592590309]
+light_mask = 31
+visibility_layer = 31
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_jgjhv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=927836749]
+sprite_frames = SubResource("SpriteFrames_2xjja")
+animation = &"dead"
+autoplay = "running"
+
+[node name="Killzone" parent="." unique_id=477196220 instance=ExtResource("11_ba3xf")]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Killzone" unique_id=1391091869]
+position = Vector2(-0.25, 4)
+shape = SubResource("RectangleShape2D_3q6vg")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=404274202]
+visible = false
+collision_layer = 262147
+collision_mask = 262147
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=846749341]
+shape = SubResource("CircleShape2D_jfyrk")
+
+[node name="VisibleOnScreenNotifier2D2" type="VisibleOnScreenNotifier2D" parent="." unique_id=1848541512]
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1801588278]
+target_position = Vector2(12, -8)
+collision_mask = 134217729
+
+[node name="RayCastRight2" type="RayCast2D" parent="." unique_id=908798223]
+target_position = Vector2(10, 0)
+collision_mask = 134217729
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=2013443558]
+target_position = Vector2(-12, -8)
+collision_mask = 134217729
+
+[node name="RayCastLeft2" type="RayCast2D" parent="." unique_id=1113211299]
+target_position = Vector2(-10, 0)
+collision_mask = 134217729
+
+[node name="RayCastRight3" type="RayCast2D" parent="." unique_id=1921532034]
+position = Vector2(10, 0)
+target_position = Vector2(0, 9)
+collision_mask = 262177
+
+[node name="RayCastLeft3" type="RayCast2D" parent="." unique_id=459439446]
+position = Vector2(-10, 0)
+target_position = Vector2(0, 9)
+collision_mask = 262177
+
+[connection signal="area_entered" from="bouncearea(safe)" to="." method="_on_bounceareasafe_area_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D2" to="." method="_on_visible_on_screen_notifier_2d_2_screen_entered"]

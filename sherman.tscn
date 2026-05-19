@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://ckru30wnepn1b"]
+
+[ext_resource type="Texture2D" uid="uid://1emnpfalgpff" path="res://enemies/Sherman 2.png" id="1_8nmov"]
+[ext_resource type="Texture2D" uid="uid://due3t5dva0b7u" path="res://enemies/Sherman.png" id="2_c05ym"]
+[ext_resource type="Script" uid="uid://u8vepejxc3lq" path="res://sherman.gd" id="3_c05ym"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vyixo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8nmov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_c05ym")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0ar0"]
+size = Vector2(16, 5.5)
+
+[node name="Sherman" type="AnimatedSprite2D" unique_id=1620178068]
+z_index = -1
+z_as_relative = false
+sprite_frames = SubResource("SpriteFrames_vyixo")
+autoplay = "default"
+frame_progress = 0.19130948
+script = ExtResource("3_c05ym")
+
+[node name="bouncearea(safe)" type="Area2D" parent="." unique_id=607452725]
+collision_layer = 8
+collision_mask = 8
+
+[node name="hurtbox" type="CollisionShape2D" parent="bouncearea(safe)" unique_id=1186340405]
+light_mask = 31
+visibility_layer = 31
+position = Vector2(0, -2.25)
+shape = SubResource("RectangleShape2D_a0ar0")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=279054701]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

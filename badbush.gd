@@ -8,12 +8,14 @@ var direction : int = -1
 
 func _process (delta: float) -> void:
 	if ray_cast_right.is_colliding():
-		direction = -1
-		animated_sprite_2d.flip_h = false
+		if !ray_cast_right.get_collider()==MainCharacter:
+			direction = -1
+			animated_sprite_2d.flip_h = false
 		
 	if ray_cast_left.is_colliding():
-		direction = 1
-		animated_sprite_2d.flip_h = true
+		if !ray_cast_left.get_collider()==MainCharacter:
+			direction = 1
+			animated_sprite_2d.flip_h = true
 	
 	if ray_cast_left.is_colliding() and ray_cast_right.is_colliding():
 		z_index+=10
@@ -25,6 +27,10 @@ func _process (delta: float) -> void:
 	position.x += SPEED * direction *delta
 	
 
+@onready var unlock : lvlunlock = Unlocks
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	unlock.levelsunlocked.append("Tumbelina")
+	unlock._save()
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	Engine.time_scale=1.0

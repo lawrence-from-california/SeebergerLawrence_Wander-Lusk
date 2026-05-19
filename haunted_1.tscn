@@ -11889,7 +11889,7 @@ leveltype = "standard"
 stage = 2
 
 [node name="Kittybad" parent="." unique_id=1637819085 instance=ExtResource("3_68ynn")]
-position = Vector2(-199, -41)
+position = Vector2(88, -41)
 
 [node name="Player" parent="." unique_id=1749316360 instance=ExtResource("4_rcgvx")]
 unique_name_in_owner = true

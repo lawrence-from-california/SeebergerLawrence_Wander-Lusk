@@ -22,3 +22,8 @@ func _process (delta: float) -> void:
 		animated_sprite_2d.flip_h = true
 		
 	position.x += SPEED * direction *delta
+	
+@onready var unlock : lvlunlock = Unlocks
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	unlock.levelsunlocked.append("Candycap")
+	unlock._save()

@@ -48,3 +48,7 @@ func _on_tractor_beam_body_exited(body: Node2D) -> void:
 			player.antigrav=false
 			attractor=false
 		
+@onready var unlock : lvlunlock = Unlocks
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	unlock.levelsunlocked.append("Uefoe")
+	unlock._save()

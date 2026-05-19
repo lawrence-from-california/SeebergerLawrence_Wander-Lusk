@@ -54,8 +54,10 @@ size = Vector2(12, 6)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cn32m"]
 size = Vector2(14, 7)
 
-[node name="Badbush" type="Node2D" unique_id=1416076965]
+[node name="Badbush" type="Node2D" unique_id=1416076965 groups=["enemies"]]
 script = ExtResource("1_5phvi")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1431966948]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=184672973]
 sprite_frames = SubResource("SpriteFrames_tovp5")
@@ -77,8 +79,8 @@ target_position = Vector2(-9, 0)
 collision_mask = 134217761
 
 [node name="bouncearea(safe)" type="Area2D" parent="." unique_id=369958868]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 0
+collision_mask = 24
 
 [node name="hurtbox" type="CollisionShape2D" parent="bouncearea(safe)" unique_id=1475975528]
 light_mask = 31
@@ -86,4 +88,5 @@ visibility_layer = 31
 position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_cn32m")
 
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

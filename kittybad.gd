@@ -16,7 +16,7 @@ var randomjump: int = randi_range(1,2000)
 @onready var collision: CollisionShape2D = $collision
 @onready var ray_cast_down: RayCast2D = $RayCastDown
 @onready var killhitbox: CollisionShape2D = $Killzone/Hitbox
-@onready var jumpable: bool=false
+@onready var jump: bool=false
 @onready var onscreen:bool= false
 
 func _ready() -> void:
@@ -38,9 +38,10 @@ func _process (_delta: float) -> void:
 		#if (!ray_cast_right_2.is_colliding() or !ray_cast_left_2.is_colliding())and !ray_cast_left.is_colliding() and !ray_cast_right.is_colliding() and is_on_floor():
 			#velocity.y = JUMP_VELOCITY
 		if randomjump== 7 and alive== true and !ray_cast_down.is_colliding() and is_on_floor():
-			velocity.y = JUMP_VELOCITY
+			jump=true
 
 func _physics_process(delta: float) -> void:
+	
 	if onscreen==true:
 		if alive== true:
 			position.x += SPEED * direction *delta
@@ -52,7 +53,9 @@ func _physics_process(delta: float) -> void:
 		else:
 			SPEED = 60
 
-
+		if jump== true:
+			velocity.y = JUMP_VELOCITY
+			jump=false
 		move_and_slide()
 		
 
@@ -86,6 +89,8 @@ func _on_bounceareasafe_area_entered(_area: Area2D) -> void:
 		
 
 
-
+@onready var unlock : lvlunlock = Unlocks
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	unlock.levelsunlocked.append("Kittybad")
+	unlock._save()
 	onscreen= true

@@ -66,6 +66,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	Engine.time_scale=1.0
 	queue_free()
 
-
+@onready var unlock: lvlunlock = Unlocks
 func _on_visible_on_screen_notifier_2d_2_screen_entered() -> void:
 	onscreen=true
+	unlock.levelsunlocked.append("Webboo")
+	unlock._save()

@@ -31,6 +31,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 				LevelManager.onoff=false
 				pressable=false
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body is MainCharacter or body is RigidBody2D:
+	if body is MainCharacter or body is RigidBody2D or body is Teddybye:
 		pressed="up"
 		pressable=true

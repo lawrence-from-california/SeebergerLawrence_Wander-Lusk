@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@onready var unlock : lvlunlock = Unlocks
 const SPEED : float = 40.0
 var direction : int = -1
 
@@ -34,3 +34,8 @@ func _physics_process(delta: float) -> void:
 
 
 	move_and_slide()
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	unlock.levelsunlocked.append("App")
+	unlock._save()

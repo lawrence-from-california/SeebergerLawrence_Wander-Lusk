@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://u5hoxak5wj4q"]
+
+[ext_resource type="Script" uid="uid://5u70fu02kxwt" path="res://manual_platform_small.gd" id="1_awwkf"]
+[ext_resource type="Texture2D" uid="uid://dby8h407qklwr" path="res://Large Rail Tileset.png" id="2_eh2jn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxlrc"]
+atlas = ExtResource("2_eh2jn")
+region = Rect2(128, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mhu3y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxlrc")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cp5la"]
+atlas = ExtResource("2_eh2jn")
+region = Rect2(128, 176, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y270r"]
+atlas = ExtResource("2_eh2jn")
+region = Rect2(144, 176, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ep6kg"]
+animations = [{
+"frames": [{
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_cp5la")
+}, {
+"duration": 0.4,
+"texture": SubResource("AtlasTexture_y270r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffvd3"]
+size = Vector2(14, 3)
+
+[node name="Manual Platform Small" type="AnimatableBody2D" unique_id=1511019446]
+script = ExtResource("1_awwkf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1348549183]
+sprite_frames = SubResource("SpriteFrames_mhu3y")
+animation = &"green"
+
+[node name="Cog" type="AnimatedSprite2D" parent="." unique_id=1463148873]
+sprite_frames = SubResource("SpriteFrames_ep6kg")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1862162245]
+z_index = -1
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_ffvd3")

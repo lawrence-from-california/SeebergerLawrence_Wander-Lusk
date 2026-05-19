@@ -2,7 +2,8 @@ extends Sprite2D
 class_name Platform
 @onready var static_body_2d: StaticBody2D = $StaticBody2d
 @onready var collision_shape_2d: CollisionShape2D = $StaticBody2d/CollisionShape2D
-
+@onready var visible_on_screen_notifier_2d: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
+var onscreen: bool=false
 
 var has_fallen : bool=false
 @onready var player: MainCharacter = %Player
@@ -21,5 +22,17 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		player.rotatable= false
 		has_fallen = true
 		
+		
 func _disable_collider() -> void:
 	collision_shape_2d.disabled=true
+
+
+
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	onscreen=false
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	onscreen=true

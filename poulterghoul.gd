@@ -32,7 +32,9 @@ func _process (delta: float) -> void:
 			transparency= 50/( abs(player.position.x - position.x)+ abs(player.position.y - position.y))
 			animated_sprite_2d.self_modulate.a=transparency
 			animated_sprite_2d.modulate.a=transparency
-
+@onready var unlock : lvlunlock = Unlocks
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	unlock.levelsunlocked.append("Polterghoul")
+	unlock._save()
 	onscreen=true
 	

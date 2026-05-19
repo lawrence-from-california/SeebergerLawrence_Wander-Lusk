@@ -28,14 +28,18 @@ func _process (delta: float) -> void:
 
 
 func _on_bounce_area_area_entered(_area: Area2D) -> void:
-		killzone.queue_free()
-		collision.queue_free()
+		print("entered")
 		direction=0
 		animated_sprite_2d.play("dead")
+		killzone.queue_free()
+		collision.queue_free()
 		bounce_area.queue_free()
 		
 
-		
+@onready var unlock : lvlunlock = Unlocks
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	unlock.levelsunlocked.append("Madflower")
+	unlock._save()
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

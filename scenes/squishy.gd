@@ -16,11 +16,9 @@ func _process (delta: float) -> void:
 	if onscreen==true:
 		if ray_cast_right.is_colliding():
 			direction = -1
-			animated_sprite_2d.flip_h = false
 			
 		if ray_cast_left.is_colliding():
 			direction = 1
-			animated_sprite_2d.flip_h = true
 			
 		if !ray_cast_down.is_colliding():
 			scale.x=1
@@ -32,8 +30,10 @@ func _process (delta: float) -> void:
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 		position.x += SPEED * direction *delta
-
-
+	if direction==1:
+		animated_sprite_2d.flip_h = true
+	if direction==-1:
+		animated_sprite_2d.flip_h = false
 
 
 
@@ -50,6 +50,8 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
+@onready var unlock : lvlunlock = Unlocks
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	onscreen=true
+	unlock.levelsunlocked.append("Squishy")
+	unlock._save()

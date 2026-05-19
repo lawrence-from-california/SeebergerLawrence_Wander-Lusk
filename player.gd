@@ -53,6 +53,9 @@ var downable: bool = false
 
 #THIS IS THE CHARACTER ROTATION ON SLOPES
 func _process(_delta: float) -> void:
+	if is_on_floor():
+		if (left.is_colliding() and !right.is_colliding()) or (!left.is_colliding() and right.is_colliding()):
+			ice=false
 	visible=true
 	if antigrav == true:
 		scale.y=-1
@@ -244,9 +247,10 @@ func _physics_process(delta: float) -> void:
 	var direction:float = Input.get_axis("move_left", "move_right")
 	var icedirection: float = Input.get_action_strength("move_left") or Input.get_action_strength("move_right")
 	last_direction = direction
+	
 	if down.is_colliding():
-		var collider: Object = down.get_collider()
-		if collider is not IcePlatform:
+		var solidground: Object = down.get_collider()
+		if solidground is not StaticBody2D:
 			ice = false
 
 		

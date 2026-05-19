@@ -26,14 +26,13 @@
 [ext_resource type="PackedScene" uid="uid://s475u0mgigob" path="res://scripts/stopwatch.tscn" id="15_0yscp"]
 [ext_resource type="Texture2D" uid="uid://b0thuceymlg6s" path="res://Ultimate Scenery Greenery Prototype.png" id="15_doley"]
 [ext_resource type="Texture2D" uid="uid://y6m6eyk4rjka" path="res://enemies/Snaily/EPIC SNAIL.png" id="16_a0ar0"]
-[ext_resource type="Texture2D" uid="uid://1emnpfalgpff" path="res://enemies/Sherman 2.png" id="17_af8dv"]
 [ext_resource type="Script" uid="uid://34b1kduxhkkh" path="res://parallax_2d.gd" id="18_6gufj"]
-[ext_resource type="Texture2D" uid="uid://due3t5dva0b7u" path="res://enemies/Sherman.png" id="18_hltxo"]
 [ext_resource type="Texture2D" uid="uid://bb7yhjbi1tkox" path="res://scenes/Modular Mountains.png" id="21_2m1t4"]
 [ext_resource type="Texture2D" uid="uid://wopknifbvqeo" path="res://enemies/Blue Sky Backdrop.png" id="21_sj1tp"]
 [ext_resource type="Texture2D" uid="uid://cont1a7u83a1h" path="res://scripts/Better Backgrounds.png" id="23_b8ebn"]
 [ext_resource type="Texture2D" uid="uid://cu3esj6rdtqr7" path="res://scripts/Backmost Backgrounds.png" id="24_rdgjw"]
 [ext_resource type="PackedScene" uid="uid://elji1skpiaca" path="res://scenes/final_flag.tscn" id="25_vyixo"]
+[ext_resource type="PackedScene" uid="uid://ckru30wnepn1b" path="res://sherman.tscn" id="30_b8ebn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_33e4c"]
 texture = ExtResource("3_8hf7u")
@@ -10018,23 +10017,6 @@ sources/6 = SubResource("TileSetAtlasSource_rrk1e")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dp8sf"]
 distance = 35.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_vyixo"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("17_af8dv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_hltxo")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0ar0"]
-size = Vector2(16, 5.5)
-
 [node name="Hubworld" type="Node2D" unique_id=1879873675]
 script = ExtResource("1_vyixo")
 
@@ -10255,23 +10237,8 @@ position = Vector2(1831.1041, -149.14375)
 scale = Vector2(0.020468784, 0.020078126)
 texture = ExtResource("16_a0ar0")
 
-[node name="Sherman" type="AnimatedSprite2D" parent="Node2D" unique_id=582886845]
-z_index = -1
-z_as_relative = false
+[node name="Sherman" parent="Node2D" unique_id=1620178068 instance=ExtResource("30_b8ebn")]
 position = Vector2(1922.104, -124.14374)
-sprite_frames = SubResource("SpriteFrames_vyixo")
-autoplay = "default"
-frame_progress = 0.19130948
-
-[node name="bouncearea(safe)" type="Area2D" parent="Node2D/Sherman" unique_id=1327359802]
-collision_layer = 8
-collision_mask = 8
-
-[node name="hurtbox" type="CollisionShape2D" parent="Node2D/Sherman/bouncearea(safe)" unique_id=819989756]
-light_mask = 31
-visibility_layer = 31
-position = Vector2(0, -2.25)
-shape = SubResource("RectangleShape2D_a0ar0")
 
 [node name="Candycap 2" parent="Node2D" unique_id=2117866724 instance=ExtResource("12_cy621")]
 position = Vector2(1023.104, -259.14374)
