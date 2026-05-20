@@ -3521,6 +3521,12 @@ theme_override_fonts/font = ExtResource("2_cjqu6")
 theme_override_font_sizes/font_size = 32
 text = "FACTORY 1"
 
+[node name="Factory2" type="Button" parent="GridContainer" unique_id=563837575]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cjqu6")
+theme_override_font_sizes/font_size = 32
+text = "FACTORY 2"
+
 [node name="Space1" type="Button" parent="GridContainer" unique_id=10097946]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_cjqu6")
@@ -3607,6 +3613,7 @@ areatype = "ground"
 [connection signal="pressed" from="GridContainer/Desert1" to="." method="_on_desert_1_pressed"]
 [connection signal="pressed" from="GridContainer/Haunted1" to="." method="_on_haunted_1_pressed"]
 [connection signal="pressed" from="GridContainer/Factory1" to="." method="_on_factory_1_pressed"]
+[connection signal="pressed" from="GridContainer/Factory2" to="." method="_on_factory_2_pressed"]
 [connection signal="pressed" from="GridContainer/Space1" to="." method="_on_space_1_pressed"]
 [connection signal="pressed" from="GridContainer/Epic 1" to="." method="_on_epic_1_pressed"]
 [connection signal="pressed" from="GridContainer/Epic 2" to="." method="_on_epic_2_pressed"]

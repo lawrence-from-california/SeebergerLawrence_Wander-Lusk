@@ -34,7 +34,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_awwea"]
-radius = 14.0
+radius = 16.03122
 
 [node name="Lever" type="AnimatedSprite2D" unique_id=1893439276]
 sprite_frames = SubResource("SpriteFrames_1kj1s")

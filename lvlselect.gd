@@ -15,6 +15,7 @@ extends Control
 @onready var desert_1: Button = $GridContainer/Desert1
 @onready var haunted_1: Button = $GridContainer/Haunted1
 @onready var factory_1: Button = $GridContainer/Factory1
+@onready var factory_2: Button = $GridContainer/Factory2
 @onready var space_1: Button = $GridContainer/Space1
 
 @export var levelsunlocked: Array
@@ -74,7 +75,11 @@ func _on_haunted_1_pressed() -> void:
 func _on_factory_1_pressed() -> void:
 	if levelsunlocked.has("factory1"):
 		get_tree().change_scene_to_file("res://factory_1.tscn")
+		
 
+func _on_factory_2_pressed() -> void:
+	if levelsunlocked.has("factory2"):
+		get_tree().change_scene_to_file("res://factory_2.tscn")
 
 func _on_space_1_pressed() -> void:
 	if levelsunlocked.has("space1"):
@@ -124,6 +129,8 @@ func _ready() -> void:
 		haunted_1.text= "LOCKED"
 	if !levelsunlocked.has("factory1"):
 		factory_1.text= "LOCKED"
+	if !levelsunlocked.has("factory2"):
+		factory_2.text= "LOCKED"
 	if !levelsunlocked.has("space1"):
 		space_1.text= "LOCKED"
 	if !levelsunlocked.has("classic1"):

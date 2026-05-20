@@ -24,7 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://cq51pofh0mivx" path="res://webboo.tscn" id="20_0vceg"]
 [ext_resource type="PackedScene" uid="uid://djig57hlcgctf" path="res://scenes/coin.tscn" id="21_3ee6x"]
 [ext_resource type="PackedScene" uid="uid://gine46u0vjim" path="res://snailhouettezone.tscn" id="22_ep4fr"]
-[ext_resource type="PackedScene" uid="uid://bayjgrijdn1sq" path="res://snailhouette.tscn" id="22_eudaq"]
 [ext_resource type="PackedScene" uid="uid://clo6qdxwrpl3u" path="res://superdiamond.tscn" id="24_3ix61"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_36076"]
@@ -7004,9 +7003,6 @@ script = ExtResource("1_nud1u")
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1659801823]
 position = Vector2(35, -126)
 color = Color(0.07762889, 0.0776288, 0.07762881, 1)
-
-[node name="Snailhouette" parent="." unique_id=48932893 instance=ExtResource("22_eudaq")]
-unique_name_in_owner = true
 
 [node name="Main HUD" parent="." unique_id=797063695 instance=ExtResource("1_k4iaw")]
 unique_name_in_owner = true
