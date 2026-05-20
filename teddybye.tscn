@@ -82,8 +82,8 @@ size = Vector2(11.5, 7.5)
 radius = 128.06248
 
 [node name="Teddybye" type="CharacterBody2D" unique_id=1090594376]
-collision_layer = 129
-collision_mask = 161
+collision_layer = 262273
+collision_mask = 262305
 script = ExtResource("1_018gl")
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=859954981]

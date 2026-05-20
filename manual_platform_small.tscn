@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://5u70fu02kxwt" path="res://manual_platform_small.gd" id="1_awwkf"]
 [ext_resource type="Texture2D" uid="uid://dby8h407qklwr" path="res://Large Rail Tileset.png" id="2_eh2jn"]
+[ext_resource type="Texture2D" uid="uid://bsma7a2pd2r3" path="res://Platform Tileset Rails.png" id="3_eh2jn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mxlrc"]
 atlas = ExtResource("2_eh2jn")
@@ -26,6 +27,10 @@ region = Rect2(128, 176, 16, 16)
 atlas = ExtResource("2_eh2jn")
 region = Rect2(144, 176, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhu3y"]
+atlas = ExtResource("3_eh2jn")
+region = Rect2(80, 112, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ep6kg"]
 animations = [{
 "frames": [{
@@ -38,10 +43,18 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhu3y")
+}],
+"loop": true,
+"name": &"stopped",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffvd3"]
-size = Vector2(14, 3)
+size = Vector2(16, 3)
 
 [node name="Manual Platform Small" type="AnimatableBody2D" unique_id=1511019446]
 script = ExtResource("1_awwkf")
@@ -52,6 +65,7 @@ animation = &"green"
 
 [node name="Cog" type="AnimatedSprite2D" parent="." unique_id=1463148873]
 sprite_frames = SubResource("SpriteFrames_ep6kg")
+animation = &"stopped"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1862162245]

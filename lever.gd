@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if rotatable==true:
 		leverposition=5*(player.position.x-position.x)
 		pull.rotation_degrees+=(leverposition/10)

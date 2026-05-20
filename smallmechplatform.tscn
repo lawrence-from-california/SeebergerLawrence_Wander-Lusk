@@ -55,7 +55,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvlfa"]
-size = Vector2(14, 3)
+size = Vector2(16, 3)
 
 [node name="AnimatedSprite2D" type="AnimatableBody2D" unique_id=207915831]
 collision_layer = 262144
